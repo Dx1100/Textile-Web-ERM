@@ -40,9 +40,9 @@ export const TrustProofSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
-            <span>Section 9</span>
-            <span aria-hidden="true">·</span>
             <span>Business & Trust Proof</span>
+            <span aria-hidden="true">·</span>
+            <span>Verified Industry Track Record</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1F1916]">
             Backed by Proven Numbers & Trade Reputation

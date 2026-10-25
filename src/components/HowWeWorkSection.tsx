@@ -67,9 +67,9 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
-            <span>Section 5</span>
-            <span aria-hidden="true">·</span>
             <span>How We Work</span>
+            <span aria-hidden="true">·</span>
+            <span>Requirement to Doorstep Delivery</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1F1916]">
             Our 7-Step Seamless Sourcing Pipeline

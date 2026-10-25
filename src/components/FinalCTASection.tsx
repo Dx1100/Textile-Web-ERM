@@ -51,9 +51,9 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({
           {/* Left Column: Heading & Trust Copy from User Blueprint */}
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D8B26E] font-semibold">
-              <span>Section 10</span>
-              <span aria-hidden="true">·</span>
               <span>Direct Mill Sourcing Coordination</span>
+              <span aria-hidden="true">·</span>
+              <span>Threadlinc Trade Credit Partner</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">

@@ -52,9 +52,9 @@ export const WhyUsSection: React.FC<WhyUsSectionProps> = ({ onWorkWithUs }) => {
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
           <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
-            <span>Section 7</span>
-            <span aria-hidden="true">·</span>
             <span>Why Shree Durga Agency</span>
+            <span aria-hidden="true">·</span>
+            <span>25+ Years Sourcing Edge</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1F1916]">
             The Competitive Edge in B2B Textile Sourcing

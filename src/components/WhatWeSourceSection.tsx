@@ -75,9 +75,9 @@ export const WhatWeSourceSection: React.FC<WhatWeSourceSectionProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
-              <span>Section 3</span>
+              <span>Sourcing Portfolio</span>
               <span aria-hidden="true">·</span>
-              <span>Visual Sourcing Categories</span>
+              <span>Direct Loom & Mill Network</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1F1916]">
               What We Source: Broad-Spectrum Textile & Apparel

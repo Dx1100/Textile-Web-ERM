@@ -293,26 +293,26 @@ export default function App() {
         /* HOME PAGE: Complete 10-Section Architecture from User's Blueprint */
         <main className="flex-1 w-full animate-in fade-in duration-200">
           
-          {/* Section 1 & 2: Hero + 5 Core Service Capabilities + Threadlinc Notice */}
+          {/* Hero + 5 Core Service Capabilities + Threadlinc Notice */}
           <Hero
             onOpenRequirementModal={() => handleOpenRequirement()}
             onExploreCategories={() => {
-              const el = document.getElementById('section-what-we-source');
+              const el = document.getElementById('what-we-source');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
             onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
           />
 
-          {/* Section 3: What We Source (Visual Category Cards) */}
-          <div id="section-what-we-source" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+          {/* What We Source (Visual Category Cards) */}
+          <div id="what-we-source" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
             <WhatWeSourceSection
               onSelectCategoryRequirement={(catName) => handleOpenRequirement(catName)}
               onExploreFullCatalog={() => handleNavigate('products')}
             />
           </div>
 
-          {/* Section 4: Where We Source From (India Map + 7 Sourcing Markets) */}
-          <div id="section-sourcing-hubs" className="bg-stone-100/60 border-y border-stone-200 py-16">
+          {/* Where We Source From (India Map + 7 Sourcing Markets) */}
+          <div id="sourcing-hubs" className="bg-stone-100/60 border-y border-stone-200 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-8">
               <SourcingHubsSection
                 onSelectHub={(hubName) => handleOpenRequirement(hubName)}
@@ -320,8 +320,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Section 5: How We Work (7-Step Pipeline: Requirement -> Sourcing -> Shortlisting -> Approval -> Order -> Dispatch -> Delivery) */}
-          <div id="section-how-we-work" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+          {/* How We Work (7-Step Pipeline: Requirement -> Sourcing -> Shortlisting -> Approval -> Order -> Dispatch -> Delivery) */}
+          <div id="how-we-work" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
             <HowWeWorkSection
               onStartRequirement={() => handleOpenRequirement()}
             />
@@ -335,8 +335,8 @@ export default function App() {
             />
           </div>
 
-          {/* Section 6: Who We Serve (Retailers | Wholesalers | Boutiques | Traders | Distributors | Fashion Businesses) */}
-          <div id="section-who-we-serve" className="bg-white border-y border-stone-200 py-16">
+          {/* Who We Serve (Retailers | Wholesalers | Boutiques | Traders | Distributors | Fashion Businesses) */}
+          <div id="who-we-serve" className="bg-white border-y border-stone-200 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-8">
               <WhoWeServeSection
                 onSelectBuyerType={(type) => handleOpenRequirement(type)}
@@ -344,15 +344,15 @@ export default function App() {
             </div>
           </div>
 
-          {/* Section 7: Why Shree Durga Agency (Experience, Network, Product Range, B2B Focus, Coordination, Expertise) */}
-          <div id="section-why-us" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+          {/* Why Shree Durga Agency (Experience, Network, Product Range, B2B Focus, Coordination, Expertise) */}
+          <div id="why-us" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
             <WhyUsSection
               onWorkWithUs={() => handleOpenRequirement()}
             />
           </div>
 
-          {/* Section 8: Company Story (1999 -> Growth -> Expansion -> Today) */}
-          <div id="section-company-story" className="bg-[#FAF8F5] border-t border-stone-200 py-16">
+          {/* Company Story (1999 -> Growth -> Expansion -> Today) */}
+          <div id="company-story" className="bg-[#FAF8F5] border-t border-stone-200 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-8">
               <CompanyStorySection
                 onTalkToTeam={() => handleOpenRequirement()}
@@ -360,15 +360,15 @@ export default function App() {
             </div>
           </div>
 
-          {/* Section 9: Business / Trust Proof (Verified Numbers, Testimonials, Experience) */}
-          <div id="section-trust-proof" className="bg-white border-y border-stone-200 py-16">
+          {/* Business / Trust Proof (Verified Numbers, Testimonials, Experience) */}
+          <div id="trust-proof" className="bg-white border-y border-stone-200 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-8">
               <TrustProofSection />
             </div>
           </div>
 
-          {/* Section 10: Final CTA ("Looking for a reliable textile sourcing partner? Tell us what you're looking for...") */}
-          <div id="section-final-cta" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+          {/* Final CTA ("Looking for a reliable textile sourcing partner? Tell us what you're looking for...") */}
+          <div id="final-cta" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
             <FinalCTASection
               onOpenRequirementModal={() => handleOpenRequirement()}
               onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
