@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { Building2, Globe2, Truck, CheckCircle2, Phone, Mail, FileText, Send, Sparkles } from 'lucide-react';
+import { Building2, Globe2, Truck, CheckCircle2, Phone, Mail, FileText, Send, Sparkles, CreditCard } from 'lucide-react';
 import { WholesaleQuoteRequest } from '../types';
 
 interface WholesalePageProps {
   onNavigateHome: () => void;
+  onOpenThreadlincModal?: () => void;
+  onNavigateThreadlinc?: () => void;
 }
 
-export const WholesalePage: React.FC<WholesalePageProps> = ({ onNavigateHome }) => {
+export const WholesalePage: React.FC<WholesalePageProps> = ({ 
+  onNavigateHome,
+  onOpenThreadlincModal,
+  onNavigateThreadlinc,
+}) => {
   const [form, setForm] = useState<WholesaleQuoteRequest>({
     companyName: '',
     contactPerson: '',
@@ -120,6 +126,42 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({ onNavigateHome }) 
             <li className="flex items-center gap-1.5">✓ Air (DHL/FedEx) or Sea Freight FOB Delhi</li>
             <li className="flex items-center gap-1.5">✓ Complete export documentation & phytosanitary</li>
           </ul>
+        </div>
+      </div>
+
+      {/* Threadlinc Trade Financing Callout */}
+      <div className="bg-[#121922] text-[#FAF8F5] rounded-2xl p-6 sm:p-8 mb-12 border border-stone-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="space-y-2 max-w-xl">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D8B26E] font-semibold">
+            <CreditCard className="w-4 h-4" />
+            <span>Structured Trade Credit by Sister Entity Threadlinc</span>
+          </div>
+          <h3 className="text-xl font-serif font-bold text-white">
+            Need "Bill to – Ship to" Invoicing or 30–90 Day Credit for Bulk Orders?
+          </h3>
+          <p className="text-xs text-stone-300 leading-relaxed font-light">
+            Through our associate firm <strong>Threadlinc</strong>, we invoice your corporate/financing entity while shipping fabric rolls directly to your manufacturing units or job-work printers across India with full GST E-way bill compliance.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 shrink-0">
+          {onOpenThreadlincModal && (
+            <button
+              type="button"
+              onClick={onOpenThreadlincModal}
+              className="px-5 py-2.5 bg-[#D8B26E] hover:bg-[#C5A059] text-stone-950 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              Apply for Trade Credit
+            </button>
+          )}
+          {onNavigateThreadlinc && (
+            <button
+              type="button"
+              onClick={onNavigateThreadlinc}
+              className="px-4 py-2.5 bg-white/10 hover:bg-white/15 border border-white/20 text-stone-200 rounded-lg text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              How It Works →
+            </button>
+          )}
         </div>
       </div>
 

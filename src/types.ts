@@ -1,6 +1,22 @@
 export type ProductCategory = 'all' | 'fabrics' | 'sarees' | 'lehengas' | 'suits' | 'brocades';
 
-export type PageView = 'home' | 'fabrics' | 'brocades' | 'sarees' | 'lehengas' | 'suits' | 'about' | 'wholesale' | 'stores';
+export type PageView = 
+  | 'home' 
+  | 'products' 
+  | 'network' 
+  | 'process' 
+  | 'whoweserve' 
+  | 'threadlinc' 
+  | 'about' 
+  | 'contact'
+  | 'insights'
+  | 'wholesale'
+  | 'fabrics' 
+  | 'brocades' 
+  | 'sarees' 
+  | 'lehengas' 
+  | 'suits' 
+  | 'stores';
 
 export type TexturePatternType = 
   | 'zari-brocade' 
@@ -92,5 +108,34 @@ export interface WholesaleQuoteRequest {
   monthlyMeters: string;
   interestedFabrics: string[];
   requireCustomDyeingOrPrinting: boolean;
+  notes: string;
+}
+
+export interface ThreadlincInquiry {
+  businessName: string;
+  contactName: string;
+  phone: string;
+  email: string;
+  gstNumber?: string;
+  creditRequirement: string;
+  creditTenure: string;
+  billToCity: string;
+  shipToCity: string;
+  message: string;
+}
+
+export interface SourcingRequirement {
+  id?: string;
+  category: "Women's Fashion" | "Men's Fashion" | "Kidswear" | "Fabrics" | "Home Furnishing" | "Accessories";
+  subItems?: string[];
+  sourcingHub: "Delhi" | "Surat" | "Jaipur" | "Panipat" | "Meerut" | "Muzaffarnagar" | "Kolkata" | "Any / Best Match";
+  quantity: string;
+  targetPrice?: string;
+  billToShipToFinance: boolean; // Threadlinc financing option
+  businessName: string;
+  contactPerson: string;
+  phone: string;
+  email: string;
+  city: string;
   notes: string;
 }

@@ -82,14 +82,17 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={() => onNavigate('home')}
               className="text-xl font-serif font-bold text-white tracking-wide hover:text-[#D8B26E] transition-colors cursor-pointer text-left"
             >
-              BHASIN TEXTILES
+              SHREE DURGA AGENCY
             </button>
+            <div className="text-[11px] text-[#D8B26E] uppercase tracking-wider font-semibold">
+              Textile Sourcing & Threadlinc Trade Financing
+            </div>
             <p className="text-xs text-stone-400 leading-relaxed font-light max-w-sm">
-              Established in 1997. Weaving authentic Banarasi silk brocades, bridal yardages, and handloom textiles. Trusted partner to boutique designers, wedding couturiers, and global fashion houses.
+              Established in 1999. Connecting retailers, wholesalers, and boutiques to India's top textile hubs in Delhi, Surat, Jaipur, and Panipat. Backed by sister firm <strong className="text-stone-200">Threadlinc</strong> for structured "Bill to – Ship to" trade credit financing.
             </p>
             <div className="flex items-center gap-2 text-xs text-[#D8B26E]">
               <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>Silk Mark Organization of India Certified</span>
+              <span>Silk Mark Organization & Direct Mill Verified</span>
             </div>
             <div>
               <button
@@ -97,60 +100,60 @@ export const Footer: React.FC<FooterProps> = ({
                 onClick={() => onNavigate('about')}
                 className="text-xs text-stone-300 hover:text-white underline underline-offset-4 cursor-pointer"
               >
-                Read Our 28-Year Weaving Story →
+                Read Our 25+ Year Sourcing Story →
               </button>
             </div>
           </div>
 
-          {/* Catalog Links */}
+          {/* Sourcing Navigation */}
           <div className="space-y-3">
             <h5 className="text-xs uppercase tracking-wider font-semibold text-stone-200">
-              Textile Archive
+              Sourcing Solutions
             </h5>
             <ul className="space-y-2 text-xs text-stone-400">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('products')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  What We Source (Categories)
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('network')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Sourcing Hubs (Delhi, Surat, Jaipur)
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('process')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  How We Work (7 Steps)
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('whoweserve')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Who We Serve (B2B Buyers)
+                </button>
+              </li>
               <li>
                 <button
                   type="button"
                   onClick={() => onNavigate('brocades')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Pure Silk Brocades
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('fabrics')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Bridal Raw Silks & Tissues
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('sarees')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Heritage Banarasi Sarees
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('lehengas')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Velvet & Silk Bridal Lehengas
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('suits')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Unstitched Suit Sets & Dupattas
+                  Pure Silk Brocades & Yardages
                 </button>
               </li>
             </ul>
@@ -187,6 +190,15 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-white transition-colors cursor-pointer"
                 >
                   B2B Wholesale & Mill Orders
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('threadlinc')}
+                  className="hover:text-[#D8B26E] transition-colors cursor-pointer font-medium text-[#D8B26E]"
+                >
+                  Threadlinc Trade Credit (Bill to – Ship to)
                 </button>
               </li>
               <li>
@@ -271,6 +283,8 @@ export const Footer: React.FC<FooterProps> = ({
             <button type="button" onClick={() => onNavigate('wholesale')} className="hover:text-stone-300">B2B Portal</button>
             <span aria-hidden="true">·</span>
             <button type="button" onClick={() => onNavigate('stores')} className="hover:text-stone-300">Showrooms</button>
+            <span aria-hidden="true">·</span>
+            <button type="button" onClick={() => onNavigate('threadlinc')} className="hover:text-[#D8B26E] text-stone-400">Threadlinc Financing</button>
             <span aria-hidden="true">·</span>
             <span>Silk Mark Verification</span>
           </div>

@@ -1,156 +1,162 @@
 import React from 'react';
-import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { FabricTextureViewer } from './FabricTextureViewer';
+import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Layers, Search, Globe, Users, PackageCheck, CreditCard } from 'lucide-react';
 
 interface HeroProps {
-  onExploreFabrics: () => void;
-  onOpenCalculator: () => void;
-  onOpenWholesale: () => void;
+  onOpenRequirementModal: () => void;
+  onExploreCategories: () => void;
+  onOpenThreadlincModal?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
-  onExploreFabrics,
-  onOpenCalculator,
-  onOpenWholesale,
+  onOpenRequirementModal,
+  onExploreCategories,
+  onOpenThreadlincModal,
 }) => {
+  const coreStrengths = [
+    { title: "Textile Sourcing", desc: "Pure silk brocades, sheer tissues, crepes, linens & custom mill yardage", icon: Layers },
+    { title: "Product Sourcing", desc: "Finished bridal sarees, lehengas, suits, men's & kids ethnic wear", icon: PackageCheck },
+    { title: "Market Access", desc: "Direct access to 500+ looms across Delhi, Surat, Jaipur & Panipat", icon: Globe },
+    { title: "Buyer Coordination", desc: "Dedicated sampling, lab dips, quality audits & custom specs handling", icon: Users },
+    { title: "Order Coordination", desc: "End-to-end inspection, batch dispatch & doorstep logistics delivery", icon: Search },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-[#FAF8F5] border-b border-stone-200">
       {/* Subtle atmospheric heritage background gradient */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-[#F3EDE2] via-[#FAF8F5] to-transparent pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-10 sm:pt-14 pb-12 lg:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Editorial Headline & Intentional Prose */}
+          {/* Left Column: Clear B2B Sourcing Intent & Value Proposition */}
           <div className="lg:col-span-7 flex flex-col items-start z-10">
-            {/* Clean unboxed heritage kicker with typographic separator */}
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-stone-500 mb-4 font-medium">
-              <span>Established 1997</span>
+            {/* Clean kicker with trust badges */}
+            <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-stone-500 mb-4 font-medium">
+              <span className="text-[#9B1D2C] font-bold">SHREE DURGA AGENCY</span>
               <span aria-hidden="true">·</span>
-              <span>Chandni Chowk, Delhi</span>
+              <span>Est. 1999</span>
               <span aria-hidden="true">·</span>
-              <span className="text-[#9B1D2C] font-semibold">Master Handloom & Mill Weaves</span>
+              <span>Delhi · Surat · Jaipur · Panipat</span>
+              <span aria-hidden="true">·</span>
+              <span className="text-[#D8B26E] font-semibold bg-[#D8B26E]/10 px-2 py-0.5 rounded">B2B Sourcing Partner</span>
             </div>
 
-            {/* Display Headline with text-wrap: balance */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#1F1916] leading-[1.12] tracking-tight mb-6" style={{ textWrap: 'balance' }}>
-              Timeless Indian Weaves & Haute Couture Textiles.
+            {/* Display Headline with balanced typography */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1F1916] leading-[1.15] tracking-tight mb-5">
+              India's Trusted B2B Textile & Product Sourcing Partner.
             </h1>
 
-            {/* Subtitle / Lead Paragraph */}
-            <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-8 font-light">
-              Supplying premier fashion designers, bridal ateliers, and discerning connoisseurs worldwide with authentic Banarasi katan brocades, raw silks, Chanderi tissues, and handcrafted ethnic ensembles straight from master looms.
+            {/* Lead Paragraph */}
+            <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mb-7 font-normal">
+              Connecting retailers, wholesalers, boutiques, and fashion businesses directly with premier manufacturing mills across Delhi, Surat, Jaipur, Panipat, and Kolkata. Backed by <span className="font-semibold text-stone-800">Threadlinc Bill to – Ship to</span> trade financing.
             </p>
 
             {/* Primary Action Row */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto mb-8">
               <button
                 type="button"
-                onClick={onExploreFabrics}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-all shadow-md hover:shadow-lg cursor-pointer"
+                onClick={onOpenRequirementModal}
+                className="flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer"
               >
-                <span>Explore Fabric Archive</span>
+                <span>Submit Your Requirement</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
                 type="button"
-                onClick={onOpenCalculator}
-                className="flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-medium tracking-wider uppercase text-[#1F1916] bg-white border border-stone-300 hover:border-[#1F1916] hover:bg-stone-50 rounded-lg transition-colors cursor-pointer"
+                onClick={onExploreCategories}
+                className="flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-medium tracking-wider uppercase text-[#1F1916] bg-white border border-stone-300 hover:border-[#1F1916] hover:bg-stone-50 rounded-xl transition-colors cursor-pointer"
               >
-                <span>Fabric Calculator</span>
+                <span>What We Source</span>
               </button>
 
-              <button
-                type="button"
-                onClick={onOpenWholesale}
-                className="text-xs text-stone-600 hover:text-[#9B1D2C] transition-colors underline underline-offset-4 font-medium px-2 py-2"
-              >
-                Wholesale & Export Inquiry →
-              </button>
+              {onOpenThreadlincModal && (
+                <button
+                  type="button"
+                  onClick={onOpenThreadlincModal}
+                  className="flex items-center gap-1.5 text-xs text-[#143D36] bg-[#143D36]/8 hover:bg-[#143D36]/15 font-semibold px-3 py-2 rounded-lg transition-colors cursor-pointer"
+                >
+                  <CreditCard className="w-3.5 h-3.5 text-[#143D36]" />
+                  <span>Bill to – Ship to Financing</span>
+                </button>
+              )}
             </div>
 
-            {/* Editorial Heritage Credentials (Claim-to-Proof Adjacency) */}
-            <div className="pt-6 border-t border-stone-200/90 w-full grid grid-cols-3 gap-4 text-stone-700">
+            {/* Editorial Heritage Credentials */}
+            <div className="pt-5 border-t border-stone-200/90 w-full grid grid-cols-3 gap-4 text-stone-700">
               <div>
-                <p className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916] tabular-nums">28+ Yrs</p>
-                <p className="text-[11px] text-stone-500 uppercase tracking-wide mt-0.5">Weaving Legacy</p>
+                <p className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916] tabular-nums">25+ Yrs</p>
+                <p className="text-[11px] text-stone-500 uppercase tracking-wide mt-0.5">Sourcing Heritage (1999)</p>
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916] tabular-nums">50,000 m</p>
-                <p className="text-[11px] text-stone-500 uppercase tracking-wide mt-0.5">Monthly Capacity</p>
+                <p className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916] tabular-nums">500+ Mills</p>
+                <p className="text-[11px] text-stone-500 uppercase tracking-wide mt-0.5">Direct Loom Network</p>
               </div>
               <div>
                 <p className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916] tabular-nums">1,200+</p>
-                <p className="text-[11px] text-stone-500 uppercase tracking-wide mt-0.5">Ateliers Supplied</p>
+                <p className="text-[11px] text-stone-500 uppercase tracking-wide mt-0.5">B2B Clients Across India</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Focal Anchor & Tactile Showcase */}
+          {/* Right Column: 5 Core Strengths Box (Image 1 Blueprint Specification) */}
           <div className="lg:col-span-5 relative">
-            {/* Layered Showcase Card */}
-            <div className="relative bg-white p-3 rounded-2xl shadow-xl border border-stone-200/90">
-              {/* Main Interactive Swatch Box */}
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-inner">
-                <FabricTextureViewer
-                  texture="zari-brocade"
-                  colorHex="#143D36"
-                  colorName="Royal Banarasi Emerald Gold Zari"
-                  weaveName="Kadhwa Handloom Pit Loom"
-                  gsm={135}
-                  className="w-full h-full"
-                />
-              </div>
-
-              {/* Curated Swatch Palette Strip */}
-              <div className="mt-3 p-3 bg-[#FAF8F5] rounded-xl border border-stone-200/70">
-                <div className="flex items-center justify-between text-xs text-stone-600 mb-2 font-medium">
-                  <span className="flex items-center gap-1.5 text-stone-800">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D8B26E]" />
-                    Featured Master Weave Swatches
+            <div className="bg-white p-5 sm:p-6 rounded-2xl shadow-xl border border-stone-200">
+              <div className="flex items-center justify-between pb-3.5 border-b border-stone-100 mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9B1D2C]" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-stone-800">
+                    5 Core Service Capabilities
                   </span>
-                  <span className="text-[#9B1D2C] font-semibold text-[11px]">₹99 Sample Delivery</span>
                 </div>
+                <span className="text-[11px] text-[#9B1D2C] font-semibold">End-to-End Execution</span>
+              </div>
 
-                <div className="grid grid-cols-4 gap-2">
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="w-full aspect-square rounded-lg border border-stone-300 overflow-hidden relative shadow-xs">
-                      <div className="w-full h-full bg-[#143D36]" />
+              {/* 5 Core Strengths list */}
+              <div className="space-y-3">
+                {coreStrengths.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#FAF8F5] transition-colors border border-transparent hover:border-stone-200"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#FAF8F5] border border-stone-200 flex items-center justify-center shrink-0 text-[#9B1D2C] font-bold text-xs">
+                        {idx + 1}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-xs font-bold text-stone-900 tracking-wide">{item.title}</h4>
+                        </div>
+                        <p className="text-[11px] text-stone-500 leading-snug mt-0.5">{item.desc}</p>
+                      </div>
                     </div>
-                    <span className="text-[10px] text-stone-600 truncate w-full text-center">Emerald</span>
-                  </div>
+                  );
+                })}
+              </div>
 
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="w-full aspect-square rounded-lg border border-stone-300 overflow-hidden relative shadow-xs">
-                      <div className="w-full h-full bg-[#9B1D2C]" />
-                    </div>
-                    <span className="text-[10px] text-stone-600 truncate w-full text-center">Crimson</span>
+              {/* Sister Concern Intro Banner (Threadlinc) */}
+              <div className="mt-5 p-3.5 bg-[#143D36]/8 rounded-xl border border-[#143D36]/20 flex items-start gap-3">
+                <CreditCard className="w-5 h-5 text-[#143D36] shrink-0 mt-0.5" />
+                <div className="text-left text-xs">
+                  <div className="flex items-center gap-2 font-bold text-[#143D36]">
+                    <span>Sister Concern: Threadlinc</span>
+                    <span className="text-[10px] bg-[#143D36] text-white px-1.5 py-0.5 rounded font-normal">Financing</span>
                   </div>
-
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="w-full aspect-square rounded-lg border border-stone-300 overflow-hidden relative shadow-xs">
-                      <div className="w-full h-full bg-[#D8B26E]" />
-                    </div>
-                    <span className="text-[10px] text-stone-600 truncate w-full text-center">Antique Gold</span>
-                  </div>
-
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="w-full aspect-square rounded-lg border border-stone-300 overflow-hidden relative shadow-xs">
-                      <div className="w-full h-full bg-[#521018]" />
-                    </div>
-                    <span className="text-[10px] text-stone-600 truncate w-full text-center">Velvet Wine</span>
-                  </div>
+                  <p className="text-[11px] text-stone-600 mt-1 leading-snug">
+                    Seamless <strong>Bill to – Ship to</strong> trade credit. We purchase & finance while goods ship directly to your store or warehouse.
+                  </p>
                 </div>
               </div>
+
             </div>
 
-            {/* Floating Quality Seal */}
-            <div className="absolute -bottom-4 -left-4 bg-[#1F1916] text-[#FAF8F5] px-4 py-2.5 rounded-xl shadow-lg border border-[#D8B26E]/40 flex items-center gap-2.5">
+            {/* Quality Seal */}
+            <div className="mt-3 bg-[#1F1916] text-[#FAF8F5] px-4 py-2.5 rounded-xl shadow-md border border-[#D8B26E]/30 flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-[#D8B26E] shrink-0" />
-              <div>
-                <p className="text-[11px] font-semibold tracking-wide">100% SILK MARK CERTIFIED</p>
-                <p className="text-[10px] text-stone-300">Pure Zari & Tested Handloom Authenticity</p>
+              <div className="text-xs">
+                <span className="font-semibold tracking-wide text-white">Direct Ex-Mill Pricing</span>
+                <span className="text-stone-400 block text-[11px]">Strict 4-point fabric & garment QC before dispatch</span>
               </div>
             </div>
           </div>
@@ -158,33 +164,29 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Trust & Craft Adjacency Strip */}
-      <div className="border-t border-stone-200 bg-white py-4 px-4 sm:px-8">
+      {/* Trust & Markets Adjacency Strip */}
+      <div className="border-t border-stone-200 bg-white py-3.5 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs text-stone-600">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#9B1D2C]" />
-            <span className="font-medium text-stone-800">Physical Fabric Swatches Available</span>
-            <span className="text-stone-400 hidden sm:inline">(10x10 cm sample for ₹99)</span>
+            <span className="font-semibold text-stone-800">Sourcing Markets:</span>
+            <span>Delhi · Surat · Jaipur · Panipat · Meerut · Kolkata</span>
           </div>
 
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#9B1D2C]" />
-            <span className="font-medium text-stone-800">Custom Dyeing & Mill Lab Dips</span>
-            <span className="text-stone-400 hidden sm:inline">(Pantone color matching)</span>
+            <span className="font-semibold text-stone-800">Bill to – Ship to:</span>
+            <span>Threadlinc Trade Credit Available</span>
           </div>
 
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-[#9B1D2C]" />
-            <span className="font-medium text-stone-800">B2B Wholesale & Private Label</span>
-            <span className="text-stone-400 hidden sm:inline">(Export to 24+ countries)</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#9B1D2C]" />
-            <span className="font-medium text-stone-800">Direct WhatsApp Master Consultation</span>
+            <span className="font-semibold text-stone-800">Quality Assured:</span>
+            <span>Lab Dips & Pre-Dispatch Swatches</span>
           </div>
         </div>
       </div>
     </section>
   );
 };
+

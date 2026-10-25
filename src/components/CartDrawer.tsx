@@ -10,6 +10,7 @@ interface CartDrawerProps {
   onRemoveItem: (cartItemId: string) => void;
   onClearCart: () => void;
   currency: 'INR' | 'USD';
+  onOpenThreadlinc?: () => void;
 }
 
 export const CartDrawer: React.FC<CartDrawerProps> = ({
@@ -20,6 +21,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   onRemoveItem,
   onClearCart,
   currency,
+  onOpenThreadlinc,
 }) => {
   const [promoCode, setPromoCode] = useState('');
   const [appliedDiscount, setAppliedDiscount] = useState<number>(0);
@@ -446,6 +448,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <span className="tabular-nums font-serif text-base">{formatPrice(grandTotal)}</span>
               </div>
             </div>
+
+            {/* Threadlinc B2B Financing hint */}
+            {onOpenThreadlinc && (
+              <div className="p-2.5 bg-stone-100 rounded-lg border border-stone-200/80 text-[11px] text-stone-600 flex items-center justify-between">
+                <span>Ordering for a brand/mill?</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    onOpenThreadlinc();
+                  }}
+                  className="text-[#9B1D2C] hover:underline font-semibold cursor-pointer"
+                >
+                  Threadlinc Bill-to-Ship-to Credit →
+                </button>
+              </div>
+            )}
 
             <button
               type="button"

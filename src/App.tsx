@@ -1,39 +1,56 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { ProductCard } from './components/ProductCard';
-import { ProductDetailModal } from './components/ProductDetailModal';
-import { FabricCalculator } from './components/FabricCalculator';
-import { CartDrawer } from './components/CartDrawer';
-import { WholesaleModal } from './components/WholesaleModal';
-import { ConsultationModal } from './components/ConsultationModal';
-import { HeritageStory } from './components/HeritageStory';
+import { WhatWeSourceSection } from './components/WhatWeSourceSection';
+import { SourcingHubsSection } from './components/SourcingHubsSection';
+import { HowWeWorkSection } from './components/HowWeWorkSection';
+import { WhoWeServeSection } from './components/WhoWeServeSection';
+import { WhyUsSection } from './components/WhyUsSection';
+import { CompanyStorySection } from './components/CompanyStorySection';
+import { TrustProofSection } from './components/TrustProofSection';
+import { FinalCTASection } from './components/FinalCTASection';
+import { ThreadlincBanner } from './components/ThreadlincBanner';
 import { Footer } from './components/Footer';
 
-// Dedicated Page Views
+// Modals
+import { RequirementModal } from './components/RequirementModal';
+import { ThreadlincModal } from './components/ThreadlincModal';
+import { CartDrawer } from './components/CartDrawer';
+import { ProductDetailModal } from './components/ProductDetailModal';
+import { FabricCalculator } from './components/FabricCalculator';
+import { WholesaleModal } from './components/WholesaleModal';
+import { ConsultationModal } from './components/ConsultationModal';
+
+// Dedicated Subpages
+import { ProductsPage } from './pages/ProductsPage';
+import { SourcingNetworkPage } from './pages/SourcingNetworkPage';
+import { OurProcessPage } from './pages/OurProcessPage';
+import { WhoWeServePage } from './pages/WhoWeServePage';
+import { ThreadlincPage } from './pages/ThreadlincPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
+import { InsightsPage } from './pages/InsightsPage';
 import { BrocadesPage } from './pages/BrocadesPage';
 import { SareesPage } from './pages/SareesPage';
 import { LehengasPage } from './pages/LehengasPage';
 import { SuitSetsPage } from './pages/SuitSetsPage';
 import { FabricsPage } from './pages/FabricsPage';
-import { AboutPage } from './pages/AboutPage';
 import { WholesalePage } from './pages/WholesalePage';
 import { StoresPage } from './pages/StoresPage';
 
 import { TEXTILE_PRODUCTS } from './data/textilesData';
 import { Product, ProductCategory, CartItem, PageView } from './types';
-import { SlidersHorizontal, MessageCircle, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { MessageCircle, Check } from 'lucide-react';
 
 export default function App() {
-  // Page View routing
+  // Page Routing State
   const [activePage, setActivePage] = useState<PageView>('home');
-  const [activeCategory, setActiveCategory] = useState<ProductCategory>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
-  const [filterWeaveOnly, setFilterWeaveOnly] = useState<string>('all');
   const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
 
-  // Modals & Drawers
+  // Modals & Drawers State
+  const [isRequirementModalOpen, setIsRequirementModalOpen] = useState(false);
+  const [requirementInitialCategory, setRequirementInitialCategory] = useState<string | undefined>(undefined);
+  const [isThreadlincOpen, setIsThreadlincOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -53,7 +70,7 @@ export default function App() {
     },
   ]);
 
-  // Toast notification for actions
+  // Toast notification
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -61,7 +78,7 @@ export default function App() {
     setTimeout(() => setToastMessage(null), 3000);
   };
 
-  // Scroll to top whenever page changes
+  // Scroll to top on navigation
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activePage]);
@@ -69,13 +86,11 @@ export default function App() {
   // Navigation handler
   const handleNavigate = (page: PageView) => {
     setActivePage(page);
-    setSearchQuery('');
-    if (page === 'fabrics') setActiveCategory('fabrics');
-    else if (page === 'brocades') setActiveCategory('brocades');
-    else if (page === 'sarees') setActiveCategory('sarees');
-    else if (page === 'lehengas') setActiveCategory('lehengas');
-    else if (page === 'suits') setActiveCategory('suits');
-    else setActiveCategory('all');
+  };
+
+  const handleOpenRequirement = (initialCategory?: string) => {
+    setRequirementInitialCategory(initialCategory);
+    setIsRequirementModalOpen(true);
   };
 
   // Cart Operations
@@ -106,7 +121,7 @@ export default function App() {
       ];
     });
 
-    showToast(`Added ${isSwatch ? 'swatch sample' : `${quantity}m / pc`} of ${product.name} to your bag`);
+    showToast(`Added ${isSwatch ? 'swatch sample' : `${quantity}m / pc`} of ${product.name} to your sample bag`);
   };
 
   const handleOrderSwatch = (product: Product) => {
@@ -149,104 +164,73 @@ export default function App() {
         },
       ]);
     }
-    showToast(`Added tailored silhouette kit (${meters}m fabric + ${liningMeters}m lining) to bag!`);
+    showToast(`Added bespoke tailored silhouette kit (${meters}m fabric + ${liningMeters}m lining) to bag!`);
     setIsCartOpen(true);
   };
-
-  // Filtered & Sorted Products for Home / Search view
-  const filteredProducts = useMemo(() => {
-    return TEXTILE_PRODUCTS.filter(prod => {
-      if (activeCategory !== 'all' && prod.category !== activeCategory) {
-        return false;
-      }
-      if (filterWeaveOnly !== 'all') {
-        if (!prod.subcategory.toLowerCase().includes(filterWeaveOnly.toLowerCase())) {
-          return false;
-        }
-      }
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchesName = prod.name.toLowerCase().includes(q);
-        const matchesComp = prod.composition.toLowerCase().includes(q);
-        const matchesWeave = prod.weaveType.toLowerCase().includes(q);
-        const matchesDesc = prod.description.toLowerCase().includes(q);
-        const matchesColor = prod.colorName.toLowerCase().includes(q) || prod.availableColors.some(c => c.name.toLowerCase().includes(q));
-        if (!matchesName && !matchesComp && !matchesWeave && !matchesDesc && !matchesColor) {
-          return false;
-        }
-      }
-      return true;
-    }).sort((a, b) => {
-      if (sortBy === 'price-low') return a.price - b.price;
-      if (sortBy === 'price-high') return b.price - a.price;
-      if (sortBy === 'rating') return b.rating - a.rating;
-      return 0;
-    });
-  }, [activeCategory, filterWeaveOnly, searchQuery, sortBy]);
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#1F1916] flex flex-col font-sans selection:bg-[#9B1D2C] selection:text-white">
       
-      {/* 1. Header with Top Bar Contract */}
+      {/* 1. Strictly Clean Single-Row Unified Header (No confusing double stacked menus) */}
       <Header
         activePage={activePage}
         onNavigate={handleNavigate}
         cartCount={cartItems.reduce((acc, item) => acc + (item.purchaseType === 'swatch_sample' ? 1 : Math.ceil(item.quantity)), 0)}
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenCalculator={() => setIsCalculatorOpen(true)}
+        onOpenRequirementModal={() => handleOpenRequirement()}
         currency={currency}
         onToggleCurrency={() => setCurrency(prev => prev === 'INR' ? 'USD' : 'INR')}
-        searchQuery={searchQuery}
-        onSearchChange={(q) => {
-          setSearchQuery(q);
-          if (q.trim() && activePage !== 'home') {
-            setActivePage('home');
-          }
-        }}
       />
 
-      {/* 2. Page View Router */}
-      {searchQuery.trim() ? (
-        /* Instant Search Results View */
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-10 w-full animate-in fade-in duration-200">
-          <div className="mb-8 pb-4 border-b border-stone-200">
-            <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
-              Search Results
-            </span>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1916]">
-              Search query: "{searchQuery}"
-            </h1>
-            <p className="text-xs text-stone-500 mt-1">
-              Found {filteredProducts.length} matching textiles in archive.
-            </p>
-          </div>
-
-          {filteredProducts.length === 0 ? (
-            <div className="py-20 text-center bg-white rounded-2xl border border-stone-200">
-              <p className="text-base font-serif font-semibold text-stone-700">No textiles matched your search</p>
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="mt-4 px-4 py-2 bg-[#9B1D2C] text-white text-xs font-semibold rounded-lg cursor-pointer"
-              >
-                Clear Search
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  currency={currency}
-                  onQuickView={setSelectedProduct}
-                  onOrderSwatch={handleOrderSwatch}
-                  onAddToCart={(p, qty) => handleAddToCart(p, qty, p.availableColors[0]?.name || p.colorName, false)}
-                />
-              ))}
-            </div>
-          )}
-        </main>
+      {/* 2. Page Router */}
+      {activePage === 'products' ? (
+        <ProductsPage
+          currency={currency}
+          onQuickView={setSelectedProduct}
+          onOrderSwatch={handleOrderSwatch}
+          onAddToCart={(p, qty) => handleAddToCart(p, qty, p.availableColors[0]?.name || p.colorName, false)}
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenRequirementModal={(cat) => handleOpenRequirement(cat)}
+        />
+      ) : activePage === 'network' ? (
+        <SourcingNetworkPage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenRequirementModal={(hub) => handleOpenRequirement(hub)}
+        />
+      ) : activePage === 'process' ? (
+        <OurProcessPage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenRequirementModal={() => handleOpenRequirement()}
+          onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+        />
+      ) : activePage === 'whoweserve' ? (
+        <WhoWeServePage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenConsultation={() => setIsConsultationOpen(true)}
+          onOpenRequirementModal={(buyer) => handleOpenRequirement(buyer)}
+        />
+      ) : activePage === 'threadlinc' ? (
+        <ThreadlincPage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+          currency={currency}
+        />
+      ) : activePage === 'about' ? (
+        <AboutPage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenConsultation={() => setIsConsultationOpen(true)}
+          onOpenWholesale={() => setIsWholesaleOpen(true)}
+        />
+      ) : activePage === 'contact' ? (
+        <ContactPage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenRequirementModal={() => handleOpenRequirement()}
+        />
+      ) : activePage === 'insights' ? (
+        <InsightsPage
+          onNavigateHome={() => handleNavigate('home')}
+          onOpenRequirementModal={() => handleOpenRequirement()}
+        />
       ) : activePage === 'brocades' ? (
         <BrocadesPage
           currency={currency}
@@ -294,15 +278,11 @@ export default function App() {
           onOpenCalculator={() => setIsCalculatorOpen(true)}
           onOpenWholesale={() => setIsWholesaleOpen(true)}
         />
-      ) : activePage === 'about' ? (
-        <AboutPage
-          onNavigateHome={() => handleNavigate('home')}
-          onOpenConsultation={() => setIsConsultationOpen(true)}
-          onOpenWholesale={() => setIsWholesaleOpen(true)}
-        />
       ) : activePage === 'wholesale' ? (
         <WholesalePage
           onNavigateHome={() => handleNavigate('home')}
+          onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+          onNavigateThreadlinc={() => handleNavigate('threadlinc')}
         />
       ) : activePage === 'stores' ? (
         <StoresPage
@@ -310,165 +290,95 @@ export default function App() {
           onOpenConsultation={() => setIsConsultationOpen(true)}
         />
       ) : (
-        /* Home Page */
-        <>
+        /* HOME PAGE: Complete 10-Section Architecture from User's Blueprint */
+        <main className="flex-1 w-full animate-in fade-in duration-200">
+          
+          {/* Section 1 & 2: Hero + 5 Core Service Capabilities + Threadlinc Notice */}
           <Hero
-            onExploreFabrics={() => {
-              const el = document.getElementById('catalog-section');
+            onOpenRequirementModal={() => handleOpenRequirement()}
+            onExploreCategories={() => {
+              const el = document.getElementById('section-what-we-source');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            onOpenCalculator={() => setIsCalculatorOpen(true)}
-            onOpenWholesale={() => setIsWholesaleOpen(true)}
+            onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
           />
 
-          {/* Quick Collection Showcase Cards */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-8 py-10 w-full">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { page: 'brocades', title: 'Pure Silk Brocades', subtitle: 'Kadhwa & Tanchoi Weaves', bg: 'bg-[#143D36] text-white' },
-                { page: 'sarees', title: 'Heritage Sarees', subtitle: '5.5m Katan & Kanjivaram', bg: 'bg-[#831825] text-white' },
-                { page: 'lehengas', title: 'Bridal Lehengas', subtitle: 'Velvet & Brocade 8m Ghera', bg: 'bg-[#521018] text-white' },
-                { page: 'suits', title: 'Unstitched Suits', subtitle: 'Chanderi & Chikankari', bg: 'bg-[#3D5A50] text-white' },
-              ].map(cat => (
-                <button
-                  key={cat.page}
-                  type="button"
-                  onClick={() => handleNavigate(cat.page as PageView)}
-                  className={`p-5 rounded-2xl text-left transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer ${cat.bg}`}
-                >
-                  <span className="text-[10px] text-[#D8B26E] font-bold uppercase tracking-wider block mb-1">Explore Collection →</span>
-                  <h3 className="font-serif font-bold text-base sm:text-lg leading-snug">{cat.title}</h3>
-                  <p className="text-[11px] opacity-80 mt-0.5">{cat.subtitle}</p>
-                </button>
-              ))}
+          {/* Section 3: What We Source (Visual Category Cards) */}
+          <div id="section-what-we-source" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+            <WhatWeSourceSection
+              onSelectCategoryRequirement={(catName) => handleOpenRequirement(catName)}
+              onExploreFullCatalog={() => handleNavigate('products')}
+            />
+          </div>
+
+          {/* Section 4: Where We Source From (India Map + 7 Sourcing Markets) */}
+          <div id="section-sourcing-hubs" className="bg-stone-100/60 border-y border-stone-200 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-8">
+              <SourcingHubsSection
+                onSelectHub={(hubName) => handleOpenRequirement(hubName)}
+              />
             </div>
-          </section>
+          </div>
 
-          {/* Catalog & Swatch Switcher Section */}
-          <main id="catalog-section" className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-stone-200">
-              <div>
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
-                  <span>Curated Master Archive</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Direct Loom Sourcing</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1916]">
-                  {activeCategory === 'all' && 'Featured Heritage Weaves & Ensembles'}
-                  {activeCategory === 'brocades' && 'Pure Banarasi Katan Silk Brocades'}
-                  {activeCategory === 'fabrics' && 'Haute Couture Fabrics & Tissues'}
-                  {activeCategory === 'sarees' && 'Virasat Heritage Bridal Sarees'}
-                  {activeCategory === 'lehengas' && 'Handcrafted Royal Bridal Lehengas'}
-                  {activeCategory === 'suits' && 'Unstitched Artisanal Suit Sets'}
-                </h2>
-                <p className="text-xs text-stone-500 mt-1">
-                  Showing {filteredProducts.length} authentic Indian textiles with direct swatch ordering & custom yardage cutting.
-                </p>
-              </div>
+          {/* Section 5: How We Work (7-Step Pipeline: Requirement -> Sourcing -> Shortlisting -> Approval -> Order -> Dispatch -> Delivery) */}
+          <div id="section-how-we-work" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+            <HowWeWorkSection
+              onStartRequirement={() => handleOpenRequirement()}
+            />
+          </div>
 
-              {/* Interactive Filter & Sort Controls */}
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="flex items-center gap-1.5 text-xs">
-                  <SlidersHorizontal className="w-3.5 h-3.5 text-stone-400" />
-                  <select
-                    value={filterWeaveOnly}
-                    onChange={(e) => setFilterWeaveOnly(e.target.value)}
-                    className="bg-white border border-stone-300 rounded-lg px-2.5 py-1.5 text-xs text-stone-700 focus:outline-none focus:border-[#9B1D2C]"
-                  >
-                    <option value="all">All Weaves</option>
-                    <option value="Silk">Silks</option>
-                    <option value="Brocade">Brocades</option>
-                    <option value="Chanderi">Chanderi</option>
-                    <option value="Tissue">Tissues</option>
-                    <option value="Linen">Linens</option>
-                  </select>
-                </div>
+          {/* Threadlinc "Bill to – Ship to" Trade Financing Banner */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 pb-16">
+            <ThreadlincBanner
+              onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+              onNavigateThreadlincPage={() => handleNavigate('threadlinc')}
+            />
+          </div>
 
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as any)}
-                  className="bg-white border border-stone-300 rounded-lg px-2.5 py-1.5 text-xs text-stone-700 focus:outline-none focus:border-[#9B1D2C]"
-                >
-                  <option value="featured">Featured Weaves</option>
-                  <option value="rating">Top Rated by Ateliers</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                </select>
-              </div>
+          {/* Section 6: Who We Serve (Retailers | Wholesalers | Boutiques | Traders | Distributors | Fashion Businesses) */}
+          <div id="section-who-we-serve" className="bg-white border-y border-stone-200 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-8">
+              <WhoWeServeSection
+                onSelectBuyerType={(type) => handleOpenRequirement(type)}
+              />
             </div>
+          </div>
 
-            {/* Category Filter Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-4 mb-8 text-xs font-medium scrollbar-none">
-              {[
-                { id: 'all', label: 'All Collections' },
-                { id: 'brocades', label: 'Brocades & Zari' },
-                { id: 'fabrics', label: 'Couture Yardage' },
-                { id: 'sarees', label: 'Heritage Sarees' },
-                { id: 'lehengas', label: 'Bridal Lehengas' },
-                { id: 'suits', label: 'Unstitched Suits' },
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveCategory(tab.id as ProductCategory)}
-                  className={`px-4 py-2 rounded-lg whitespace-nowrap transition-all cursor-pointer ${
-                    activeCategory === tab.id
-                      ? 'bg-[#1F1916] text-[#D8B26E] font-semibold shadow-xs'
-                      : 'bg-white border border-stone-200 text-stone-600 hover:text-stone-900 hover:border-stone-400'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+          {/* Section 7: Why Shree Durga Agency (Experience, Network, Product Range, B2B Focus, Coordination, Expertise) */}
+          <div id="section-why-us" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+            <WhyUsSection
+              onWorkWithUs={() => handleOpenRequirement()}
+            />
+          </div>
+
+          {/* Section 8: Company Story (1999 -> Growth -> Expansion -> Today) */}
+          <div id="section-company-story" className="bg-[#FAF8F5] border-t border-stone-200 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-8">
+              <CompanyStorySection
+                onTalkToTeam={() => handleOpenRequirement()}
+              />
             </div>
+          </div>
 
-            {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  currency={currency}
-                  onQuickView={setSelectedProduct}
-                  onOrderSwatch={handleOrderSwatch}
-                  onAddToCart={(p, qty) => handleAddToCart(p, qty, p.availableColors[0]?.name || p.colorName, false)}
-                />
-              ))}
+          {/* Section 9: Business / Trust Proof (Verified Numbers, Testimonials, Experience) */}
+          <div id="section-trust-proof" className="bg-white border-y border-stone-200 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-8">
+              <TrustProofSection />
             </div>
+          </div>
 
-            {/* Fabric Yardage Calculator Banner */}
-            <div className="mt-16 bg-gradient-to-r from-[#143D36] to-[#1F544A] text-white rounded-2xl p-6 sm:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="max-w-xl">
-                <span className="text-[#D8B26E] text-xs font-bold uppercase tracking-widest block mb-1">
-                  Bespoke Yardage Assistant
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-2">
-                  Uncertain how many meters to order for your tailor?
-                </h3>
-                <p className="text-xs text-stone-200 leading-relaxed font-light">
-                  Use our interactive estimator to calculate exact meter lengths for 16-kali lehengas, anarkalis, blouses, and sherwanis, plus recommended santoon/crepe linings and border trims.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsCalculatorOpen(true)}
-                className="px-6 py-3.5 bg-[#FAF8F5] text-[#143D36] hover:bg-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shadow-sm shrink-0 flex items-center gap-2 cursor-pointer"
-              >
-                <span>Open Fabric Calculator</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </main>
+          {/* Section 10: Final CTA ("Looking for a reliable textile sourcing partner? Tell us what you're looking for...") */}
+          <div id="section-final-cta" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+            <FinalCTASection
+              onOpenRequirementModal={() => handleOpenRequirement()}
+              onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+            />
+          </div>
 
-          {/* Heritage Story */}
-          <HeritageStory
-            onOpenConsultation={() => setIsConsultationOpen(true)}
-            onOpenWholesale={() => setIsWholesaleOpen(true)}
-          />
-        </>
+        </main>
       )}
 
-      {/* 3. Footer with Navigation */}
+      {/* 3. Footer */}
       <Footer
         onNavigate={handleNavigate}
         onOpenCalculator={() => setIsCalculatorOpen(true)}
@@ -479,18 +389,30 @@ export default function App() {
       {/* Floating WhatsApp Action Button */}
       <div className="fixed bottom-6 right-6 z-30">
         <a
-          href="https://wa.me/919811054321?text=Hello%20Bhasin%20Textiles!%20I%20would%20like%20to%20inquire%20about%20fabrics,%20sarees,%20and%20swatches."
+          href="https://wa.me/919811054321?text=Hello%20Shree%20Durga%20Agency!%20I%20would%20like%20to%20discuss%20a%20textile%20sourcing%20requirement."
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-3 bg-[#143D36] hover:bg-[#0E2E28] text-white rounded-full shadow-xl hover:shadow-2xl transition-all text-xs font-semibold tracking-wide border border-[#D8B26E]/40"
-          title="Direct WhatsApp Consultation"
+          title="Direct WhatsApp Sourcing Desk"
         >
           <MessageCircle className="w-5 h-5 text-[#D8B26E]" />
-          <span className="hidden sm:inline">WhatsApp Fabric Master</span>
+          <span className="hidden sm:inline">WhatsApp Sourcing Desk</span>
         </a>
       </div>
 
-      {/* Modals & Slide-overs */}
+      {/* Modals */}
+      <RequirementModal
+        isOpen={isRequirementModalOpen}
+        onClose={() => setIsRequirementModalOpen(false)}
+        initialCategory={requirementInitialCategory}
+      />
+
+      <ThreadlincModal
+        isOpen={isThreadlincOpen}
+        onClose={() => setIsThreadlincOpen(false)}
+        currency={currency}
+      />
+
       <ProductDetailModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
@@ -521,6 +443,7 @@ export default function App() {
         onRemoveItem={handleRemoveItem}
         onClearCart={handleClearCart}
         currency={currency}
+        onOpenThreadlinc={() => setIsThreadlincOpen(true)}
       />
 
       <WholesaleModal
