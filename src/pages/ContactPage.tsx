@@ -118,8 +118,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             <div className="pt-4 border-t border-stone-100 space-y-3 text-xs text-stone-700">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#9B1D2C]" />
-                <a href="tel:+919811054321" className="font-bold hover:text-[#9B1D2C] transition-colors">
-                  +91 98110 54321 (Direct Desk)
+                <a href="tel:+917838583904" className="font-bold hover:text-[#9B1D2C] transition-colors">
+                  +91 7838583904 (Direct Desk)
                 </a>
               </div>
               <div className="flex items-center gap-3">
