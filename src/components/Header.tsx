@@ -77,12 +77,12 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Action Zone: Phone + Bag + 1 Primary CTA Button */}
         <div className="flex items-center gap-3 shrink-0">
           <a
-            href="tel:+919811054321"
+            href="tel:+917838583904"
             className="hidden sm:flex items-center gap-1.5 text-xs text-stone-600 hover:text-[#9B1D2C] font-medium transition-colors whitespace-nowrap"
             title="Direct Desk"
           >
             <Phone className="w-3.5 h-3.5 text-[#D8B26E]" />
-            <span>+91 98110 54321</span>
+            <span>+91 7838583904</span>
           </a>
 
           {/* Swatch / Sample Cart Trigger */}
@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
           ))}
           <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-xs text-stone-600 px-3">
             <span>Direct Sourcing Desk:</span>
-            <a href="tel:+919811054321" className="font-bold text-stone-900">+91 98110 54321</a>
+            <a href="tel:+917838583904" className="font-bold text-stone-900">+91 7838583904</a>
           </div>
         </div>
       )}
