@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { siteContent } from '../config/siteContent';
+import { sectionsContent, buttonsContent, mediaAssets } from '../content';
 
 interface HeroProps {
   onOpenRequirementModal: () => void;
@@ -13,7 +13,8 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreCategories,
   onOpenThreadlincModal,
 }) => {
-  const { brand } = siteContent;
+  const { hero, brand } = sectionsContent;
+  const { hero: heroButtons } = buttonsContent;
 
   return (
     <>
@@ -27,20 +28,21 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Main Value Proposition Column */}
           <div className="lg:col-span-7 flex flex-col items-start">
             
-            {/* Minimal Unboxed Kicker with Emerald Accent */}
-            <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-[#0D7A5F] uppercase mb-4">
-              <span className="w-6 h-0.5 bg-[#0D7A5F]" />
-              <span>Est. {brand.estYear} · {brand.headquarters} · {brand.role}</span>
+            {/* Colored Round-Edged Square Section Badge (No dash) */}
+            <div className="mb-5">
+              <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
+                {hero.kicker}
+              </span>
             </div>
 
             {/* Direct High-Impact Architectural Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-[#0B1B33] leading-[1.1] tracking-tight mb-5">
-              Direct Textile Sourcing <span className="text-[#0D7A5F]">&</span> Trade Consultancy
+              {hero.titlePrimary} <span className="text-[#0D7A5F]">{hero.titleAccent}</span>
             </h1>
 
             {/* Crisp, Direct Value Statement */}
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-8 font-normal">
-              Procure wholesale sarees, suits, lehengas, and fabrics directly from verified production hubs in Varanasi, Surat, and Panipat. Pre-dispatch physical inspection with structured 30 to 90 days trade credit.
+              {hero.subtitle}
             </p>
 
             {/* Aligned Actions: Emerald Primary & Navy Secondary */}
@@ -50,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({
                 onClick={onOpenRequirementModal}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold tracking-wider uppercase text-white bg-[#0D7A5F] hover:bg-[#0A634D] rounded-lg transition-all shadow-sm cursor-pointer"
               >
-                <span>Submit Sourcing Requirement</span>
+                <span>{heroButtons.primaryRequirement.text}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
               <button
@@ -58,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({
                 onClick={onExploreCategories}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold tracking-wider uppercase text-[#0B1B33] bg-white border border-[#0B1B33] hover:bg-[#0B1B33] hover:text-white rounded-lg transition-colors cursor-pointer"
               >
-                <span>What We Source</span>
+                <span>{heroButtons.secondaryCatalog.text}</span>
               </button>
             </div>
           </div>
@@ -68,8 +70,8 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm border-t-4 border-t-[#0D7A5F]">
               <div className="aspect-4/3 overflow-hidden bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80"
-                  alt="Authentic Indian Textile Weaves"
+                  src={mediaAssets.hero.primaryVisual.url}
+                  alt={mediaAssets.hero.primaryVisual.alt}
                   className="w-full h-full object-cover object-center"
                   style={{ marginLeft: '0px' }}
                 />

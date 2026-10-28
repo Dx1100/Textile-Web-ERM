@@ -49,12 +49,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* Header */}
       <div className="max-w-2xl mb-12">
-        <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#143D36] font-semibold mb-2 px-3 py-1 rounded-full bg-[#143D36]/10">
-          <span>Direct Sourcing Desk</span>
-          <span aria-hidden="true">·</span>
-          <span>{brand.name}</span>
+        <div className="mb-4">
+          <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
+            Direct Sourcing Desk · {brand.name}
+          </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1E293B] leading-tight mb-3">
+        <h1 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0B1B33] leading-tight mb-3">
           Let’s Discuss Your Textile Sourcing Needs
         </h1>
         <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">

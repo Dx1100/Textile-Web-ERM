@@ -65,9 +65,10 @@ export const DetailedProductsSection: React.FC<DetailedProductsSectionProps> = (
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-[#0D7A5F] uppercase mb-1.5">
-              <span className="w-5 h-0.5 bg-[#0D7A5F]" />
-              <span>What We Source</span>
+            <div className="mb-2">
+              <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
+                What We Source · Sourcing Range
+              </span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-[#0B1B33] tracking-tight">
               Product Categories & Sourcing Range

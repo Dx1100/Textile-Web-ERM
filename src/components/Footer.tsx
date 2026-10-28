@@ -34,9 +34,10 @@ export const Footer: React.FC<FooterProps> = ({
       <div className="border-b border-slate-800/80 py-12 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between">
           <div className="md:col-span-6">
-            <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <span className="w-4 h-0.5 bg-emerald-500" />
-              <span>B2B Wholesale Catalog Drops</span>
+            <div className="mb-2.5">
+              <span className="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-950/80 text-emerald-300 border border-emerald-800/80 shadow-xs">
+                B2B Wholesale Catalog Drops
+              </span>
             </div>
             <h3 className="text-2xl font-heading font-extrabold text-white mb-2">
               Receive New Sourcing Lots & Festive Wholesale Alerts

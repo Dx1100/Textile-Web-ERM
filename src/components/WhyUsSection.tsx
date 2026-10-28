@@ -17,10 +17,12 @@ export const WhyUsSection: React.FC<WhyUsSectionProps> = ({ onWorkWithUs }) => {
         
         {/* Minimal Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C2B4B]/8 text-[#1C2B4B] text-xs font-semibold uppercase tracking-wider mb-4">
-            <span>{whyUs.badge}</span>
+          <div className="mb-4">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 text-xs font-bold tracking-wider uppercase shadow-xs">
+              {whyUs.badge}
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1E293B] tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-[#0B1B33] tracking-tight leading-tight mb-4">
             {whyUs.heading}
           </h2>
           <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed">

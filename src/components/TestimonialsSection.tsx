@@ -112,9 +112,10 @@ export const TestimonialsSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-[#0D7A5F] uppercase mb-2">
-              <span className="w-6 h-0.5 bg-[#0D7A5F]" />
-              <span>Merchant Feedback</span>
+            <div className="mb-3">
+              <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
+                Merchant Experiences · Tier 2 & 3 Cities
+              </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0B1B33] tracking-tight">
               Trusted by Showroom Owners in Tier 2 & Tier 3 Cities

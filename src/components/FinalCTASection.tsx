@@ -42,9 +42,10 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = () => {
           
           {/* Left Column: Direct Value Statement */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-[#0D7A5F] uppercase">
-              <span className="w-6 h-0.5 bg-[#0D7A5F]" />
-              <span>Get In Touch</span>
+            <div>
+              <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shadow-xs">
+                Fast-Track Sourcing Desk
+              </span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold tracking-tight text-white leading-tight">
               Start Sourcing Directly For Your Showroom

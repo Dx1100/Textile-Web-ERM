@@ -139,9 +139,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
       {/* Hero Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-slate-200">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-[#0D7A5F] text-[11px] font-semibold uppercase tracking-wider mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0D7A5F]" />
-            <span>Sourcing Portfolio · Verified Hub Network</span>
+          <div className="mb-3">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 text-xs font-bold tracking-wider uppercase shadow-xs">
+              Sourcing Range · Verified Hub Network
+            </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0B1B33] leading-tight mb-2">
             What We Source for Retailers & Wholesalers

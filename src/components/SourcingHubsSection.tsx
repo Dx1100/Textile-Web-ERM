@@ -15,9 +15,10 @@ export const SourcingHubsSection: React.FC<SourcingHubsSectionProps> = ({ onSele
         
         {/* Minimal Section Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-[#0D7A5F] uppercase mb-2">
-            <span className="w-6 h-0.5 bg-[#0D7A5F]" />
-            <span>Sourcing Network</span>
+          <div className="mb-3">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
+              Direct Mill Access · 5 Production Clusters
+            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0B1B33] tracking-tight">
             Regional Sourcing Hubs

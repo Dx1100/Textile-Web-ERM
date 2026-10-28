@@ -19,10 +19,12 @@ export const CompanyStorySection: React.FC<CompanyStorySectionProps> = ({ onTalk
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         <div className="max-w-2xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C2B4B]/8 text-[#1C2B4B] text-xs font-semibold uppercase tracking-wider mb-4">
-            <span>Our Journey</span>
+          <div className="mb-4">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 text-xs font-bold tracking-wider uppercase shadow-xs">
+              Our Journey
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1916]">
+          <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0B1B33]">
             From Chandni Chowk to PAN-India Textile Consulting
           </h2>
         </div>

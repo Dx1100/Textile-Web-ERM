@@ -24,12 +24,12 @@ export const StoresPage: React.FC<StoresPageProps> = ({
 
       {/* Hero */}
       <div className="max-w-3xl mb-12">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold mb-3">
-          <span>Delhi NCR Heritage Centers</span>
-          <span aria-hidden="true">·</span>
-          <span>Chandni Chowk & Faridabad</span>
+        <div className="mb-4">
+          <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
+            Delhi NCR Heritage Centers · Chandni Chowk & Faridabad
+          </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#1F1916] leading-tight mb-4">
+        <h1 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#0B1B33] leading-tight mb-4">
           Visit Our Heritage Atelier & Weaving Looms
         </h1>
         <p className="text-base text-stone-600 leading-relaxed font-light">
