@@ -34,7 +34,7 @@ export const sectionsContent = {
     subtitle: "Procure wholesale sarees, suits, lehengas, and fabrics directly from verified production hubs in Varanasi, Surat, and Panipat. Pre-dispatch physical inspection with structured 30 to 90 days trade credit.",
     trustBadges: [
       { text: "Inspected in Chandni Chowk · Dispatched PAN-India" },
-      { text: "Direct Mill Billing · No Hidden Middleman Margins" },
+      { text: "Direct Factory Billing · No Hidden Middleman Margins" },
       { text: "30 to 90 Days Structured Trade Credit Available" },
     ],
     experienceSummary: "Advising wholesale buyers & retailers from Chandni Chowk since 1999.",
@@ -43,8 +43,8 @@ export const sectionsContent = {
   // 2. Sliding Partner Brands & Looms Section
   partners: {
     kicker: "Trusted Production Partners & Looms",
-    title: "Direct Mill Partnerships Across India",
-    subtitle: "We partner directly with India's most respected textile mills, weaving clusters, and dye houses to bring transparent wholesale rates straight to your shop floor.",
+    title: "Direct Production Partnerships Across India",
+    subtitle: "We partner directly with India's most respected weaving clusters, manufacturing units, and dye houses to bring transparent wholesale rates straight to your shop floor.",
     carouselSpeedMs: 3200,
   },
 
@@ -64,7 +64,7 @@ export const sectionsContent = {
 
   // 4. Sourcing Hubs Section
   sourcingHubs: {
-    kicker: "Direct Mill Access · 5 Production Clusters",
+    kicker: "Direct Producer Access · 5 Production Clusters",
     title: "Sourcing Directly From India's Textile Capitals",
     subtitle: "Skip middlemen. Every category is sourced directly from its primary geographical origin, inspected on-loom, and dispatched straight to your warehouse.",
     hubsList: [
@@ -124,7 +124,7 @@ export const sectionsContent = {
       },
       {
         number: "03",
-        title: "Direct Mill Billing",
+        title: "Direct Factory Billing",
         description: "Zero undisclosed markups. Direct manufacturer invoices with transparent 2% to 3% advisory brokerage fee.",
       },
       {
@@ -174,6 +174,6 @@ export const sectionsContent = {
   threadlinc: {
     kicker: "Threadlinc Trade Credit Facility",
     title: "Procure Today. Pay After Sales (30 to 90 Days)",
-    subtitle: "Cash flow shouldn't bottleneck your festival inventory. Procure premium stock from top mills while Threadlinc finances the invoice with transparent credit terms.",
+    subtitle: "Cash flow shouldn't bottleneck your festival inventory. Procure premium stock from top weaving houses while Threadlinc finances the invoice with transparent credit terms.",
   },
 };

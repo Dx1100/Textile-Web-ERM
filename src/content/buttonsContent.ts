@@ -79,12 +79,12 @@ export const buttonsContent = {
     },
   },
 
-  // Partners & Mills Section Buttons
+  // Production Partners Section Buttons
   partners: {
     exploreAllPartners: {
-      text: "Consult On Mill Partnerships",
+      text: "Consult On Production Partnerships",
       action: "open_requirement_modal",
-      ariaLabel: "Connect directly with verified partner mills",
+      ariaLabel: "Connect directly with verified production partners",
     },
   },
 

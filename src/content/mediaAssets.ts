@@ -46,7 +46,7 @@ export const mediaAssets = {
     },
   },
 
-  // Production Partner Mills & Brands (Sliding Partners Section)
+  // Production Partners & Brands (Sliding Partners Section)
   partnerBrands: [
     {
       id: "varanasi-silk-heritage",
@@ -56,8 +56,8 @@ export const mediaAssets = {
       logo: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=240&h=120&q=80",
     },
     {
-      id: "surat-jacquard-mills",
-      name: "Surat Jacquard & Dobby Mills",
+      id: "surat-jacquard-textiles",
+      name: "Surat Jacquard & Dobby Looms",
       city: "Surat, Gujarat",
       specialty: "Digital Print Georgettes & Viscose Fabrics",
       logo: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=240&h=120&q=80",
@@ -92,7 +92,7 @@ export const mediaAssets = {
     },
     {
       id: "tirupur-combed-cotton",
-      name: "Tirupur Knit Hub Mills",
+      name: "Tirupur Knit Hub",
       city: "Tirupur, Tamil Nadu",
       specialty: "Combed Cotton Hosiery & Daily Wear Essentials",
       logo: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=240&h=120&q=80",
@@ -169,6 +169,6 @@ export const mediaAssets = {
   // Showrooms & Heritage Centers
   showrooms: {
     chandniChowk: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
-    faridabadMill: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+    faridabadCenter: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
   },
 };

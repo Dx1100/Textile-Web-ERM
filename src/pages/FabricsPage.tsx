@@ -69,7 +69,7 @@ export const FabricsPage: React.FC<FabricsPageProps> = ({
             Haute Couture Fabric Yardage Archive
           </h1>
           <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-light mb-6">
-            Direct mill and handloom yardages for couturiers, bespoke tailors, and bridal designers. Order starting from 1 meter with precision 0.5-meter step increments, or sample any fabric with a ₹99 physical swatch.
+            Direct loom and artisan yardages for couturiers, bespoke tailors, and bridal designers. Order starting from 1 meter with precision 0.5-meter step increments, or sample any fabric with a ₹99 physical swatch.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <button

@@ -51,7 +51,7 @@ const TESTIMONIALS: Testimonial[] = [
     businessType: 'Bridal Boutique',
     sourcedCategory: 'Pure Silk Brocades & Hand-Zari Lehengas',
     orderVolume: 'Custom Designer Lots (20–40 Mtrs)',
-    quote: 'As a bespoke boutique owner, standard wholesale mills refuse small cut orders. Shree Durga Agency curates limited-run master brocades directly from Varanasi master weavers for our bridal orders. Their quality inspection is strict and dependable.',
+    quote: 'As a bespoke boutique owner, standard wholesale manufacturers refuse small cut orders. Shree Durga Agency curates limited-run master brocades directly from Varanasi master weavers for our bridal orders. Their quality inspection is strict and dependable.',
     rating: 5,
     partnershipYears: '2 Years',
   },

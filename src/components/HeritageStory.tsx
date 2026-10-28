@@ -54,7 +54,7 @@ export const HeritageStory: React.FC<HeritageStoryProps> = ({
                 <Compass className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-serif font-bold text-[#1F1916] mb-2">
-                Mill Lab Dips & Custom Dyeing
+                Loom Lab Dips & Custom Dyeing
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
                 Operating high-precision dyeing vats capable of matching exact Pantone shade cards within 48 hours. Providing bridal ateliers and design houses with uniform color lots from 5 meters to 5,000 meters.

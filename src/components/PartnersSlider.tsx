@@ -1,95 +1,85 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, CheckCircle2, Building, ShieldCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { mediaAssets } from '../content';
 
 interface Partner {
   id: string;
   name: string;
-  specialty: string;
   hub: string;
-  type: string;
-  cert: string;
+  logoUrl?: string;
+  monogram: string;
 }
 
 const PARTNERS: Partner[] = [
   {
     id: 'varanasi-guild',
     name: 'Varanasi Silk Weavers Guild',
-    specialty: 'Pure Katan Silk & Jamdani Brocades',
     hub: 'Varanasi, UP',
-    type: 'Heritage Loom Guild',
-    cert: 'Silk Mark Certified',
+    logoUrl: mediaAssets.partnerBrands[0]?.logo,
+    monogram: 'VS',
   },
   {
-    id: 'surat-mills',
+    id: 'surat-producers',
     name: 'Surat Jacquard & Textile Hub',
-    specialty: 'Georgette, Chiffon & Fancy Blends',
     hub: 'Surat, Gujarat',
-    type: 'High-Volume Production',
-    cert: 'ISO 9001 Sourcing',
+    logoUrl: mediaAssets.partnerBrands[1]?.logo,
+    monogram: 'SJ',
   },
   {
     id: 'jaipur-consortium',
     name: 'Jaipur Block Craft Consortium',
-    specialty: 'Sanganeri & Bagru Hand Prints',
     hub: 'Jaipur, Rajasthan',
-    type: 'Artisan Textile Cluster',
-    cert: 'GI Tag Verified',
+    logoUrl: mediaAssets.partnerBrands[3]?.logo,
+    monogram: 'JB',
   },
   {
     id: 'panipat-network',
     name: 'Panipat Home Loom Network',
-    specialty: 'Bedsheets, Dohars & Heavy Curtains',
     hub: 'Panipat, Haryana',
-    type: 'Home Furnishing Hub',
-    cert: 'Export Quality Audit',
+    logoUrl: mediaAssets.partnerBrands[2]?.logo,
+    monogram: 'PL',
   },
   {
     id: 'silk-mark',
-    name: 'Silk Mark Registered Producers',
-    specialty: '100% Pure Natural Silk Guarantee',
+    name: 'Silk Mark Certified Guild',
     hub: 'Varanasi · Bengaluru',
-    type: 'Government Recognized',
-    cert: 'Govt. Silk Board',
+    logoUrl: mediaAssets.partnerBrands[0]?.logo,
+    monogram: 'SM',
   },
   {
     id: 'chanderi-heritage',
     name: 'Chanderi Handloom Heritage',
-    specialty: 'Zari Tissue, Organza & Chanderi Silk',
     hub: 'Chanderi, MP',
-    type: 'Master Weaver Trust',
-    cert: 'GI Tag Certified',
+    logoUrl: mediaAssets.partnerBrands[7]?.logo,
+    monogram: 'CH',
   },
   {
     id: 'tirupur-collective',
     name: 'Tirupur Knitwear Collective',
-    specialty: 'Combed Cotton Tees & Activewear',
     hub: 'Tirupur, TN',
-    type: 'Knitting & Export Unit',
-    cert: 'OEKO-TEX Certified',
+    logoUrl: mediaAssets.partnerBrands[6]?.logo,
+    monogram: 'TK',
   },
   {
-    id: 'ludhiana-mills',
-    name: 'Ludhiana Wool & Thermal Mills',
-    specialty: 'Winter Sweaters, Thermals & Cardigans',
+    id: 'ludhiana-knitwear',
+    name: 'Ludhiana Wool & Thermal Weaves',
     hub: 'Ludhiana, Punjab',
-    type: 'Knit & Fleece Hub',
-    cert: 'Direct Mill Partner',
+    logoUrl: mediaAssets.partnerBrands[4]?.logo,
+    monogram: 'LW',
   },
   {
     id: 'bhagalpur-tussar',
     name: 'Bhagalpur Tussar Craft Council',
-    specialty: 'Matka Silks & Raw Texture Weaves',
     hub: 'Bhagalpur, Bihar',
-    type: 'Wild Silk Cluster',
-    cert: 'Handloom Certified',
+    logoUrl: mediaAssets.partnerBrands[5]?.logo,
+    monogram: 'BT',
   },
   {
-    id: 'bhadohi-rugs',
-    name: 'Bhadohi Carpet & Rug Guild',
-    specialty: 'Hand-Tufted Carpets & Dhurries',
-    hub: 'Bhadohi, UP',
-    type: 'Flooring Craft Center',
-    cert: 'Craft Mark Verified',
+    id: 'delhi-couture',
+    name: 'Katra Neel Embroidery Guild',
+    hub: 'Chandni Chowk, Delhi',
+    logoUrl: mediaAssets.partnerBrands[8]?.logo,
+    monogram: 'KN',
   },
 ];
 
@@ -99,8 +89,7 @@ export const PartnersSlider: React.FC = () => {
   const total = PARTNERS.length;
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto moving then pausing then moving effect
-  // Smoothly step forward, pause for 2.5 seconds, then move again
+  // Auto moving then pausing then moving effect (2.8s display interval)
   useEffect(() => {
     if (isPaused) return;
 
@@ -121,8 +110,6 @@ export const PartnersSlider: React.FC = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
   };
 
-  // We display 3 cards visible on desktop, 2 on tablet, 1 on mobile
-  // To create a seamless sliding effect:
   return (
     <section 
       className="py-10 bg-slate-50/80 border-b border-slate-200 overflow-hidden"
@@ -143,7 +130,7 @@ export const PartnersSlider: React.FC = () => {
               Verified Production Centers & Weaver Guilds
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 font-normal mt-0.5">
-              Direct origin ties with India's premier accredited textile clusters and certified artisan networks.
+              Direct origin ties with India's accredited textile clusters and artisan networks.
             </p>
           </div>
 
@@ -171,53 +158,52 @@ export const PartnersSlider: React.FC = () => {
         </div>
 
         {/* Sliding Carousel Track */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden py-1">
           <div
-            className="flex transition-transform duration-700 ease-in-out gap-4 sm:gap-6"
+            className="flex transition-transform duration-700 ease-in-out gap-4 sm:gap-5"
             style={{
-              transform: `translateX(-${currentIndex * (100 / (window.innerWidth >= 1024 ? 3.5 : window.innerWidth >= 640 ? 2.2 : 1.1))}%)`,
+              transform: `translateX(-${currentIndex * (100 / (window.innerWidth >= 1024 ? 4.8 : window.innerWidth >= 640 ? 3.2 : 1.8))}%)`,
             }}
           >
-            {/* Duplicated list to create infinite smooth feel */}
+            {/* Duplicated array for seamless continuous sliding */}
             {[...PARTNERS, ...PARTNERS].map((partner, idx) => (
               <div
                 key={`${partner.id}-${idx}`}
-                className="w-[88%] sm:w-[46%] lg:w-[27.5%] shrink-0 bg-white rounded-xl border border-slate-200 p-4.5 sm:p-5 flex flex-col justify-between hover:border-[#0D7A5F] hover:shadow-md transition-all group"
+                className="w-[52%] sm:w-[29%] lg:w-[19.2%] shrink-0 bg-white rounded-xl border border-slate-200 p-4 sm:p-5 flex flex-col items-center justify-between text-center hover:border-[#0D7A5F] hover:shadow-sm transition-all group min-h-[148px]"
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[10px] font-bold tracking-wider uppercase text-[#0D7A5F] bg-emerald-50 px-2 py-0.5 rounded">
-                      {partner.type}
-                    </span>
-                    <span className="text-[10px] text-slate-400 font-medium">
-                      {partner.hub}
-                    </span>
-                  </div>
-
-                  <h3 className="text-sm sm:text-base font-heading font-bold text-[#0B1B33] group-hover:text-[#0D7A5F] transition-colors line-clamp-1">
-                    {partner.name}
-                  </h3>
-
-                  <p className="text-xs text-slate-600 mt-1 line-clamp-2 leading-relaxed">
-                    {partner.specialty}
-                  </p>
+                {/* 1. Logo Display Option */}
+                <div className="w-full h-14 flex items-center justify-center p-1">
+                  {partner.logoUrl ? (
+                    <div className="w-full h-full flex items-center justify-center bg-slate-50/80 rounded-lg p-1.5 border border-slate-100 group-hover:border-emerald-200/80 group-hover:bg-emerald-50/30 transition-all">
+                      <img
+                        src={partner.logoUrl}
+                        alt={`${partner.name} logo`}
+                        className="max-h-10 max-w-[120px] object-cover rounded filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 font-bold text-sm tracking-wider group-hover:bg-emerald-50 group-hover:text-[#0D7A5F] group-hover:border-emerald-200 transition-colors">
+                      {partner.monogram}
+                    </div>
+                  )}
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-1 text-[#0D7A5F] font-semibold">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Verified Partner</span>
-                  </div>
-                  <span className="text-slate-400 text-[10px]">
-                    {partner.cert}
-                  </span>
+                {/* 2. Partner Name (No category mentioned) */}
+                <div className="w-full mt-2 pt-2 border-t border-slate-100">
+                  <h3 className="text-xs sm:text-[13px] font-heading font-bold text-[#0B1B33] group-hover:text-[#0D7A5F] transition-colors line-clamp-1 w-full" title={partner.name}>
+                    {partner.name}
+                  </h3>
+                  <p className="text-[10px] text-slate-400 font-medium mt-0.5 truncate w-full">
+                    {partner.hub}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Dots Indicator */}
+        {/* Dots Navigation Indicator */}
         <div className="flex items-center justify-center gap-1.5 mt-5">
           {PARTNERS.map((_, i) => (
             <button

@@ -17,7 +17,7 @@ export const SourcingHubsSection: React.FC<SourcingHubsSectionProps> = ({ onSele
         <div className="mb-12">
           <div className="mb-3">
             <span className="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-emerald-50 text-[#0D7A5F] border border-emerald-200/80 shadow-xs">
-              Direct Mill Access · 5 Production Clusters
+              Direct Producer Access · 5 Production Clusters
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#0B1B33] tracking-tight">

@@ -97,7 +97,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
           </div>
         </div>
 
-        {/* 2. Faridabad Mill & Weaving Park */}
+        {/* 2. Faridabad Production Center & Weaving Park */}
         <div className="bg-white rounded-3xl p-8 border border-stone-200/90 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">

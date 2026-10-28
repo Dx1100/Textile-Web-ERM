@@ -39,7 +39,7 @@ Located at: `/src/content/mediaAssets.ts`
 
 Central repository for all images and visual media:
 - **Hero Visuals**: Main banner image, fabric inspection badge, dispatch warehouse photography.
-- **Partner Mill Logos**: 10 accredited textile mills and weaver guild imagery.
+- **Partner Brand Logos**: 10 accredited textile producers and weaver guild imagery.
 - **Product Category Visuals**: High-resolution photography for Women's, Men's, Kids, and Home Furnishings.
 - **Sourcing Hub Photography**: Surat, Varanasi, Jaipur, Panipat, Delhi, Ludhiana, and Ahmedabad.
 - **Showroom & Atelier Visuals**: Chandni Chowk showroom and Faridabad manufacturing plant photos.
