@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, Navigation, Calendar, CheckCircle2 } from 'lucide-react';
+import { Building2, Phone, Mail, Clock, Navigation, Calendar, CheckCircle2 } from 'lucide-react';
 
 interface StoresPageProps {
   onNavigateHome: () => void;
@@ -19,12 +19,12 @@ export const StoresPage: React.FC<StoresPageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Flagship Showrooms & Weaving Mill Locations</span>
+        <span className="text-[#1C2B4B] font-semibold">Flagship Showrooms & Production Center Locations</span>
       </nav>
 
       {/* Hero */}
       <div className="max-w-3xl mb-12">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-3">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold mb-3">
           <span>Delhi NCR Heritage Centers</span>
           <span aria-hidden="true">·</span>
           <span>Chandni Chowk & Faridabad</span>
@@ -44,7 +44,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
         <div className="bg-white rounded-3xl p-8 border border-stone-200/90 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-mono font-bold text-[#9B1D2C] uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold text-[#1C2B4B] uppercase tracking-wider">
                 Flagship Retail & Bridal Floor
               </span>
               <span className="text-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium">Open Today</span>
@@ -59,7 +59,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
 
             <div className="space-y-3 text-xs text-stone-700 border-t border-b border-stone-100 py-4 mb-6">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#D8B26E] shrink-0 mt-0.5" />
+                <Building2 className="w-4 h-4 text-[#D8B26E] shrink-0 mt-0.5" />
                 <span>835/8, New Krishna Cloth Market, Katra Neel, Chandni Chowk, Old Delhi - 110006</span>
               </div>
               <div className="flex items-center gap-2.5">
@@ -81,7 +81,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
             <button
               type="button"
               onClick={onOpenConsultation}
-              className="flex-1 py-3 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors text-center"
+              className="flex-1 py-3 bg-[#1C2B4B] hover:bg-[#14223A] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors text-center"
             >
               Book Showroom Slot
             </button>
@@ -102,7 +102,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs font-mono font-bold text-[#D8B26E] uppercase tracking-wider">
-                Manufacturing & Weaving Mill
+                Manufacturing & Production Center
               </span>
               <span className="text-xs text-stone-600 bg-stone-100 px-2 py-0.5 rounded font-medium">B2B & Exports</span>
             </div>
@@ -116,7 +116,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
 
             <div className="space-y-3 text-xs text-stone-700 border-t border-b border-stone-100 py-4 mb-6">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#D8B26E] shrink-0 mt-0.5" />
+                <Building2 className="w-4 h-4 text-[#D8B26E] shrink-0 mt-0.5" />
                 <span>Plot 42, Sector 24, Industrial Area, Faridabad, Haryana - 121005</span>
               </div>
               <div className="flex items-center gap-2.5">
@@ -138,7 +138,7 @@ export const StoresPage: React.FC<StoresPageProps> = ({
             <button
               type="button"
               onClick={onOpenConsultation}
-              className="flex-1 py-3 bg-[#1F1916] hover:bg-[#9B1D2C] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors text-center"
+              className="flex-1 py-3 bg-[#1F1916] hover:bg-[#1C2B4B] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors text-center"
             >
               Schedule Factory Visit
             </button>

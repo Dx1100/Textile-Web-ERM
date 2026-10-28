@@ -75,12 +75,12 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
         {/* Header */}
         <div className="bg-[#1F1916] text-[#FAF8F5] p-6 flex items-center justify-between border-b border-stone-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shadow-inner">
+            <div className="w-10 h-10 rounded-xl bg-[#1C2B4B] flex items-center justify-center text-[#D8B26E] shadow-inner">
               <Building2 className="w-5 h-5" />
             </div>
             <div>
               <h2 className="text-xl font-serif font-bold tracking-wide">B2B Wholesale & Private Label Atelier</h2>
-              <p className="text-xs text-stone-300">Direct mill sourcing, custom dyeing & export volumes since 1997</p>
+              <p className="text-xs text-stone-300">Direct hub sourcing, custom dyeing & export volumes since 1997</p>
             </div>
           </div>
           <button
@@ -129,7 +129,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="p-3 bg-stone-50 rounded-xl border border-stone-200/80 text-xs text-stone-600 flex items-center justify-between">
                 <span>Minimum Order Quantity (MOQ): <strong>25–50 Meters/color</strong></span>
-                <span className="text-[#9B1D2C] font-semibold">Physical Swatch Folder Dispatched on Request</span>
+                <span className="text-[#1C2B4B] font-semibold">Physical Swatch Folder Dispatched on Request</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -143,7 +143,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                     value={form.companyName}
                     onChange={(e) => setForm({ ...form, companyName: e.target.value })}
                     placeholder="e.g. Sona Couture / London Garments"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
                 <div>
@@ -156,7 +156,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                     value={form.contactPerson}
                     onChange={(e) => setForm({ ...form, contactPerson: e.target.value })}
                     placeholder="e.g. Vikram Bhasin"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -172,7 +172,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     placeholder="+91 98110 54321"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
                 <div>
@@ -185,7 +185,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="sourcing@brand.com"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
                 <div>
@@ -198,7 +198,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                     value={form.city}
                     onChange={(e) => setForm({ ...form, city: e.target.value })}
                     placeholder="Delhi, Mumbai, Dubai..."
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -211,11 +211,11 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                   <select
                     value={form.monthlyMeters}
                     onChange={(e) => setForm({ ...form, monthlyMeters: e.target.value })}
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#1C2B4B]"
                   >
                     <option value="50 - 200 meters">50 – 200 meters (Sampling & Capsule)</option>
                     <option value="200 - 1,000 meters">200 – 1,000 meters (Boutique Production)</option>
-                    <option value="1,000 - 5,000+ meters">1,000 – 5,000+ meters (Export / Mill Rolls)</option>
+                    <option value="1,000 - 5,000+ meters">1,000 – 5,000+ meters (Export / Wholesale Rolls)</option>
                   </select>
                 </div>
                 <div>
@@ -227,7 +227,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                     value={form.gstNumber}
                     onChange={(e) => setForm({ ...form, gstin: e.target.value } as any)}
                     placeholder="07AAAAA0000A1Z5"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg uppercase focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg uppercase focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -266,10 +266,10 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                   id="customDye"
                   checked={form.requireCustomDyeingOrPrinting}
                   onChange={(e) => setForm({ ...form, requireCustomDyeingOrPrinting: e.target.checked })}
-                  className="rounded border-stone-300 text-[#9B1D2C] focus:ring-[#9B1D2C]"
+                  className="rounded border-stone-300 text-[#1C2B4B] focus:ring-[#1C2B4B]"
                 />
                 <label htmlFor="customDye" className="text-xs text-stone-700 cursor-pointer">
-                  Require custom mill dyeing (Pantone shade matching) or private label digital printing
+                  Require custom custom dyeing (Pantone shade matching) or private label digital printing
                 </label>
               </div>
 
@@ -282,7 +282,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   placeholder="Mention desired GSM, target price per meter, or dispatch timelines..."
-                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -298,7 +298,7 @@ export const WholesaleModal: React.FC<WholesaleModalProps> = ({ isOpen, onClose 
 
                 <button
                   type="submit"
-                  className="flex items-center gap-2 px-6 py-2.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer ml-auto"
+                  className="flex items-center gap-2 px-6 py-2.5 bg-[#1C2B4B] hover:bg-[#14223A] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer ml-auto"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Submit Wholesale Request</span>

@@ -88,8 +88,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-stone-200 flex items-center justify-between bg-[#FAF8F5]">
           <div className="flex items-center gap-2">
-            <ShoppingBag className="w-5 h-5 text-[#9B1D2C]" />
-            <h2 className="text-base font-serif font-bold text-[#1F1916]">
+            <ShoppingBag className="w-5 h-5 text-[#1C2B4B]" />
+            <h2 className="text-base font-serif font-bold text-[#1E293B]">
               {orderConfirmed ? 'Order Confirmation' : isCheckingOut ? 'Express Checkout' : `Shopping Bag (${items.length})`}
             </h2>
           </div>
@@ -134,7 +134,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   setIsCheckingOut(false);
                   onClose();
                 }}
-                className="w-full py-3 bg-[#1F1916] hover:bg-[#9B1D2C] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors"
+                className="w-full py-3 bg-[#1F1916] hover:bg-[#1C2B4B] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors"
               >
                 Continue Browsing
               </button>
@@ -157,7 +157,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="e.g. Radhika Sharma"
-                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -172,7 +172,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="98100 12345"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
                 <div>
@@ -184,7 +184,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="name@email.com"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -199,7 +199,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                   placeholder="House/Plot no., Street, Landmark"
-                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -213,7 +213,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     required
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
                 <div>
@@ -225,7 +225,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     required
                     value={formData.pincode}
                     onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -236,7 +236,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <label className={`p-2.5 rounded-lg border text-xs flex items-center gap-2 cursor-pointer transition-colors ${
-                    formData.paymentMethod === 'cod' ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 font-semibold text-[#1F1916]' : 'border-stone-200 text-stone-600'
+                    formData.paymentMethod === 'cod' ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 font-semibold text-[#1F1916]' : 'border-stone-200 text-stone-600'
                   }`}>
                     <input
                       type="radio"
@@ -244,13 +244,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       value="cod"
                       checked={formData.paymentMethod === 'cod'}
                       onChange={() => setFormData({ ...formData, paymentMethod: 'cod' })}
-                      className="accent-[#9B1D2C]"
+                      className="accent-[#1C2B4B]"
                     />
                     <span>Cash on Delivery</span>
                   </label>
 
                   <label className={`p-2.5 rounded-lg border text-xs flex items-center gap-2 cursor-pointer transition-colors ${
-                    formData.paymentMethod === 'prepaid' ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 font-semibold text-[#1F1916]' : 'border-stone-200 text-stone-600'
+                    formData.paymentMethod === 'prepaid' ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 font-semibold text-[#1F1916]' : 'border-stone-200 text-stone-600'
                   }`}>
                     <input
                       type="radio"
@@ -258,7 +258,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       value="prepaid"
                       checked={formData.paymentMethod === 'prepaid'}
                       onChange={() => setFormData({ ...formData, paymentMethod: 'prepaid' })}
-                      className="accent-[#9B1D2C]"
+                      className="accent-[#1C2B4B]"
                     />
                     <span>UPI / Card / Netbanking</span>
                   </label>
@@ -275,7 +275,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
+                  className="flex-1 py-2.5 bg-[#1C2B4B] hover:bg-[#14223A] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
                 >
                   Confirm & Place Order ({formatPrice(grandTotal)})
                 </button>
@@ -292,7 +292,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="mt-6 px-5 py-2.5 bg-[#1F1916] hover:bg-[#9B1D2C] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors"
+                className="mt-6 px-5 py-2.5 bg-[#1F1916] hover:bg-[#1C2B4B] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors"
               >
                 Explore Fabrics
               </button>
@@ -315,7 +315,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     </div>
                     <div className="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
                       <div 
-                        className="bg-[#9B1D2C] h-full transition-all duration-300"
+                        className="bg-[#143D36] h-full transition-all duration-300"
                         style={{ width: `${Math.min(100, (rawSubtotal / shippingThreshold) * 100)}%` }}
                       />
                     </div>
@@ -342,7 +342,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     {/* Details */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2">
-                        <h4 className="text-xs font-serif font-bold text-[#1F1916] truncate">
+                        <h4 className="text-xs font-serif font-bold text-[#1E293B] truncate">
                           {item.product.name}
                         </h4>
                         <button
@@ -382,7 +382,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           <span className="text-[11px] text-stone-600 font-medium">1 Sample</span>
                         )}
 
-                        <span className="text-xs font-bold text-[#1F1916] tabular-nums font-serif">
+                        <span className="text-xs font-bold text-[#1E293B] tabular-nums font-serif">
                           {formatPrice(item.unitPrice * item.quantity)}
                         </span>
                       </div>
@@ -401,7 +401,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
                       placeholder="Coupon: HERITAGE10"
-                      className="w-full text-xs pl-8 pr-2 py-2 border border-stone-200 rounded-lg uppercase tracking-wider focus:outline-none focus:border-[#9B1D2C]"
+                      className="w-full text-xs pl-8 pr-2 py-2 border border-stone-200 rounded-lg uppercase tracking-wider focus:outline-none focus:border-[#1C2B4B]"
                     />
                   </div>
                   <button
@@ -452,16 +452,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             {/* Threadlinc B2B Financing hint */}
             {onOpenThreadlinc && (
               <div className="p-2.5 bg-stone-100 rounded-lg border border-stone-200/80 text-[11px] text-stone-600 flex items-center justify-between">
-                <span>Ordering for a brand/mill?</span>
+                <span>Ordering for your store?</span>
                 <button
                   type="button"
                   onClick={() => {
                     onClose();
                     onOpenThreadlinc();
                   }}
-                  className="text-[#9B1D2C] hover:underline font-semibold cursor-pointer"
+                  className="text-[#143D36] hover:underline font-semibold cursor-pointer"
                 >
-                  Threadlinc Bill-to-Ship-to Credit →
+                  Threadlinc Trade Credit →
                 </button>
               </div>
             )}
@@ -469,7 +469,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <button
               type="button"
               onClick={() => setIsCheckingOut(true)}
-              className="w-full flex items-center justify-center gap-2 py-3 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 py-3 bg-[#1C2B4B] hover:bg-[#14223A] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
             >
               <span>Proceed to Checkout</span>
               <ArrowRight className="w-4 h-4" />

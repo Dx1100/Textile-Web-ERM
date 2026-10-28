@@ -20,8 +20,8 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
       num: 2,
       title: "Sourcing",
       icon: Search,
-      tagline: "Tapping 500+ Verified Weaving Mills",
-      details: "Our on-ground sourcing coordinators across Delhi, Surat, Jaipur, and Panipat evaluate real-time loom schedules, yarn availability, and ex-mill rates to find the exact production match.",
+      tagline: "Tapping 500+ Verified Production Centers",
+      details: "Our on-ground sourcing coordinators across Delhi, Surat, Jaipur, and Panipat evaluate real-time loom schedules, yarn availability, and wholesale hub rates to find the exact production match.",
     },
     {
       num: 3,
@@ -42,7 +42,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
       title: "Order",
       icon: ShoppingCart,
       tagline: "Commercial PO & Threadlinc Trade Financing",
-      details: "Commercial Purchase Order issuance. If trade credit is desired, our financing firm Threadlinc approves 30–90 day credit and issues compliant 'Bill to – Ship to' GST documentation.",
+      details: "Commercial Purchase Order issuance. If trade credit is desired, our financing firm Threadlinc approves 30–90 day credit and issues compliant 'Trade Credit (30–90 Days)' GST documentation.",
     },
     {
       num: 6,
@@ -66,7 +66,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold mb-2">
             <span>How We Work</span>
             <span aria-hidden="true">·</span>
             <span>Requirement to Doorstep Delivery</span>
@@ -75,7 +75,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
             Our 7-Step Seamless Sourcing Pipeline
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 font-light leading-relaxed">
-            From initial enquiry to doorstep factory delivery. We handle on-ground mill negotiations, physical sampling, quality audits, and Threadlinc trade financing under one coordinated umbrella.
+            From initial enquiry to doorstep factory delivery. We handle on-ground price negotiations, physical sampling, quality audits, and Threadlinc trade financing under one coordinated umbrella.
           </p>
         </div>
 
@@ -91,15 +91,15 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
                 onClick={() => setActiveStep(s.num)}
                 className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                   isCurrent
-                    ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 ring-1 ring-[#9B1D2C] shadow-xs'
+                    ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 ring-1 ring-[#1C2B4B] shadow-xs'
                     : 'border-stone-200 hover:border-stone-400 bg-[#FAF8F5]'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className={`text-[11px] font-mono font-bold ${isCurrent ? 'text-[#9B1D2C]' : 'text-stone-400'}`}>
+                  <span className={`text-[11px] font-mono font-bold ${isCurrent ? 'text-[#1C2B4B]' : 'text-stone-400'}`}>
                     0{s.num}
                   </span>
-                  <Icon className={`w-4 h-4 ${isCurrent ? 'text-[#9B1D2C]' : 'text-stone-400'}`} />
+                  <Icon className={`w-4 h-4 ${isCurrent ? 'text-[#1C2B4B]' : 'text-stone-400'}`} />
                 </div>
                 <h4 className={`text-xs font-bold leading-tight ${isCurrent ? 'text-stone-950 font-serif' : 'text-stone-700'}`}>
                   {s.title}
@@ -116,7 +116,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
           return (
             <div className="bg-[#1F1916] text-[#FAF8F5] p-6 sm:p-10 rounded-3xl border border-stone-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
               <div className="flex items-start gap-4 sm:gap-6 max-w-2xl">
-                <div className="w-14 h-14 rounded-2xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shrink-0 shadow-inner">
+                <div className="w-14 h-14 rounded-2xl bg-[#1C2B4B] flex items-center justify-center text-[#D8B26E] shrink-0 shadow-inner">
                   <CurIcon className="w-7 h-7" />
                 </div>
                 <div>
@@ -136,7 +136,7 @@ export const HowWeWorkSection: React.FC<HowWeWorkSectionProps> = ({ onStartRequi
                 <button
                   type="button"
                   onClick={onStartRequirement}
-                  className="px-6 py-3 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5"
+                  className="px-6 py-3 bg-[#1C2B4B] hover:bg-[#14223A] text-white rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5"
                 >
                   <span>Start Your Requirement</span>
                   <ArrowRight className="w-4 h-4" />

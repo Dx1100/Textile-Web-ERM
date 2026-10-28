@@ -18,33 +18,33 @@ export const WhoWeServePage: React.FC<WhoWeServePageProps> = ({
       
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6">
-        <button type="button" onClick={onNavigateHome} className="hover:text-stone-900 transition-colors">
+        <button type="button" onClick={onNavigateHome} className="hover:text-stone-900 transition-colors cursor-pointer">
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Who We Serve (Client Archetypes)</span>
+        <span className="text-[#1C2B4B] font-semibold">Who We Serve</span>
       </nav>
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-stone-200">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#143D36] font-semibold mb-2 px-3 py-1 rounded-full bg-[#143D36]/10">
             <span>Tailored Sourcing Solutions</span>
             <span aria-hidden="true">·</span>
-            <span>Retailers · Wholesalers · Boutiques · Brands</span>
+            <span>Retailers · Wholesalers · Boutiques</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1916] leading-tight mb-3">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1E293B] leading-tight mb-3">
             Who We Serve in the Textile Industry
           </h1>
-          <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-light">
-            Whether you operate a bridal couture boutique requiring 5 bespoke pieces, a pan-India retail chain buying 50,000 meters of viscose rayon, or an institutional trader seeking trade credit financing, our solutions fit your scale.
+          <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">
+            Whether you operate an established bridal boutique, a regional saree and suit showroom in a Tier 2/3 city, or an institutional wholesaler seeking trade credit, our consulting desk adapts to your scale.
           </p>
         </div>
 
         <button
           type="button"
           onClick={onOpenConsultation}
-          className="flex items-center gap-2 px-6 py-3.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md shrink-0 cursor-pointer"
+          className="flex items-center gap-2 px-6 py-3.5 bg-[#1C2B4B] hover:bg-[#14223A] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-sm shrink-0 cursor-pointer"
         >
           <Phone className="w-4 h-4" />
           <span>Talk to Our Team</span>
@@ -60,20 +60,20 @@ export const WhoWeServePage: React.FC<WhoWeServePageProps> = ({
 
       {/* Case studies / Client proof */}
       <div className="bg-white p-8 sm:p-10 rounded-3xl border border-stone-200 shadow-sm">
-        <h2 className="text-2xl font-serif font-bold text-[#1F1916] mb-6 pb-4 border-b border-stone-200">
+        <h2 className="text-2xl font-serif font-bold text-[#1E293B] mb-6 pb-4 border-b border-stone-200">
           How Different Buyers Scale With Shree Durga Agency
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-stone-200">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#9B1D2C] block mb-1">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#1C2B4B] block mb-1">
               Multi-Store Retail Chain · Lucknow
             </span>
             <h4 className="font-serif font-bold text-stone-900 text-sm mb-2">
               Zero Festive Stockouts With 48-Hour Replenishment
             </h4>
             <p className="text-xs text-stone-600 leading-relaxed">
-              "We source our unstitched suits and festive lehengas through Shree Durga Agency. When a design clicks, they rush re-orders directly from Surat looms within 3 business days."
+              "We source our unstitched suits and festive lehengas through Shree Durga Agency. When a design clicks, they rush re-orders directly from Surat production units within 3 business days."
             </p>
           </div>
 
@@ -85,19 +85,19 @@ export const WhoWeServePage: React.FC<WhoWeServePageProps> = ({
               Exclusive 100% Tested Pure Zari Katan Silks
             </h4>
             <p className="text-xs text-stone-600 leading-relaxed">
-              "Their team in Chandni Chowk curates handloom katan brocades with real silver/gold tested zari that our celebrity bridal clientele expects. True master weavers."
+              "Their team curates authentic handloom katan brocades with real tested zari that our bridal clientele expects. Consistent premium standard."
             </p>
           </div>
 
           <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-stone-200">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#D8B26E] font-semibold block mb-1">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#143D36] font-semibold block mb-1">
               Fabric Trader & Distributor · Hyderabad
             </span>
             <h4 className="font-serif font-bold text-stone-900 text-sm mb-2">
-              Threadlinc Bill to – Ship to Working Capital Flexibility
+              Threadlinc 60-Day Trade Credit Working Capital
             </h4>
             <p className="text-xs text-stone-600 leading-relaxed">
-              "Threadlinc financing transformed our liquidity. We buy large lots from Panipat and Surat on 60-day credit, allowing us to serve our retail clients without cash flow bottlenecks."
+              "Threadlinc financing transformed our liquidity. We buy seasonal lots from Panipat and Surat on 60-day credit, allowing us to serve our retail clients without cash flow bottlenecks."
             </p>
           </div>
         </div>

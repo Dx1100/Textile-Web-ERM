@@ -16,13 +16,13 @@ export const HeritageStory: React.FC<HeritageStoryProps> = ({
         
         {/* Section Lead */}
         <div className="max-w-3xl mb-14">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-3">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold mb-3">
             <span>Our Craft Philosophy</span>
             <span aria-hidden="true">·</span>
             <span>Est. 1997 in Delhi</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1F1916] leading-tight mb-5" style={{ textWrap: 'balance' }}>
-            Preserving Royal Weaves with Mill Precision & Master Karigars.
+            Preserving Royal Weaves with Artisanal Precision & Master Karigars.
           </h2>
           <p className="text-base text-stone-600 leading-relaxed font-light">
             Founded with a commitment to uncompromised pure handlooms, Bhasin Textiles bridges generational weavers from Varanasi, Chanderi, and Bengal directly to high-fashion houses, luxury bridal couturiers, and modern connoisseurs.
@@ -33,7 +33,7 @@ export const HeritageStory: React.FC<HeritageStoryProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white p-7 rounded-2xl border border-stone-200/90 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-stone-200 flex items-center justify-center text-[#9B1D2C] mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-stone-200 flex items-center justify-center text-[#1C2B4B] mb-5">
                 <Award className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-serif font-bold text-[#1F1916] mb-2">
@@ -50,7 +50,7 @@ export const HeritageStory: React.FC<HeritageStoryProps> = ({
 
           <div className="bg-white p-7 rounded-2xl border border-stone-200/90 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-stone-200 flex items-center justify-center text-[#9B1D2C] mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-stone-200 flex items-center justify-center text-[#1C2B4B] mb-5">
                 <Compass className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-serif font-bold text-[#1F1916] mb-2">
@@ -67,7 +67,7 @@ export const HeritageStory: React.FC<HeritageStoryProps> = ({
 
           <div className="bg-white p-7 rounded-2xl border border-stone-200/90 shadow-xs flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-stone-200 flex items-center justify-center text-[#9B1D2C] mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-stone-200 flex items-center justify-center text-[#1C2B4B] mb-5">
                 <Feather className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-serif font-bold text-[#1F1916] mb-2">
@@ -99,7 +99,7 @@ export const HeritageStory: React.FC<HeritageStoryProps> = ({
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer"
+                className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors cursor-pointer"
               >
                 Book Live Video Draping
               </button>

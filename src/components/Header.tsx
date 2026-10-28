@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Search, Phone, FileText, X, Menu } from 'lucide-react';
+import { ShoppingBag, FileText, X, Menu } from 'lucide-react';
 import { PageView } from '../types';
+import { siteContent } from '../config/siteContent';
 
 interface HeaderProps {
   activePage: PageView;
@@ -20,24 +21,13 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenRequirementModal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navLinks: { id: PageView; label: string }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'products', label: 'What We Source' },
-    { id: 'network', label: 'Sourcing Hubs' },
-    { id: 'process', label: 'How We Work' },
-    { id: 'whoweserve', label: 'Who We Serve' },
-    { id: 'threadlinc', label: 'Threadlinc Financing' },
-    { id: 'about', label: 'About Us' },
-    { id: 'contact', label: 'Contact' },
-  ];
+  const { brand, navigation } = siteContent;
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FAF8F5]/98 backdrop-blur-md border-b border-stone-200 shadow-2xs transition-all">
-      {/* Strict One-Row Single Header: No duplicate stacked menus */}
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-6">
         
-        {/* Brand Wordmark Zone */}
+        {/* Brand Identity: Modern Architectural Sans with Emerald Accent */}
         <button
           type="button"
           onClick={() => {
@@ -46,88 +36,77 @@ export const Header: React.FC<HeaderProps> = ({
           }}
           className="text-left shrink-0 cursor-pointer group"
         >
-          <div className="text-xl sm:text-2xl font-serif font-bold tracking-tight text-[#1F1916] group-hover:text-[#9B1D2C] transition-colors leading-none">
-            SHREE DURGA AGENCY
+          <div className="text-xl sm:text-2xl font-heading font-extrabold tracking-tight text-[#0B1B33] group-hover:text-[#0D7A5F] transition-colors leading-none flex items-center gap-1.5">
+            <span>{brand.name}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0D7A5F] shrink-0" />
           </div>
-          <div className="text-[10px] tracking-wider uppercase text-stone-500 font-medium mt-1 flex items-center gap-1.5">
-            <span>Textile & Product Sourcing</span>
-            <span className="text-stone-300">|</span>
-            <span className="text-[#D8B26E] font-semibold">Threadlinc Partner</span>
+          <div className="text-[10px] tracking-widest uppercase text-slate-500 font-semibold mt-1">
+            <span>{brand.role}</span>
           </div>
         </button>
 
-        {/* Clean Single-Row Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-6 text-[13px] font-medium tracking-wide text-stone-700">
-          {navLinks.map((link) => (
+        {/* Minimal, Spaced Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-[13px] font-medium tracking-wide">
+          {navigation.links.map((link) => (
             <button
               key={link.id}
               type="button"
               onClick={() => onNavigate(link.id)}
-              className={`whitespace-nowrap transition-colors pb-0.5 border-b-2 cursor-pointer ${
+              className={`whitespace-nowrap transition-colors pb-0.5 border-b-2 cursor-pointer flex items-center gap-1.5 ${
                 activePage === link.id
-                  ? 'text-[#9B1D2C] border-[#9B1D2C] font-semibold'
-                  : 'border-transparent text-stone-600 hover:text-[#1F1916] hover:border-stone-400'
+                  ? 'text-[#0D7A5F] border-[#0D7A5F] font-bold'
+                  : 'border-transparent text-slate-600 hover:text-[#0B1B33] hover:border-slate-300'
               }`}
             >
-              {link.label}
+              <span>{link.label}</span>
             </button>
           ))}
         </nav>
 
-        {/* Action Zone: Phone + Bag + 1 Primary CTA Button */}
+        {/* Action Zone: Sample Cart + Emerald Primary CTA Button */}
         <div className="flex items-center gap-3 shrink-0">
-          <a
-            href="tel:+917838583904"
-            className="hidden sm:flex items-center gap-1.5 text-xs text-stone-600 hover:text-[#9B1D2C] font-medium transition-colors whitespace-nowrap"
-            title="Direct Desk"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#D8B26E]" />
-            <span>+91 7838583904</span>
-          </a>
-
-          {/* Swatch / Sample Cart Trigger */}
+          {/* Swatch / Sample Cart */}
           <button
             type="button"
             onClick={onOpenCart}
-            className="relative p-2 text-stone-700 hover:text-[#9B1D2C] transition-colors rounded-lg hover:bg-stone-200/50 flex items-center cursor-pointer"
+            className="relative p-2 text-slate-700 hover:text-[#0B1B33] transition-colors rounded-lg hover:bg-slate-100 flex items-center cursor-pointer"
             aria-label="Shopping Bag / Sample Swatches"
-            title="Sample Swatches & Swatch Binders"
+            title="Sample Swatches"
           >
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-[#9B1D2C] text-white text-[10px] font-semibold rounded-full w-4.5 h-4.5 flex items-center justify-center tabular-nums shadow-xs">
+              <span className="absolute -top-1 -right-1 bg-[#0D7A5F] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center tabular-nums">
                 {cartCount}
               </span>
             )}
           </button>
 
-          {/* Primary Action Button: Opens Sourcing Requirement Form */}
+          {/* Primary Action Button (Clean Emerald Green) */}
           <button
             type="button"
             onClick={onOpenRequirementModal}
-            className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-all whitespace-nowrap shrink-0 shadow-sm cursor-pointer"
+            className="flex items-center gap-1.5 px-4.5 py-2 text-xs font-bold tracking-wider uppercase text-white bg-[#0D7A5F] hover:bg-[#0A634D] rounded-lg transition-all whitespace-nowrap shrink-0 shadow-sm cursor-pointer"
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>Submit Requirement</span>
+            <span>{navigation.ctaLabel}</span>
           </button>
 
           {/* Mobile Menu Hamburger */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 text-stone-700 hover:text-[#9B1D2C] rounded-lg cursor-pointer"
+            className="lg:hidden p-2 text-slate-700 hover:text-[#0B1B33] rounded-lg cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
-
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-stone-200 bg-white px-4 py-4 space-y-2 animate-in slide-in-from-top-2 duration-200">
-          {navLinks.map((link) => (
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-1.5 animate-in slide-in-from-top-2 duration-200">
+          {navigation.links.map((link) => (
             <button
               key={link.id}
               type="button"
@@ -135,19 +114,15 @@ export const Header: React.FC<HeaderProps> = ({
                 onNavigate(link.id);
                 setMobileMenuOpen(false);
               }}
-              className={`w-full text-left py-2.5 px-3 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors ${
+              className={`w-full text-left py-2.5 px-3 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-between ${
                 activePage === link.id
-                  ? 'bg-[#9B1D2C]/10 text-[#9B1D2C]'
-                  : 'text-stone-700 hover:bg-stone-50'
+                  ? 'bg-emerald-50 text-[#0D7A5F] font-bold'
+                  : 'text-slate-700 hover:bg-slate-50'
               }`}
             >
-              {link.label}
+              <span>{link.label}</span>
             </button>
           ))}
-          <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-xs text-stone-600 px-3">
-            <span>Direct Sourcing Desk:</span>
-            <a href="tel:+917838583904" className="font-bold text-stone-900">+91 7838583904</a>
-          </div>
         </div>
       )}
     </header>

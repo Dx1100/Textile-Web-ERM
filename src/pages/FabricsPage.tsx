@@ -52,7 +52,7 @@ export const FabricsPage: React.FC<FabricsPageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Haute Couture Fabric Yardage Archive</span>
+        <span className="text-[#1C2B4B] font-semibold">Haute Couture Fabric Yardage Archive</span>
       </nav>
 
       {/* Hero Banner */}
@@ -63,7 +63,7 @@ export const FabricsPage: React.FC<FabricsPageProps> = ({
             <span aria-hidden="true">·</span>
             <span>Silk Mark Certified</span>
             <span aria-hidden="true">·</span>
-            <span>Custom Mill Dyeing</span>
+            <span>Custom Custom Dyeing</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4 leading-tight">
             Haute Couture Fabric Yardage Archive
@@ -75,7 +75,7 @@ export const FabricsPage: React.FC<FabricsPageProps> = ({
             <button
               type="button"
               onClick={onOpenCalculator}
-              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
             >
               <Ruler className="w-4 h-4 text-[#D8B26E]" />
               <span>Open Yardage Calculator</span>

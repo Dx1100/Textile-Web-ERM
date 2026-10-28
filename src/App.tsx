@@ -1,16 +1,18 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { WhatWeSourceSection } from './components/WhatWeSourceSection';
+import { PartnersSlider } from './components/PartnersSlider';
+import { TestimonialsSection } from './components/TestimonialsSection';
+import { CoreServicesSection } from './components/CoreServicesSection';
+import { DetailedProductsSection } from './components/DetailedProductsSection';
 import { SourcingHubsSection } from './components/SourcingHubsSection';
-import { HowWeWorkSection } from './components/HowWeWorkSection';
 import { WhoWeServeSection } from './components/WhoWeServeSection';
 import { WhyUsSection } from './components/WhyUsSection';
-import { CompanyStorySection } from './components/CompanyStorySection';
-import { TrustProofSection } from './components/TrustProofSection';
 import { FinalCTASection } from './components/FinalCTASection';
 import { ThreadlincBanner } from './components/ThreadlincBanner';
 import { Footer } from './components/Footer';
+import { SEOHead } from './components/SEOHead';
+import { siteContent } from './config/siteContent';
 
 // Modals
 import { RequirementModal } from './components/RequirementModal';
@@ -169,7 +171,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1F1916] flex flex-col font-sans selection:bg-[#9B1D2C] selection:text-white">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#1E293B] flex flex-col font-sans selection:bg-[#1C2B4B] selection:text-white">
+      {/* Dynamic SEO Tag & OpenGraph Injector */}
+      <SEOHead activePage={activePage} />
       
       {/* 1. Strictly Clean Single-Row Unified Header (No confusing double stacked menus) */}
       <Header
@@ -290,91 +294,99 @@ export default function App() {
           onOpenConsultation={() => setIsConsultationOpen(true)}
         />
       ) : (
-        /* HOME PAGE: Complete 10-Section Architecture from User's Blueprint */
+        /* HOME PAGE: Minimal, Spacious & Controlled via siteContent.homeSections */
         <main className="flex-1 w-full animate-in fade-in duration-200">
-          
-          {/* Hero + 5 Core Service Capabilities + Threadlinc Notice */}
-          <Hero
-            onOpenRequirementModal={() => handleOpenRequirement()}
-            onExploreCategories={() => {
-              const el = document.getElementById('what-we-source');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
-          />
+          {siteContent.homeSections.order.map((sectionId) => {
+            if (!siteContent.homeSections.visibility[sectionId]) return null;
 
-          {/* What We Source (Visual Category Cards) */}
-          <div id="what-we-source" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
-            <WhatWeSourceSection
-              onSelectCategoryRequirement={(catName) => handleOpenRequirement(catName)}
-              onExploreFullCatalog={() => handleNavigate('products')}
-            />
-          </div>
+            switch (sectionId) {
+              case 'hero':
+                return (
+                  <Hero
+                    key="hero"
+                    onOpenRequirementModal={() => handleOpenRequirement()}
+                    onExploreCategories={() => {
+                      const el = document.getElementById('products-showcase');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+                  />
+                );
 
-          {/* Where We Source From (India Map + 7 Sourcing Markets) */}
-          <div id="sourcing-hubs" className="bg-stone-100/60 border-y border-stone-200 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8">
-              <SourcingHubsSection
-                onSelectHub={(hubName) => handleOpenRequirement(hubName)}
-              />
-            </div>
-          </div>
+              case 'partners':
+                return (
+                  <PartnersSlider key="partners" />
+                );
 
-          {/* How We Work (7-Step Pipeline: Requirement -> Sourcing -> Shortlisting -> Approval -> Order -> Dispatch -> Delivery) */}
-          <div id="how-we-work" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
-            <HowWeWorkSection
-              onStartRequirement={() => handleOpenRequirement()}
-            />
-          </div>
+              case 'services':
+                return (
+                  <CoreServicesSection
+                    key="services"
+                    onOpenRequirementModal={() => handleOpenRequirement()}
+                    onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+                  />
+                );
 
-          {/* Threadlinc "Bill to – Ship to" Trade Financing Banner */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 pb-16">
-            <ThreadlincBanner
-              onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
-              onNavigateThreadlincPage={() => handleNavigate('threadlinc')}
-            />
-          </div>
+              case 'productsShowcase':
+                return (
+                  <DetailedProductsSection
+                    key="productsShowcase"
+                    onSelectProductRequirement={(catName) => handleOpenRequirement(catName)}
+                    onExploreFullCatalog={() => handleNavigate('products')}
+                  />
+                );
 
-          {/* Who We Serve (Retailers | Wholesalers | Boutiques | Traders | Distributors | Fashion Businesses) */}
-          <div id="who-we-serve" className="bg-white border-y border-stone-200 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8">
-              <WhoWeServeSection
-                onSelectBuyerType={(type) => handleOpenRequirement(type)}
-              />
-            </div>
-          </div>
+              case 'hubs':
+                return (
+                  <SourcingHubsSection
+                    key="hubs"
+                    onSelectHub={(hubName) => handleOpenRequirement(hubName)}
+                  />
+                );
 
-          {/* Why Shree Durga Agency (Experience, Network, Product Range, B2B Focus, Coordination, Expertise) */}
-          <div id="why-us" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
-            <WhyUsSection
-              onWorkWithUs={() => handleOpenRequirement()}
-            />
-          </div>
+              case 'financing':
+                return (
+                  <ThreadlincBanner
+                    key="financing"
+                    onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+                    onNavigateThreadlincPage={() => handleNavigate('threadlinc')}
+                  />
+                );
 
-          {/* Company Story (1999 -> Growth -> Expansion -> Today) */}
-          <div id="company-story" className="bg-[#FAF8F5] border-t border-stone-200 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8">
-              <CompanyStorySection
-                onTalkToTeam={() => handleOpenRequirement()}
-              />
-            </div>
-          </div>
+              case 'testimonials':
+                return (
+                  <TestimonialsSection key="testimonials" />
+                );
 
-          {/* Business / Trust Proof (Verified Numbers, Testimonials, Experience) */}
-          <div id="trust-proof" className="bg-white border-y border-stone-200 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8">
-              <TrustProofSection />
-            </div>
-          </div>
+              case 'whoWeServe':
+                return (
+                  <WhoWeServeSection
+                    key="whoWeServe"
+                    onSelectBuyerType={(type) => handleOpenRequirement(type)}
+                  />
+                );
 
-          {/* Final CTA ("Looking for a reliable textile sourcing partner? Tell us what you're looking for...") */}
-          <div id="final-cta" className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
-            <FinalCTASection
-              onOpenRequirementModal={() => handleOpenRequirement()}
-              onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
-            />
-          </div>
+              case 'whyUs':
+                return (
+                  <WhyUsSection
+                    key="whyUs"
+                    onWorkWithUs={() => handleOpenRequirement()}
+                  />
+                );
 
+              case 'finalCta':
+                return (
+                  <FinalCTASection
+                    key="finalCta"
+                    onOpenRequirementModal={() => handleOpenRequirement()}
+                    onOpenThreadlincModal={() => setIsThreadlincOpen(true)}
+                  />
+                );
+
+              default:
+                return null;
+            }
+          })}
         </main>
       )}
 

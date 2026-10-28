@@ -42,7 +42,7 @@ export const SuitSetsPage: React.FC<SuitSetsPageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Artisanal Unstitched & Semi-Stitched Suit Sets</span>
+        <span className="text-[#1C2B4B] font-semibold">Artisanal Unstitched & Semi-Stitched Suit Sets</span>
       </nav>
 
       {/* Hero Banner */}
@@ -65,7 +65,7 @@ export const SuitSetsPage: React.FC<SuitSetsPageProps> = ({
             <button
               type="button"
               onClick={onOpenCalculator}
-              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
             >
               <Scissors className="w-4 h-4 text-[#D8B26E]" />
               <span>Tailoring Yardage Calculator</span>
@@ -81,7 +81,7 @@ export const SuitSetsPage: React.FC<SuitSetsPageProps> = ({
       {/* Anatomy of the 3-Piece Kit */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/90 shadow-xs mb-12">
         <div className="max-w-xl mb-6">
-          <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
+          <span className="text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold block mb-1">
             Cut & Yardage Breakdown
           </span>
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916]">
@@ -91,7 +91,7 @@ export const SuitSetsPage: React.FC<SuitSetsPageProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-5 rounded-xl bg-[#FAF8F5] border border-stone-200">
-            <span className="text-xs font-bold text-[#9B1D2C] uppercase tracking-wide block mb-1">01. Kurta Material (2.5m)</span>
+            <span className="text-xs font-bold text-[#1C2B4B] uppercase tracking-wide block mb-1">01. Kurta Material (2.5m)</span>
             <h3 className="font-bold text-sm text-[#1F1916] mb-1">Generous 44" Width Span</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
               Sufficient for straight calf-length kurtas, A-line tunics, or elbow/full-length sleeves up to size 48 with centered embroidery placement.
@@ -99,7 +99,7 @@ export const SuitSetsPage: React.FC<SuitSetsPageProps> = ({
           </div>
 
           <div className="p-5 rounded-xl bg-[#FAF8F5] border border-stone-200">
-            <span className="text-xs font-bold text-[#9B1D2C] uppercase tracking-wide block mb-1">02. Bottom Fabric (2.5m)</span>
+            <span className="text-xs font-bold text-[#1C2B4B] uppercase tracking-wide block mb-1">02. Bottom Fabric (2.5m)</span>
             <h3 className="font-bold text-sm text-[#1F1916] mb-1">High-Grade Shantoon / Silk</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
               Provides opaque coverage, silky fall, and smooth anti-static glide for cigarette trousers, pleated salwars, or wide-leg palazzos.
@@ -107,7 +107,7 @@ export const SuitSetsPage: React.FC<SuitSetsPageProps> = ({
           </div>
 
           <div className="p-5 rounded-xl bg-[#FAF8F5] border border-stone-200">
-            <span className="text-xs font-bold text-[#9B1D2C] uppercase tracking-wide block mb-1">03. Dupatta Veil (2.5m)</span>
+            <span className="text-xs font-bold text-[#1C2B4B] uppercase tracking-wide block mb-1">03. Dupatta Veil (2.5m)</span>
             <h3 className="font-bold text-sm text-[#1F1916] mb-1">Full-Length Handloom Silk</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
               Finished with metallic zari selvedges and hand-knotted tassels. Drapes effortlessly over shoulders or as a royal front cowl.

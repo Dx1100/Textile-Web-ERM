@@ -126,9 +126,9 @@ export interface ThreadlincInquiry {
 
 export interface SourcingRequirement {
   id?: string;
-  category: "Women's Fashion" | "Men's Fashion" | "Kidswear" | "Fabrics" | "Home Furnishing" | "Accessories";
+  category: string;
   subItems?: string[];
-  sourcingHub: "Delhi" | "Surat" | "Jaipur" | "Panipat" | "Meerut" | "Muzaffarnagar" | "Kolkata" | "Any / Best Match";
+  sourcingHub: string;
   quantity: string;
   targetPrice?: string;
   billToShipToFinance: boolean; // Threadlinc financing option

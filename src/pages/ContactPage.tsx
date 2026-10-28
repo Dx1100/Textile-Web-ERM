@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle2, ShieldCheck, Clock, CreditCard } from 'lucide-react';
-import { SourcingRequirement } from '../types';
+import { Phone, Mail, Building2, Send, CheckCircle2, ShieldCheck, Clock, CreditCard, ChevronRight } from 'lucide-react';
+import { siteContent } from '../config/siteContent';
 
 interface ContactPageProps {
   onNavigateHome: () => void;
@@ -11,14 +11,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   onNavigateHome,
   onOpenRequirementModal,
 }) => {
+  const { brand } = siteContent;
   const [form, setForm] = useState({
     businessName: '',
     contactPerson: '',
     phone: '',
     email: '',
     city: '',
-    category: "Women's Fashion",
-    estimatedVolume: '500 – 2,000 units / meters',
+    category: "Sarees & Heritage Weaves",
+    estimatedVolume: '15 – 50 pcs / 50 meters',
     financeInterest: true,
     message: '',
   });
@@ -39,25 +40,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6">
-        <button type="button" onClick={onNavigateHome} className="hover:text-stone-900 transition-colors">
+        <button type="button" onClick={onNavigateHome} className="hover:text-stone-900 transition-colors cursor-pointer">
           Home
         </button>
-        <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Contact & B2B Sourcing Enquiry</span>
+        <ChevronRight className="w-3 h-3 text-stone-400" />
+        <span className="text-[#1C2B4B] font-semibold">Contact</span>
       </nav>
 
       {/* Header */}
       <div className="max-w-2xl mb-12">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold mb-2">
+        <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#143D36] font-semibold mb-2 px-3 py-1 rounded-full bg-[#143D36]/10">
           <span>Direct Sourcing Desk</span>
           <span aria-hidden="true">·</span>
-          <span>Shree Durga Agency & Threadlinc</span>
+          <span>{brand.name}</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1F1916] leading-tight mb-3">
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1E293B] leading-tight mb-3">
           Let’s Discuss Your Textile Sourcing Needs
         </h1>
-        <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-light">
-          Connect directly with our master sourcing coordinators in Delhi, Surat, Jaipur, and Panipat. For trade credit financing inquiries, mention your Bill to – Ship to requirements below.
+        <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">
+          Connect directly with our sourcing coordinators in Delhi, Surat, Jaipur, and Panipat. Flexible trade credit options available for eligible wholesale buyers.
         </p>
       </div>
 
@@ -65,67 +66,62 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         
         {/* Left Column: Contact Cards */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-6">
-            <h2 className="font-serif font-bold text-xl text-[#1F1916] pb-3 border-b border-stone-100">
-              Corporate & Sourcing Offices
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-xs space-y-6">
+            <h2 className="font-serif font-bold text-xl text-[#1E293B] pb-3 border-b border-stone-100">
+              Consulting & Sourcing Desks
             </h2>
 
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#9B1D2C]/10 text-[#9B1D2C] flex items-center justify-center shrink-0 mt-1">
-                <MapPin className="w-5 h-5" />
+            {brand.contact.offices.map((off, idx) => (
+              <div key={idx} className="flex items-start gap-4">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-1 ${
+                  idx === 0 
+                    ? 'bg-[#1C2B4B]/10 text-[#1C2B4B]' 
+                    : idx === 1 
+                      ? 'bg-[#143D36]/10 text-[#143D36]' 
+                      : 'bg-stone-100 text-stone-800'
+                }`}>
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-stone-900">{off.city} Consulting Desk</h4>
+                  <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                    {off.area}
+                  </p>
+                  <span className={`text-[11px] font-medium block mt-1 ${
+                    idx === 0 ? 'text-[#1C2B4B]' : idx === 1 ? 'text-[#143D36]' : 'text-stone-600'
+                  }`}>
+                    {off.purpose}
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-stone-900">Delhi Head Office & Sourcing Hub</h4>
-                <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                  Katra Neel, Chandni Chowk, Central Delhi, 110006, India
-                </p>
-                <span className="text-[11px] text-[#9B1D2C] font-medium block mt-1">
-                  Bridal Sarees, Lehengas, Brocades & Wholesale Fabrics
-                </span>
-              </div>
-            </div>
+            ))}
 
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-[#143D36]/10 text-[#143D36] flex items-center justify-center shrink-0 mt-1">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-stone-900">Surat Mill Coordination Cell</h4>
-                <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                  Ring Road Textile Market & Pandesara GIDC, Surat, Gujarat
-                </p>
-                <span className="text-[11px] text-[#143D36] font-medium block mt-1">
-                  Synthetic Fabrics, Digital Prints & Viscose Jacquards
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#D8B26E]/20 text-[#8C6926] flex items-center justify-center shrink-0 mt-1">
                 <CreditCard className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-stone-900">Threadlinc Trade Finance Desk</h4>
+                <h4 className="text-sm font-bold text-stone-900">{brand.threadlinc.firmName} Trade Finance Desk</h4>
                 <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                  Bill to – Ship to structured credit processing & GST invoicing
+                  {brand.threadlinc.concept} structured credit processing & GST invoicing
                 </p>
-                <span className="text-[11px] text-[#8C6926] font-semibold block mt-1">
-                  Credit Lines: ₹10 Lakhs to ₹2.5 Crores
+                <span className="text-[11px] text-[#143D36] font-semibold block mt-1">
+                  Terms: {brand.threadlinc.tenures}
                 </span>
               </div>
             </div>
 
             <div className="pt-4 border-t border-stone-100 space-y-3 text-xs text-stone-700">
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#9B1D2C]" />
-                <a href="tel:+917838583904" className="font-bold hover:text-[#9B1D2C] transition-colors">
-                  +91 7838583904 (Direct Desk)
+                <Phone className="w-4 h-4 text-[#1C2B4B]" />
+                <a href={`tel:${brand.contact.phone}`} className="font-bold hover:text-[#1C2B4B] transition-colors">
+                  {brand.contact.phoneDisplay} (Direct Sourcing Desk)
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#9B1D2C]" />
-                <a href="mailto:sourcing@shreedurgaagency.com" className="hover:text-[#9B1D2C] transition-colors">
-                  sourcing@shreedurgaagency.com
+                <Mail className="w-4 h-4 text-[#1C2B4B]" />
+                <a href={`mailto:${brand.contact.email}`} className="hover:text-[#1C2B4B] transition-colors">
+                  {brand.contact.email}
                 </a>
               </div>
               <div className="flex items-center gap-3 text-stone-500">
@@ -138,22 +134,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
         {/* Right Column: Sourcing Enquiry Form */}
         <div className="lg:col-span-7">
-          <div className="bg-white p-6 sm:p-10 rounded-3xl border border-stone-200 shadow-sm">
+          <div className="bg-white p-6 sm:p-10 rounded-3xl border border-stone-200 shadow-xs">
             {submitted ? (
               <div className="py-12 text-center animate-in fade-in duration-300">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-[#1F1916] mb-2">
+                <h3 className="text-2xl font-serif font-bold text-[#1E293B] mb-2">
                   Enquiry Transmitted to Our Sourcing Cell
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto leading-relaxed mb-6">
-                  Thank you, <strong>{form.contactPerson || form.businessName}</strong>. Our senior sourcing coordinator will contact you via WhatsApp/phone within 2 business hours with loom schedules and initial pricing.
+                <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto leading-relaxed mb-6 font-normal">
+                  Thank you, <strong>{form.contactPerson || form.businessName}</strong>. Our senior sourcing consultant will contact you via WhatsApp or phone within 2 business hours with verified options.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="px-6 py-2.5 bg-[#9B1D2C] text-white text-xs font-semibold rounded-xl cursor-pointer"
+                  className="px-6 py-2.5 bg-[#1C2B4B] text-white text-xs font-semibold rounded-xl cursor-pointer"
                 >
                   Submit Another Enquiry
                 </button>
@@ -161,11 +157,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="border-b border-stone-100 pb-3 mb-4">
-                  <h3 className="font-serif font-bold text-xl text-[#1F1916]">
+                  <h3 className="font-serif font-bold text-xl text-[#1E293B]">
                     Submit Qualified B2B Sourcing Requirement
                   </h3>
                   <p className="text-xs text-stone-500 mt-1">
-                    Direct access to ex-mill quotes. All specifications kept strictly confidential.
+                    Direct access to hub wholesale quotes. All requirements treated with strict confidentiality.
                   </p>
                 </div>
 
@@ -179,8 +175,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       required
                       value={form.businessName}
                       onChange={(e) => setForm({ ...form, businessName: e.target.value })}
-                      placeholder="e.g. Royal Heritage Boutiques"
-                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white transition-all"
+                      placeholder="e.g. Royal Saree Showroom"
+                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white transition-all"
                     />
                   </div>
 
@@ -194,7 +190,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       value={form.contactPerson}
                       onChange={(e) => setForm({ ...form, contactPerson: e.target.value })}
                       placeholder="e.g. Rajesh Singhal"
-                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white transition-all"
+                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -210,7 +206,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="e.g. +91 98765 43210"
-                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white transition-all"
+                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white transition-all"
                     />
                   </div>
 
@@ -223,7 +219,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="buyer@business.com"
-                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white transition-all"
+                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -236,14 +232,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <select
                       value={form.category}
                       onChange={(e) => setForm({ ...form, category: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white"
+                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white"
                     >
-                      <option value="Women's Fashion">Women's Fashion (Sarees, Lehengas, Suits)</option>
-                      <option value="Men's Fashion">Men's Fashion (Sherwanis, Kurtas, Nehru Jackets)</option>
-                      <option value="Kidswear">Kidswear (Traditional Sets & Ethnic)</option>
-                      <option value="Fabrics">Fabrics & Greige (Silks, Tissues, Brocades)</option>
-                      <option value="Home Furnishing">Home Furnishing (Curtains, Jacquards, Linens)</option>
-                      <option value="Accessories">Accessories (Dupattas, Stoles, Safas)</option>
+                      <option value="Sarees & Heritage Weaves">Sarees & Heritage Weaves</option>
+                      <option value="Suits & Dress Materials">Suits & Dress Materials</option>
+                      <option value="Bridal & Festive Lehengas">Bridal & Festive Lehengas</option>
+                      <option value="Running Fabrics & Yardage">Running Fabrics & Yardage</option>
+                      <option value="Men's Royal Ethnic Wear">Men's Royal Ethnic Wear</option>
+                      <option value="Home Furnishing & Drapes">Home Furnishing & Drapes</option>
                     </select>
                   </div>
 
@@ -255,8 +251,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       type="text"
                       value={form.city}
                       onChange={(e) => setForm({ ...form, city: e.target.value })}
-                      placeholder="e.g. Mumbai, Maharashtra"
-                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white transition-all"
+                      placeholder="e.g. Kanpur, Varanasi, Patna..."
+                      className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -271,29 +267,29 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     className="mt-0.5 w-4 h-4 text-[#143D36] rounded border-stone-300 focus:ring-[#143D36] cursor-pointer"
                   />
                   <label htmlFor="financeInterest" className="text-xs text-stone-700 cursor-pointer">
-                    <span className="font-bold text-[#143D36]">Include Threadlinc "Bill to – Ship to" financing quote</span>
+                    <span className="font-bold text-[#143D36]">Include Threadlinc 30–90 days trade credit facility</span>
                     <span className="block text-[11px] text-stone-500 mt-0.5">
-                      Check this if you would like 30–90 days credit terms with billing through Threadlinc.
+                      Check this if you require structured deferred credit terms with Threadlinc partner financing.
                     </span>
                   </label>
                 </div>
 
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5">
-                    Requirement Details (Composition, Colors, Quantity, Target Rate)
+                    Requirement Details (Fabrics, Colors, Quantity, Target Rate)
                   </label>
                   <textarea
                     rows={3}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="e.g. Looking for 1,200 meters of Banarasi katan silk in crimson and emerald with gold zari borders. Delivery required within 20 days."
-                    className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#9B1D2C] focus:bg-white transition-all"
+                    placeholder="e.g. Looking for 25 Banarasi pure katan silk sarees for wedding counter. Delivery required within 15 days."
+                    className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-[#1C2B4B] focus:bg-white transition-all"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 bg-[#1C2B4B] hover:bg-[#14223A] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Requirement to Sourcing Desk</span>

@@ -69,7 +69,7 @@ export const FabricCalculator: React.FC<FabricCalculatorProps> = ({
         {/* Header */}
         <div className="bg-[#1F1916] text-[#FAF8F5] p-6 flex items-center justify-between border-b border-stone-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shadow-inner">
+            <div className="w-10 h-10 rounded-xl bg-[#1C2B4B] flex items-center justify-center text-[#D8B26E] shadow-inner">
               <Scissors className="w-5 h-5" />
             </div>
             <div>
@@ -102,7 +102,7 @@ export const FabricCalculator: React.FC<FabricCalculatorProps> = ({
                   onClick={() => setSelectedPresetId(preset.id)}
                   className={`text-left p-3 rounded-xl border text-xs transition-all cursor-pointer ${
                     selectedPresetId === preset.id
-                      ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 text-[#1F1916] ring-1 ring-[#9B1D2C]'
+                      ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 text-[#1F1916] ring-1 ring-[#1C2B4B]'
                       : 'border-stone-200 hover:border-stone-400 text-stone-600 bg-white'
                   }`}
                 >
@@ -157,7 +157,7 @@ export const FabricCalculator: React.FC<FabricCalculatorProps> = ({
               <select
                 value={selectedProductId}
                 onChange={(e) => setSelectedProductId(e.target.value)}
-                className="w-full p-2.5 rounded-lg border border-stone-200 bg-white text-xs font-medium text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#9B1D2C]"
+                className="w-full p-2.5 rounded-lg border border-stone-200 bg-white text-xs font-medium text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#1C2B4B]"
               >
                 {TEXTILE_PRODUCTS.filter(p => p.priceUnit === 'per meter').map((product) => (
                   <option key={product.id} value={product.id}>
@@ -181,7 +181,7 @@ export const FabricCalculator: React.FC<FabricCalculatorProps> = ({
                 onChange={(e) => setIncludeLining(e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#9B1D2C]"></div>
+              <div className="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1C2B4B]"></div>
             </label>
           </div>
 
@@ -248,7 +248,7 @@ export const FabricCalculator: React.FC<FabricCalculatorProps> = ({
                 onAddCustomKitToCart(selectedProduct, calculatedFabricMeters, calculatedLiningMeters);
                 onClose();
               }}
-              className="flex items-center gap-2 px-6 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors shadow-sm cursor-pointer ml-auto"
+              className="flex items-center gap-2 px-6 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors shadow-sm cursor-pointer ml-auto"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Add Complete Kit to Bag ({formatPrice(grandTotal)})</span>

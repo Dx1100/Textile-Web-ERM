@@ -51,14 +51,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         )}
         {!product.isMasterWeave && product.isBestseller && (
-          <div className="absolute top-3 left-3 bg-[#9B1D2C]/90 backdrop-blur-xs text-white text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-sm shadow-xs">
+          <div className="absolute top-3 left-3 bg-[#143D36]/90 backdrop-blur-xs text-white text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-sm shadow-xs">
             Bestseller
           </div>
         )}
 
         {/* Quick View overlay on hover */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-          <div className="px-3.5 py-2 bg-white/95 backdrop-blur-sm text-[#1F1916] text-xs font-semibold rounded-md shadow-md flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+          <div className="px-3.5 py-2 bg-white/95 backdrop-blur-sm text-[#1E293B] text-xs font-semibold rounded-md shadow-md flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
             <Eye className="w-3.5 h-3.5" />
             <span>Inspect Fabric & Specs</span>
           </div>
@@ -80,7 +80,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Product Title */}
           <h3 
             onClick={() => onQuickView(product)}
-            className="text-base font-serif font-bold text-[#1F1916] hover:text-[#9B1D2C] transition-colors cursor-pointer line-clamp-1 mb-1"
+            className="text-base font-serif font-bold text-[#1E293B] hover:text-[#1C2B4B] transition-colors cursor-pointer line-clamp-1 mb-1"
           >
             {product.name}
           </h3>
@@ -110,7 +110,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="pt-3 border-t border-stone-100">
           <div className="flex items-baseline justify-between mb-3">
             <div className="flex items-baseline gap-1.5">
-              <span className="text-base font-bold text-[#1F1916] tabular-nums font-serif">
+              <span className="text-base font-bold text-[#1E293B] tabular-nums font-serif">
                 {formatPrice(product.price)}
               </span>
               <span className="text-[11px] text-stone-500">
@@ -156,7 +156,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <button
               type="button"
               onClick={() => onAddToCart(product, product.priceUnit === 'per meter' ? 1 : 1)}
-              className="px-2.5 py-2 text-[11px] font-semibold text-white bg-[#1F1916] hover:bg-[#9B1D2C] rounded-md transition-colors flex items-center justify-center gap-1 cursor-pointer truncate shadow-2xs"
+              className="px-2.5 py-2 text-[11px] font-semibold text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-md transition-colors flex items-center justify-center gap-1 cursor-pointer truncate shadow-2xs"
             >
               <ShoppingBag className="w-3 h-3 shrink-0" />
               <span>{product.priceUnit === 'per meter' ? 'Add 1 Meter' : 'Add to Bag'}</span>

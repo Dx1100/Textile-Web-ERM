@@ -59,7 +59,7 @@ export const BrocadesPage: React.FC<BrocadesPageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Pure Silk Brocades Archive</span>
+        <span className="text-[#1C2B4B] font-semibold">Pure Silk Brocades Archive</span>
       </nav>
 
       {/* Hero Section */}
@@ -82,7 +82,7 @@ export const BrocadesPage: React.FC<BrocadesPageProps> = ({
             <button
               type="button"
               onClick={handleOrderSwatchBinder}
-              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
             >
               <BookOpen className="w-4 h-4 text-[#D8B26E]" />
               <span>Order 8-Swatch Brocade Binder (₹499)</span>
@@ -98,13 +98,13 @@ export const BrocadesPage: React.FC<BrocadesPageProps> = ({
         </div>
 
         {/* Decorative corner seal */}
-        <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[#9B1D2C]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[#1C2B4B]/10 rounded-full blur-2xl pointer-events-none" />
       </div>
 
       {/* Interactive Weave Classification Guide */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/90 shadow-xs mb-12">
         <div className="max-w-xl mb-6">
-          <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
+          <span className="text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold block mb-1">
             Artisan Guide
           </span>
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916]">
@@ -129,7 +129,7 @@ export const BrocadesPage: React.FC<BrocadesPageProps> = ({
               onClick={() => setSelectedTechnique(tech.id as any)}
               className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                 selectedTechnique === tech.id
-                  ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 font-semibold text-stone-900 ring-1 ring-[#9B1D2C]'
+                  ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 font-semibold text-stone-900 ring-1 ring-[#1C2B4B]'
                   : 'border-stone-200 text-stone-600 hover:border-stone-400 bg-white'
               }`}
             >
@@ -223,7 +223,7 @@ export const BrocadesPage: React.FC<BrocadesPageProps> = ({
       {/* Swatch Sample Box Promotion */}
       <div className="bg-[#FAF8F5] border border-stone-300 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#1C2B4B] flex items-center justify-center text-[#D8B26E] shrink-0">
             <Layers className="w-6 h-6" />
           </div>
           <div>
@@ -238,7 +238,7 @@ export const BrocadesPage: React.FC<BrocadesPageProps> = ({
         <button
           type="button"
           onClick={handleOrderSwatchBinder}
-          className="px-5 py-2.5 bg-[#1F1916] hover:bg-[#9B1D2C] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors shrink-0 shadow-sm"
+          className="px-5 py-2.5 bg-[#1F1916] hover:bg-[#1C2B4B] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors shrink-0 shadow-sm"
         >
           Add Swatch Folder to Bag (₹499)
         </button>

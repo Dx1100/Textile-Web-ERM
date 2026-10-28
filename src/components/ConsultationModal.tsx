@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Video, MapPin, Calendar, Clock, CheckCircle2, Phone } from 'lucide-react';
+import { X, Video, Building2, Calendar, Clock, CheckCircle2, Phone } from 'lucide-react';
 import { ConsultationBooking } from '../types';
 
 interface ConsultationModalProps {
@@ -39,7 +39,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
         {/* Header */}
         <div className="bg-[#1F1916] text-[#FAF8F5] p-6 flex items-center justify-between border-b border-stone-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shadow-inner">
+            <div className="w-10 h-10 rounded-xl bg-[#1C2B4B] flex items-center justify-center text-[#D8B26E] shadow-inner">
               <Video className="w-5 h-5" />
             </div>
             <div>
@@ -80,7 +80,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                   setConfirmed(false);
                   onClose();
                 }}
-                className="w-full py-3 bg-[#1F1916] hover:bg-[#9B1D2C] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors"
+                className="w-full py-3 bg-[#1F1916] hover:bg-[#1C2B4B] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors"
               >
                 Close & Return to Store
               </button>
@@ -98,11 +98,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     onClick={() => setBooking({ ...booking, type: 'video_call' })}
                     className={`p-3 rounded-xl border text-xs flex items-center gap-2.5 transition-all text-left cursor-pointer ${
                       booking.type === 'video_call'
-                        ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 font-semibold text-stone-900 ring-1 ring-[#9B1D2C]'
+                        ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 font-semibold text-stone-900 ring-1 ring-[#1C2B4B]'
                         : 'border-stone-200 text-stone-600 hover:border-stone-400 bg-white'
                     }`}
                   >
-                    <Video className="w-4 h-4 text-[#9B1D2C] shrink-0" />
+                    <Video className="w-4 h-4 text-[#1C2B4B] shrink-0" />
                     <div>
                       <p className="font-bold">Live Video Draping</p>
                       <p className="text-[10px] text-stone-500">For Outstation & Global Clients</p>
@@ -114,11 +114,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     onClick={() => setBooking({ ...booking, type: 'chandni_chowk' })}
                     className={`p-3 rounded-xl border text-xs flex items-center gap-2.5 transition-all text-left cursor-pointer ${
                       booking.type === 'chandni_chowk'
-                        ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 font-semibold text-stone-900 ring-1 ring-[#9B1D2C]'
+                        ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 font-semibold text-stone-900 ring-1 ring-[#1C2B4B]'
                         : 'border-stone-200 text-stone-600 hover:border-stone-400 bg-white'
                     }`}
                   >
-                    <MapPin className="w-4 h-4 text-[#9B1D2C] shrink-0" />
+                    <Building2 className="w-4 h-4 text-[#1C2B4B] shrink-0" />
                     <div>
                       <p className="font-bold">Showroom Visit</p>
                       <p className="text-[10px] text-stone-500">Chandni Chowk Heritage Floor</p>
@@ -138,7 +138,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     value={booking.name}
                     onChange={(e) => setBooking({ ...booking, name: e.target.value })}
                     placeholder="e.g. Jasleen Kaur"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
                 <div>
@@ -151,7 +151,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     value={booking.phone}
                     onChange={(e) => setBooking({ ...booking, phone: e.target.value })}
                     placeholder="+91 98110 54321"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -168,7 +168,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                       required
                       value={booking.date}
                       onChange={(e) => setBooking({ ...booking, date: e.target.value })}
-                      className="w-full text-xs pl-8 pr-2.5 py-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                      className="w-full text-xs pl-8 pr-2.5 py-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                     />
                   </div>
                 </div>
@@ -181,7 +181,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     <select
                       value={booking.timeSlot}
                       onChange={(e) => setBooking({ ...booking, timeSlot: e.target.value })}
-                      className="w-full text-xs pl-8 pr-2.5 py-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#9B1D2C]"
+                      className="w-full text-xs pl-8 pr-2.5 py-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#1C2B4B]"
                     >
                       <option value="11:30 AM - 12:30 PM">11:30 AM – 12:30 PM</option>
                       <option value="02:00 PM - 03:00 PM">02:00 PM – 03:00 PM</option>
@@ -200,7 +200,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                 <select
                   value={booking.interestedCategory}
                   onChange={(e) => setBooking({ ...booking, interestedCategory: e.target.value })}
-                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#1C2B4B]"
                 >
                   <option value="Bridal Lehengas & Pure Katan Brocades">Bridal Lehengas & Pure Katan Brocades</option>
                   <option value="Virasat Heritage Silk Sarees">Virasat Heritage Silk Sarees</option>
@@ -219,14 +219,14 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                   value={booking.notes}
                   onChange={(e) => setBooking({ ...booking, notes: e.target.value })}
                   placeholder="Tell us what you are looking for so we can have fabric bolts ready..."
-                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+                  className="w-full py-3 bg-[#1C2B4B] hover:bg-[#14223A] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
                 >
                   Confirm Appointment
                 </button>

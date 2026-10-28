@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { CreditCard, Truck, ShieldCheck, CheckCircle2, ArrowRight, Building2, Phone, HelpCircle } from 'lucide-react';
-import { ThreadlincModal } from '../components/ThreadlincModal';
+import { CreditCard, Truck, ShieldCheck, CheckCircle2, ArrowRight, Building2, Phone, HelpCircle, ChevronRight } from 'lucide-react';
+import { siteContent } from '../config/siteContent';
 
 interface ThreadlincPageProps {
   onNavigateHome: () => void;
@@ -11,26 +11,30 @@ interface ThreadlincPageProps {
 export const ThreadlincPage: React.FC<ThreadlincPageProps> = ({
   onNavigateHome,
   onOpenThreadlincModal,
-  currency,
 }) => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const { brand } = siteContent;
 
   const faqs = [
     {
-      q: 'What is the "Bill to – Ship to" model under Threadlinc?',
-      a: 'Under Indian GST laws (Section 10(1)(b) of CGST Act), "Bill to – Ship to" allows goods to be billed to one party (e.g., your corporate entity or Threadlinc as financing facilitator) while being physically shipped to another party (such as your job-work printing mill, embroidery workshop, or garment manufacturing factory). This avoids double freight costs and permits seamless input tax credit flow.',
+      q: 'How does Threadlinc trade credit work for retail shopkeepers and wholesalers?',
+      a: 'Threadlinc facilitates institutional trade credit for orders placed through Shree Durga Agency. Consignments are dispatched directly to your shop or warehouse with valid GST documentation while payment terms are extended across 30, 60, or 90 days. This allows you to sell inventory before settling the trade invoice.',
     },
     {
-      q: 'How does Threadlinc finance textile orders from Bhasin Textiles?',
-      a: 'When you place a bulk order for pure silk brocades, raw silks, or unstitched suits with Bhasin Textiles, Threadlinc approves an institutional credit line. Threadlinc settles the fabric mill immediately so your fabric enters cutting/dispatch without delay, granting your label a 30, 60, or 90-day repayment tenure.',
+      q: 'Who qualifies for Threadlinc trade credit?',
+      a: 'Registered textile retailers, saree showrooms, boutiques, regional wholesalers, and apparel manufacturers with an active GST identification number and established retail operations.',
     },
     {
-      q: 'Who is eligible for Threadlinc trade credit lines?',
-      a: 'Verified fashion boutiques, apparel exporters, retail chain stores, private label brands, and independent bridal couturiers holding active GST registrations and a minimum track record of 6 months in operation.',
+      q: 'What documents are required to activate a credit line?',
+      a: 'Standard business KYC: GST Registration Certificate, business PAN, bank statement of the last 6 months, and basic trade references. Credit line assessments are typically completed within 24 to 48 hours.',
     },
     {
-      q: 'What documents are required for credit onboarding?',
-      a: 'Basic KYC: GST Registration Certificate, PAN Card of entity/proprietor, past 6 months bank statement, and purchase order copy. Approvals are typically finalized within 4 to 24 business hours.',
+      q: 'Can I combine multiple sourcing hubs under one Threadlinc credit account?',
+      a: 'Yes. Whether you are sourcing Banarasi sarees from Varanasi, jacquards from Surat, or cottons from Jaipur, your combined orders can be cleared and settled under a consolidated Threadlinc credit facility.',
+    },
+    {
+      q: 'Is there a minimum order requirement to use financing?',
+      a: 'Threadlinc credit facilities are designed for commercial wholesale orders, typically starting from ₹50,000 and scaling up to ₹25,00,000 depending on your seasonal inventory requirements.',
     },
   ];
 
@@ -38,152 +42,147 @@ export const ThreadlincPage: React.FC<ThreadlincPageProps> = ({
     <div className="py-8 px-4 sm:px-8 max-w-7xl mx-auto w-full animate-in fade-in duration-300">
       
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6">
-        <button type="button" onClick={onNavigateHome} className="hover:text-stone-900 transition-colors cursor-pointer">
+      <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6">
+        <button type="button" onClick={onNavigateHome} className="hover:text-slate-900 transition-colors cursor-pointer">
           Home
         </button>
-        <span>/</span>
-        <span className="text-stone-500">Associate Entities</span>
-        <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Threadlinc Trade Financing</span>
+        <ChevronRight className="w-3 h-3 text-slate-400" />
+        <span className="text-[#0D7A5F] font-bold">Threadlinc Financing</span>
       </nav>
 
       {/* Hero Section */}
-      <div className="bg-[#121922] text-[#FAF8F5] rounded-3xl p-8 sm:p-14 mb-12 relative overflow-hidden border border-stone-800 shadow-xl">
+      <div className="bg-[#0B1B33] text-white rounded-3xl p-8 sm:p-14 mb-12 relative overflow-hidden border border-slate-800 shadow-xl border-t-4 border-t-[#0D7A5F]">
         <div className="max-w-3xl relative z-10">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D8B26E] font-semibold mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#D8B26E]" />
-            <span>Associate Firm of Bhasin Textiles</span>
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-emerald-300 font-bold mb-3 px-3 py-1 rounded-full bg-white/10">
+            <span className="w-2 h-2 rounded-full bg-[#0D7A5F]" />
+            <span>Financing Partner of {brand.name}</span>
             <span aria-hidden="true">·</span>
-            <span>Est. for Textile Trade Credit</span>
+            <span>30 to 90 Days Credit</span>
           </div>
           
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white mb-4 leading-tight">
-            Threadlinc: Institutional Textile Financing & "Bill to – Ship to" Solutions
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mb-4 leading-tight">
+            Threadlinc: Working Capital & Trade Financing for Textile Retailers
           </h1>
           
-          <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-light mb-8 max-w-2xl">
-            Bridging fabric procurement and garment production cash flows. Through <strong>Threadlinc</strong>, we provide specialized trade credit and tripartite billing for fashion labels, exporters, and boutique retailers sourcing from Bhasin Textiles.
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-8 max-w-2xl">
+            Stock up for wedding and festive seasons without depleting working capital. Through <strong>Threadlinc</strong>, retailers and wholesalers sourcing via {brand.name} access structured commercial credit with flexible repayment windows.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
             <button
               type="button"
               onClick={onOpenThreadlincModal}
-              className="px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+              className="px-6 py-3.5 text-xs font-bold tracking-wider uppercase text-white bg-[#0D7A5F] hover:bg-[#0A634D] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
             >
-              <CreditCard className="w-4 h-4 text-[#D8B26E]" />
-              <span>Apply for Threadlinc Credit Line</span>
+              <CreditCard className="w-4 h-4 text-white" />
+              <span>Check Financing Eligibility</span>
             </button>
             <a
-              href="https://wa.me/919811054321?text=Hello%20Threadlinc!%20I%20am%20interested%20in%20Bill-to-Ship-to%20financing%20for%20textiles."
+              href="https://wa.me/919811054321?text=Hello%20Threadlinc!%20I%20am%20interested%20in%20trade%20credit%20financing%20for%20textiles."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3.5 text-xs font-semibold tracking-wider uppercase text-stone-200 bg-stone-800 hover:bg-stone-700 rounded-lg transition-colors cursor-pointer flex items-center gap-2"
+              className="px-5 py-3.5 text-xs font-bold tracking-wider uppercase text-slate-200 bg-white/10 hover:bg-white/20 rounded-lg transition-colors cursor-pointer flex items-center gap-2"
             >
-              <Phone className="w-4 h-4 text-[#D8B26E]" />
+              <Phone className="w-4 h-4 text-emerald-300" />
               <span>WhatsApp Financing Desk</span>
             </a>
           </div>
         </div>
-
-        {/* Financial seal icon in background */}
-        <div className="absolute top-1/2 -right-8 -translate-y-1/2 w-80 h-80 bg-[#D8B26E]/5 rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      {/* Visual Deep-Dive: The "Bill to – Ship to" Architecture */}
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200/90 shadow-sm mb-16">
+      {/* 3 Step Workflow Overview */}
+      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-xs mb-16">
         <div className="max-w-2xl mb-8">
-          <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
-            Operational Blueprint
+          <span className="text-xs uppercase tracking-wider text-[#143D36] font-semibold block mb-1">
+            Simplified Process
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F1916]">
-            How "Bill to – Ship to" Works in Practice
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B]">
+            How Trade Credit Sourcing Operates
           </h2>
-          <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-            Eliminating cash-flow bottlenecks between fabric buying and garment manufacturing dispatch.
+          <p className="text-xs sm:text-sm text-stone-600 mt-1 leading-relaxed">
+            A transparent 3-step mechanism that puts inventory on your shelves before payment is due.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Card 1 */}
+          {/* Step 1 */}
           <div className="bg-[#FAF8F5] p-6 rounded-2xl border border-stone-200 flex flex-col justify-between">
             <div>
-              <div className="w-8 h-8 rounded-full bg-[#1F1916] text-[#D8B26E] flex items-center justify-center font-bold text-xs mb-4">
+              <div className="w-8 h-8 rounded-full bg-[#1C2B4B] text-white flex items-center justify-center font-bold text-xs mb-4">
                 01
               </div>
-              <span className="text-[11px] font-bold text-[#9B1D2C] uppercase tracking-wider block mb-1">Procurement Phase</span>
-              <h3 className="font-serif font-bold text-base text-[#1F1916] mb-2">Order Placement</h3>
+              <span className="text-[11px] font-bold text-[#143D36] uppercase tracking-wider block mb-1">Select Catalog</span>
+              <h3 className="font-serif font-bold text-base text-[#1E293B] mb-2">Order Finalization</h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                You select your seasonal requirements from Bhasin Textiles (Banarasi Katan brocades, raw silks, Chanderi tissues, or unstitched suits) and specify your target manufacturing units.
+                Choose your required sarees, unstitched suit sets, or fabric qualities across Delhi, Surat, Jaipur, or Varanasi with our consultant desk.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-stone-200/60 text-[11px] text-stone-500 font-medium">
-              Zero delays in mill yarn allocation
+              Verified hub wholesale pricing
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-[#FAF8F5] p-6 rounded-2xl border border-stone-200 flex flex-col justify-between">
-            <div>
-              <div className="w-8 h-8 rounded-full bg-[#9B1D2C] text-white flex items-center justify-center font-bold text-xs mb-4">
-                02
-              </div>
-              <span className="text-[11px] font-bold text-[#9B1D2C] uppercase tracking-wider block mb-1">Financing & Billing Phase</span>
-              <h3 className="font-serif font-bold text-base text-[#1F1916] mb-2">"Bill To" Threadlinc</h3>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Threadlinc steps in to approve trade credit terms (30, 60, or 90 days). Tax invoices are billed to the registered corporate buyer, ensuring complete GST input tax credit (ITC) reconciliation.
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-stone-200/60 text-[11px] text-stone-500 font-medium">
-              30–90 Day deferred settlement
-            </div>
-          </div>
-
-          {/* Card 3 */}
+          {/* Step 2 */}
           <div className="bg-[#FAF8F5] p-6 rounded-2xl border border-stone-200 flex flex-col justify-between">
             <div>
               <div className="w-8 h-8 rounded-full bg-[#143D36] text-white flex items-center justify-center font-bold text-xs mb-4">
-                03
+                02
               </div>
-              <span className="text-[11px] font-bold text-[#9B1D2C] uppercase tracking-wider block mb-1">Logistics Phase</span>
-              <h3 className="font-serif font-bold text-base text-[#1F1916] mb-2">"Ship To" Factory Direct</h3>
+              <span className="text-[11px] font-bold text-[#143D36] uppercase tracking-wider block mb-1">Credit Assessment</span>
+              <h3 className="font-serif font-bold text-base text-[#1E293B] mb-2">Threadlinc Clearance</h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Bhasin Textiles dispatches the physical fabric rolls with an E-Way Bill straight to your designated job-worker, embroidery studio, or garment factory anywhere in India or to air cargo ports.
+                Threadlinc approves your commercial trade credit line. We settle production centers upfront so your consignment enters prompt inspection and packing.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-stone-200/60 text-[11px] text-stone-500 font-medium">
-              Eliminates double freight & handling
+              30 to 90 days repayment tenure
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="bg-[#FAF8F5] p-6 rounded-2xl border border-stone-200 flex flex-col justify-between">
+            <div>
+              <div className="w-8 h-8 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold text-xs mb-4">
+                03
+              </div>
+              <span className="text-[11px] font-bold text-[#143D36] uppercase tracking-wider block mb-1">Direct Delivery</span>
+              <h3 className="font-serif font-bold text-base text-[#1E293B] mb-2">Doorstep Dispatch</h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                The inspected goods ship directly to your shop or godown with legitimate GST documentation and transit insurance. You sell first, then settle.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-stone-200/60 text-[11px] text-stone-500 font-medium">
+              Full transit protection & GST invoice
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Benefits Grid for Fashion Labels & Boutiques */}
+      {/* Key Advantages */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div className="bg-white p-8 rounded-2xl border border-stone-200/90 shadow-xs">
-          <ShieldCheck className="w-8 h-8 text-[#9B1D2C] mb-4" />
-          <h3 className="text-xl font-serif font-bold text-[#1F1916] mb-2">Preserve Seasonal Cash Flow</h3>
-          <p className="text-xs text-stone-600 leading-relaxed">
-            In fashion and bridal couture, cash is often locked in pending customer deliveries and bridal balances. Threadlinc trade credit ensures you never miss a festive production window because of short-term liquidity constraints.
+        <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-xs">
+          <ShieldCheck className="w-8 h-8 text-[#143D36] mb-4" />
+          <h3 className="text-xl font-serif font-bold text-[#1E293B] mb-2">Preserve Seasonal Liquidity</h3>
+          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            Festival and wedding seasons require large upfront inventory investments. Threadlinc trade credit ensures you never miss peak retail demand due to temporary cash bottlenecks.
           </p>
         </div>
 
-        <div className="bg-white p-8 rounded-2xl border border-stone-200/90 shadow-xs">
-          <Truck className="w-8 h-8 text-[#9B1D2C] mb-4" />
-          <h3 className="text-xl font-serif font-bold text-[#1F1916] mb-2">Multi-State GST & E-Way Compliance</h3>
-          <p className="text-xs text-stone-600 leading-relaxed">
-            Whether your corporate head office is in Mumbai, your brand in Bangalore, and your cutting factory in Noida or Jaipur, Threadlinc ensures pristine compliance under GST rules without risk of in-transit tax seizures.
+        <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-xs">
+          <Truck className="w-8 h-8 text-[#143D36] mb-4" />
+          <h3 className="text-xl font-serif font-bold text-[#1E293B] mb-2">Complete GST & E-Way Compliance</h3>
+          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            All shipments move with official e-way bills and clean GST tax invoices, ensuring seamless input tax credit reconciliation for your accounting and audit peace of mind.
           </p>
         </div>
       </div>
 
-      {/* Frequently Asked Questions */}
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-sm mb-16">
-        <h2 className="text-2xl font-serif font-bold text-[#1F1916] mb-6 pb-3 border-b border-stone-200">
-          Frequently Asked Questions About Threadlinc
+      {/* Frequently Asked Questions (Secondary Details moved to FAQs) */}
+      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-xs mb-16">
+        <h2 className="text-2xl font-serif font-bold text-[#1E293B] mb-6 pb-3 border-b border-stone-200">
+          Frequently Asked Questions About Threadlinc Financing
         </h2>
 
         <div className="divide-y divide-stone-200 space-y-4">
@@ -198,7 +197,7 @@ export const ThreadlincPage: React.FC<ThreadlincPageProps> = ({
                 <span className="text-stone-400 font-normal text-lg">{activeFaq === idx ? '−' : '+'}</span>
               </button>
               {activeFaq === idx && (
-                <p className="mt-2 text-xs text-stone-600 leading-relaxed pr-8">
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed pr-8 animate-in fade-in duration-200">
                   {faq.a}
                 </p>
               )}
@@ -208,23 +207,23 @@ export const ThreadlincPage: React.FC<ThreadlincPageProps> = ({
       </div>
 
       {/* Final Action Banner */}
-      <div className="bg-[#121922] text-[#FAF8F5] p-8 sm:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 border border-stone-800">
+      <div className="bg-[#1C2B4B] text-[#FAF8F5] p-8 sm:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 border border-[#14223A]">
         <div>
-          <span className="text-[#D8B26E] text-xs font-semibold uppercase tracking-wider block mb-1">
+          <span className="text-emerald-300 text-xs font-semibold uppercase tracking-wider block mb-1">
             Immediate Credit Onboarding
           </span>
           <h3 className="text-2xl font-serif font-bold mb-2">Ready to Structure Your Next Seasonal Order?</h3>
-          <p className="text-xs text-stone-300 max-w-xl">
-            Talk to a Threadlinc trade finance officer today to establish your initial credit line for upcoming Bhasin Textiles shipments.
+          <p className="text-xs sm:text-sm text-stone-300 max-w-xl font-light">
+            Contact a Threadlinc trade finance officer today to establish an approved credit line for upcoming seasonal shipments.
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 shrink-0">
           <button
             type="button"
             onClick={onOpenThreadlincModal}
-            className="px-6 py-3.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer shadow-sm"
+            className="px-6 py-3.5 bg-white hover:bg-stone-100 text-[#1C2B4B] rounded-xl text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer shadow-xs"
           >
-            Open Credit Application
+            Check Eligibility
           </button>
         </div>
       </div>

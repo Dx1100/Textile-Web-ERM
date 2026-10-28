@@ -43,7 +43,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Virasat Heritage Saree Collection</span>
+        <span className="text-[#1C2B4B] font-semibold">Virasat Heritage Saree Collection</span>
       </nav>
 
       {/* Hero Banner */}
@@ -66,7 +66,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
             <button
               type="button"
               onClick={onOpenConsultation}
-              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
             >
               <Video className="w-4 h-4 text-[#D8B26E]" />
               <span>Book 1-on-1 Video Draping</span>
@@ -83,7 +83,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/90 shadow-xs mb-12">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
+            <span className="text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold block mb-1">
               Styling Atelier
             </span>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916]">
@@ -93,7 +93,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
           <button
             type="button"
             onClick={onOpenConsultation}
-            className="text-xs text-[#9B1D2C] hover:underline font-semibold flex items-center gap-1"
+            className="text-xs text-[#1C2B4B] hover:underline font-semibold flex items-center gap-1"
           >
             <span>Need personalized styling? Ask our Draper</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -114,7 +114,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
               onClick={() => setActiveDrapeTab(tab.id as any)}
               className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                 activeDrapeTab === tab.id
-                  ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 font-semibold text-stone-900 ring-1 ring-[#9B1D2C]'
+                  ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 font-semibold text-stone-900 ring-1 ring-[#1C2B4B]'
                   : 'border-stone-200 text-stone-600 hover:border-stone-400 bg-white'
               }`}
             >
@@ -171,7 +171,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
             id="fallPico"
             checked={includeFallPico}
             onChange={(e) => setIncludeFallPico(e.target.checked)}
-            className="rounded text-[#9B1D2C] focus:ring-[#9B1D2C]"
+            className="rounded text-[#1C2B4B] focus:ring-[#1C2B4B]"
           />
           <label htmlFor="fallPico" className="cursor-pointer">
             Include Fall & Hand-Rolled Pico (+₹0 Free)
@@ -211,7 +211,7 @@ export const SareesPage: React.FC<SareesPageProps> = ({
           onClick={onOpenConsultation}
           className="px-6 py-3.5 bg-[#FAF8F5] text-[#1F1916] hover:bg-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shadow-sm shrink-0 flex items-center gap-2 cursor-pointer"
         >
-          <Scissors className="w-4 h-4 text-[#9B1D2C]" />
+          <Scissors className="w-4 h-4 text-[#1C2B4B]" />
           <span>Consult Blouse Master</span>
         </button>
       </div>

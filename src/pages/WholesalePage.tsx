@@ -55,21 +55,21 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">B2B Wholesale & Mill Manufacturing Portal</span>
+        <span className="text-[#1C2B4B] font-semibold">B2B Wholesale & Wholesale Sourcing Portal</span>
       </nav>
 
       {/* Hero Banner */}
       <div className="bg-[#1F1916] text-[#FAF8F5] rounded-3xl p-8 sm:p-12 mb-12 relative overflow-hidden border border-stone-800 shadow-xl">
         <div className="max-w-2xl relative z-10">
           <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D8B26E] font-semibold mb-3">
-            <span>Direct Mill Supply</span>
+            <span>Direct Direct Supply</span>
             <span aria-hidden="true">·</span>
             <span>Worldwide Export (24+ Countries)</span>
             <span aria-hidden="true">·</span>
             <span>GST & IEC Registered</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4 leading-tight">
-            Wholesale, Private Label & Bulk Mill Manufacturing
+            Wholesale, Private Label & Bulk Wholesale Sourcing
           </h1>
           <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-light mb-6">
             Supplying leading couture houses, export labels, and ethnic retail chains across India, Europe, the Middle East, and North America. Custom jacquard weaving, Pantone lab dips, and rolled fabric bolts with door-to-door express delivery.
@@ -90,7 +90,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
       {/* Tiered Order Volumes & MOQ Table */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <div className="bg-white p-6 rounded-2xl border border-stone-200">
-          <span className="text-xs font-bold text-[#9B1D2C] uppercase tracking-wide block mb-1">Tier 1: Sampling & Capsule</span>
+          <span className="text-xs font-bold text-[#1C2B4B] uppercase tracking-wide block mb-1">Tier 1: Sampling & Capsule</span>
           <h3 className="text-xl font-serif font-bold text-[#1F1916] mb-2">25 – 100 Meters</h3>
           <p className="text-xs text-stone-600 mb-4 leading-relaxed">
             Ideal for independent fashion designers, runway capsule collections, and bespoke bridal studios testing new color palettes and silhouettes.
@@ -102,8 +102,8 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
           </ul>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-[#9B1D2C]/40 ring-1 ring-[#9B1D2C]/20 shadow-md">
-          <span className="text-xs font-bold text-[#9B1D2C] uppercase tracking-wide block mb-1">Tier 2: Boutique Production</span>
+        <div className="bg-white p-6 rounded-2xl border border-[#1C2B4B]/40 ring-1 ring-[#1C2B4B]/20 shadow-md">
+          <span className="text-xs font-bold text-[#1C2B4B] uppercase tracking-wide block mb-1">Tier 2: Boutique Production</span>
           <h3 className="text-xl font-serif font-bold text-[#1F1916] mb-2">100 – 1,000 Meters</h3>
           <p className="text-xs text-stone-600 mb-4 leading-relaxed">
             Tailored for established bridal boutiques, luxury pret labels, and multi-designer stores. Includes custom dyeing and dedicated account manager.
@@ -116,7 +116,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
         </div>
 
         <div className="bg-white p-6 rounded-2xl border border-stone-200">
-          <span className="text-xs font-bold text-[#9B1D2C] uppercase tracking-wide block mb-1">Tier 3: Export & Mill Rolls</span>
+          <span className="text-xs font-bold text-[#1C2B4B] uppercase tracking-wide block mb-1">Tier 3: Export & Wholesale Rolls</span>
           <h3 className="text-xl font-serif font-bold text-[#1F1916] mb-2">1,000 – 10,000+ Meters</h3>
           <p className="text-xs text-stone-600 mb-4 leading-relaxed">
             Designed for international garment manufacturers, department store brands, and global ethnic wear distributors.
@@ -134,13 +134,13 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
         <div className="space-y-2 max-w-xl">
           <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D8B26E] font-semibold">
             <CreditCard className="w-4 h-4" />
-            <span>Structured Trade Credit by Sister Entity Threadlinc</span>
+            <span>Structured Trade Credit & Financing</span>
           </div>
           <h3 className="text-xl font-serif font-bold text-white">
-            Need "Bill to – Ship to" Invoicing or 30–90 Day Credit for Bulk Orders?
+            Need 30–90 Day Trade Credit for Bulk Orders?
           </h3>
           <p className="text-xs text-stone-300 leading-relaxed font-light">
-            Through our associate firm <strong>Threadlinc</strong>, we invoice your corporate/financing entity while shipping fabric rolls directly to your manufacturing units or job-work printers across India with full GST E-way bill compliance.
+            Through structured trade credit facilities, we coordinate order clearance and delivery with full GST E-way bill compliance directly to your units.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3 shrink-0">
@@ -168,7 +168,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
       {/* Embedded Wholesale Inquiry Form */}
       <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-sm max-w-3xl mx-auto mb-16">
         <div className="max-w-xl mb-8">
-          <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
+          <span className="text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold block mb-1">
             Commercial RFP
           </span>
           <h2 className="text-2xl font-serif font-bold text-[#1F1916]">
@@ -211,7 +211,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
                   value={form.companyName}
                   onChange={(e) => setForm({ ...form, companyName: e.target.value })}
                   placeholder="e.g. Sona Couture Mumbai"
-                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
                   value={form.contactPerson}
                   onChange={(e) => setForm({ ...form, contactPerson: e.target.value })}
                   placeholder="e.g. Vikram Bhasin"
-                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
             </div>
@@ -241,7 +241,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   placeholder="+91 98110 54321"
-                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -255,7 +255,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="merchandising@brand.com"
-                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -269,7 +269,7 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
                   placeholder="Delhi / London / Dubai"
-                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
             </div>
@@ -281,11 +281,11 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
               <select
                 value={form.monthlyMeters}
                 onChange={(e) => setForm({ ...form, monthlyMeters: e.target.value })}
-                className="w-full text-xs p-3 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#9B1D2C]"
+                className="w-full text-xs p-3 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#1C2B4B]"
               >
                 <option value="25 - 100 meters">25 – 100 meters (Sampling / Capsule)</option>
                 <option value="100 - 1,000 meters">100 – 1,000 meters (Boutique Production)</option>
-                <option value="1,000 - 10,000+ meters">1,000 – 10,000+ meters (Export Mill Rolls)</option>
+                <option value="1,000 - 10,000+ meters">1,000 – 10,000+ meters (Export Wholesale Rolls)</option>
               </select>
             </div>
 
@@ -298,13 +298,13 @@ export const WholesalePage: React.FC<WholesalePageProps> = ({
                 value={form.notes}
                 onChange={(e) => setForm({ ...form, notes: e.target.value })}
                 placeholder="Mention desired GSM, pure zari vs tested zari preference, target price per meter, and delivery deadlines..."
-                className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                className="w-full text-xs p-3 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-3.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors shadow-sm cursor-pointer"
+              className="w-full py-3.5 bg-[#1C2B4B] hover:bg-[#14223A] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors shadow-sm cursor-pointer"
             >
               Submit Wholesale Inquiry
             </button>

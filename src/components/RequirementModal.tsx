@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, FileText, CheckCircle2, Phone, CreditCard, Send, Sparkles } from 'lucide-react';
 import { SourcingRequirement } from '../types';
+import { siteContent } from '../config/siteContent';
 
 interface RequirementModalProps {
   isOpen: boolean;
@@ -13,6 +14,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
   onClose,
   initialCategory,
 }) => {
+  const { brand } = siteContent;
   const [form, setForm] = useState<SourcingRequirement>({
     category: (initialCategory as any) || "Women's Fashion",
     sourcingHub: "Any / Best Match",
@@ -32,23 +34,22 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
   if (!isOpen) return null;
 
   const categories = [
-    "Women's Fashion",
-    "Men's Fashion",
-    "Kidswear",
-    "Fabrics",
-    "Home Furnishing",
-    "Accessories",
+    "Sarees & Heritage Weaves",
+    "Suits & Dress Materials",
+    "Bridal & Festive Lehengas",
+    "Running Fabrics & Yardage",
+    "Men's Royal Ethnic Wear",
+    "Home Furnishing & Drapes",
   ] as const;
 
   const hubs = [
     "Any / Best Match",
-    "Delhi",
-    "Surat",
-    "Jaipur",
-    "Panipat",
-    "Meerut",
-    "Muzaffarnagar",
-    "Kolkata",
+    "Varanasi Hub",
+    "Surat Hub",
+    "Delhi NCR Hub",
+    "Jaipur Hub",
+    "Panipat Hub",
+    "Kolkata Hub",
   ] as const;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -62,12 +63,12 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
 
   const handleDirectWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello Shree Durga Agency & Threadlinc! I am ${form.contactPerson || "a buyer"} from ${form.businessName || "our business"}. ` +
-      `We have a sourcing requirement for ${form.category} (${form.quantity}) from ${form.sourcingHub} hub. ` +
-      `Bill to - Ship to financing requested: ${form.billToShipToFinance ? "YES (Threadlinc)" : "No"}. ` +
-      `Location: ${form.city || "India"}. Please connect us with your sourcing coordinator.`
+      `Hello ${brand.name}! I am ${form.contactPerson || "a buyer"} from ${form.businessName || "our business"}. ` +
+      `We have a sourcing requirement for ${form.category} (${form.quantity}) from ${form.sourcingHub}. ` +
+      `Threadlinc trade credit requested: ${form.billToShipToFinance ? "YES (30-90 Days)" : "No"}. ` +
+      `Location: ${form.city || "India"}. Please connect us with your sourcing consultant.`
     );
-    window.open(`https://wa.me/919811054321?text=${text}`, '_blank');
+    window.open(`https://wa.me/${brand.contact.whatsappNumber}?text=${text}`, '_blank');
   };
 
   return (
@@ -75,20 +76,20 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
       <div className="relative bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-stone-200 overflow-hidden my-6">
         
         {/* Header */}
-        <div className="bg-[#1F1916] text-[#FAF8F5] p-5 sm:p-6 flex items-center justify-between border-b border-stone-800">
+        <div className="bg-[#0B1B33] text-white p-5 sm:p-6 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shadow-inner">
-              <FileText className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white shadow-inner">
+              <FileText className="w-5 h-5 text-emerald-400" />
             </div>
             <div>
-              <h2 className="text-xl font-serif font-bold tracking-wide">Submit Sourcing Requirement</h2>
-              <p className="text-xs text-stone-300">Shree Durga Agency · Mill Sourcing & Threadlinc Financing</p>
+              <h2 className="text-xl font-heading font-extrabold tracking-tight">Submit Sourcing Requirement</h2>
+              <p className="text-xs text-slate-300 font-medium">{brand.name} · Sourcing & Textile Consultant</p>
             </div>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-2 text-stone-400 hover:text-white rounded-full hover:bg-stone-800 transition-colors cursor-pointer"
+            className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -102,15 +103,15 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
               <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-[#1F1916]">
+              <h3 className="text-2xl font-serif font-bold text-[#1E293B]">
                 Requirement Received
               </h3>
               <p className="text-xs text-stone-600 max-w-md mx-auto leading-relaxed">
-                Thank you, <strong>{form.contactPerson}</strong>. Our head of buyer coordination for <strong>{form.category}</strong> will tap our verified mills in <strong>{form.sourcingHub}</strong> and share shortlisted options and sample catalogs to <strong>{form.phone}</strong> within 3 business hours.
+                Thank you, <strong>{form.contactPerson}</strong>. Our senior sourcing coordinator for <strong>{form.category}</strong> will tap our verified manufacturers in <strong>{form.sourcingHub}</strong> and share shortlisted options to <strong>{form.phone}</strong> within 2 hours.
               </p>
               {form.billToShipToFinance && (
-                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 max-w-md mx-auto">
-                  <span className="font-bold">Threadlinc Note:</span> Your "Bill to – Ship to" trade credit evaluation has been flagged for priority onboarding.
+                <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-900 max-w-md mx-auto">
+                  <span className="font-bold">Threadlinc Trade Credit:</span> Your request for 30–90 days financing has been noted for priority onboarding.
                 </div>
               )}
               <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
@@ -149,7 +150,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                       onClick={() => setForm({ ...form, category: cat })}
                       className={`p-2.5 rounded-lg border text-xs font-medium text-left transition-all cursor-pointer ${
                         form.category === cat
-                          ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 text-[#1F1916] ring-1 ring-[#9B1D2C] font-semibold'
+                          ? 'border-[#1C2B4B] bg-[#1C2B4B]/10 text-[#1C2B4B] ring-1 ring-[#1C2B4B] font-semibold'
                           : 'border-stone-200 text-stone-600 hover:border-stone-400 bg-white'
                       }`}
                     >
@@ -168,7 +169,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   <select
                     value={form.sourcingHub}
                     onChange={(e) => setForm({ ...form, sourcingHub: e.target.value as any })}
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#1C2B4B]"
                   >
                     {hubs.map((hub) => (
                       <option key={hub} value={hub}>{hub}</option>
@@ -183,22 +184,22 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   <select
                     value={form.quantity}
                     onChange={(e) => setForm({ ...form, quantity: e.target.value })}
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg bg-white focus:outline-none focus:border-[#1C2B4B]"
                   >
-                    <option value="100 – 500 units / meters">100 – 500 units / meters (Sampling / Boutique)</option>
-                    <option value="500 – 2,000 units / meters">500 – 2,000 units / meters (Wholesale Lot)</option>
-                    <option value="2,000 – 10,000+ units / meters">2,000 – 10,000+ units / meters (Bulk Mill Roll / Export)</option>
+                    <option value="15 – 50 pcs / 50 meters">15 – 50 pcs / 50 meters (Retail Showroom Trial)</option>
+                    <option value="50 – 200 pcs / 200–500 meters">50 – 200 pcs / 200–500 meters (Seasonal Collection)</option>
+                    <option value="500+ pcs / 1,000+ meters">500+ pcs / 1,000+ meters (Bulk Wholesale Lot)</option>
                   </select>
                 </div>
               </div>
 
-              {/* Threadlinc Bill to - Ship to Trade Credit Toggle */}
-              <div className="p-3.5 bg-gradient-to-r from-stone-900 to-stone-800 text-white rounded-xl border border-stone-700 flex items-center justify-between gap-3">
+              {/* Threadlinc Trade Credit Toggle */}
+              <div className="p-3.5 bg-stone-900 text-white rounded-xl border border-stone-700 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5">
-                  <CreditCard className="w-5 h-5 text-[#D8B26E] shrink-0" />
+                  <CreditCard className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <p className="text-xs font-semibold text-white">Threadlinc "Bill to – Ship to" Financing</p>
-                    <p className="text-[11px] text-stone-300">Request 30–90 day credit line & direct factory dispatch</p>
+                    <p className="text-xs font-semibold text-white">Threadlinc Trade Credit (30–90 Days)</p>
+                    <p className="text-[11px] text-stone-300">Request deferred trade credit for seasonal stock</p>
                   </div>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer shrink-0">
@@ -208,7 +209,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                     onChange={(e) => setForm({ ...form, billToShipToFinance: e.target.checked })}
                     className="sr-only peer"
                   />
-                  <div className="w-10 h-5 bg-stone-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#D8B26E]"></div>
+                  <div className="w-10 h-5 bg-stone-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#143D36]"></div>
                 </label>
               </div>
 
@@ -216,15 +217,15 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs uppercase tracking-wider font-semibold text-stone-700 mb-1">
-                    Business / Brand Name *
+                    Business / Store Name *
                   </label>
                   <input
                     type="text"
                     required
                     value={form.businessName}
                     onChange={(e) => setForm({ ...form, businessName: e.target.value })}
-                    placeholder="e.g. Ananya Textiles / Mumbai Retail"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    placeholder="e.g. Royal Saree Palace"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
 
@@ -238,7 +239,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                     value={form.contactPerson}
                     onChange={(e) => setForm({ ...form, contactPerson: e.target.value })}
                     placeholder="e.g. Ramesh Kumar"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -254,7 +255,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     placeholder="+91 98110 54321"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
 
@@ -266,8 +267,8 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="purchase@brand.com"
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    placeholder="sourcing@shop.com"
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
 
@@ -280,8 +281,8 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                     required
                     value={form.city}
                     onChange={(e) => setForm({ ...form, city: e.target.value })}
-                    placeholder="Delhi, Jaipur, Bangalore..."
-                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                    placeholder="Varanasi, Patna, Kanpur..."
+                    className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                   />
                 </div>
               </div>
@@ -294,8 +295,8 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   rows={2}
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                  placeholder="Mention desired fabrics, GSM, weave type, colors, target price per meter/piece, or delivery date..."
-                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#9B1D2C]"
+                  placeholder="Mention desired fabrics, colors, target price range, or preferred delivery timeline..."
+                  className="w-full text-xs p-2.5 border border-stone-300 rounded-lg focus:outline-none focus:border-[#1C2B4B]"
                 />
               </div>
 
@@ -311,7 +312,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-2.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm cursor-pointer ml-auto"
+                  className="w-full sm:w-auto px-6 py-2.5 bg-[#0D7A5F] hover:bg-[#0A634D] text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer ml-auto"
                 >
                   Submit Requirement
                 </button>

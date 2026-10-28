@@ -51,9 +51,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   const handleWhatsAppInquiry = () => {
     const text = encodeURIComponent(
-      `Hello Bhasin Textiles! I am inquiring about "${product.name}" (${product.id}) in color "${selectedColor.name}". ` +
+      `Hello Shree Durga Agency! I am inquiring about "${product.name}" (${product.id}) in color "${selectedColor.name}". ` +
       `I am interested in ${purchaseMode === 'swatch' ? 'ordering a swatch sample' : `${meterQuantity} meters / pieces`}. ` +
-      `Could you please confirm current loom batch availability and dispatch time?`
+      `Could you please confirm current batch availability and dispatch time?`
     );
     window.open(`https://wa.me/919811054321?text=${text}`, '_blank');
   };
@@ -102,7 +102,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onClick={() => setSelectedColor(col)}
                       className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border text-xs transition-all cursor-pointer ${
                         selectedColor.name === col.name
-                          ? 'border-[#9B1D2C] bg-white ring-1 ring-[#9B1D2C] shadow-2xs font-semibold text-stone-900'
+                          ? 'border-[#1C2B4B] bg-white ring-1 ring-[#1C2B4B] shadow-2xs font-semibold text-stone-900'
                           : 'border-stone-200 bg-stone-50 hover:bg-white text-stone-600'
                       }`}
                     >
@@ -116,10 +116,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             {/* Silk Mark & Authenticity Guarantee */}
             <div className="mt-6 pt-4 border-t border-stone-200 flex items-center gap-3 text-stone-600 text-xs">
-              <ShieldCheck className="w-5 h-5 text-[#9B1D2C] shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-[#143D36] shrink-0" />
               <div>
-                <p className="font-semibold text-stone-900">Bhasin Pure Weave Certification</p>
-                <p className="text-[11px] text-stone-500">Quality tested for color fastness, thread density & tensile fall.</p>
+                <p className="font-semibold text-stone-900">Authentic Sourcing & Quality Inspection</p>
+                <p className="text-[11px] text-stone-500">Quality tested for color fastness, thread density & finish.</p>
               </div>
             </div>
           </div>
@@ -189,7 +189,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     <button
                       type="button"
                       onClick={onOpenCalculator}
-                      className="text-xs text-[#9B1D2C] hover:underline flex items-center gap-1 font-medium"
+                      className="text-xs text-[#1C2B4B] hover:underline flex items-center gap-1 font-medium"
                     >
                       <Ruler className="w-3 h-3" />
                       <span>Not sure? Open Yardage Calculator</span>
@@ -239,9 +239,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   </div>
                 </div>
               ) : purchaseMode === 'swatch' ? (
-                <div className="mb-5 p-3 bg-amber-50/70 border border-amber-200/80 rounded-xl text-xs text-amber-900">
-                  <p className="font-semibold mb-0.5">Physical Tactile Swatch Sample (10×10 cm)</p>
-                  <p className="text-[11px] text-amber-800">Delivered within 3–5 working days so you can verify color tone, weight, handfeel, and luster before placing bulk yardage orders.</p>
+                <div className="mb-5 p-3 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800">
+                  <p className="font-semibold mb-0.5 text-[#143D36]">Physical Tactile Swatch Sample (10×10 cm)</p>
+                  <p className="text-[11px] text-stone-600">Delivered within 3–5 working days so you can verify color tone, weight, handfeel, and luster before placing bulk orders.</p>
                 </div>
               ) : null}
 
@@ -284,7 +284,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <div className="flex items-baseline justify-between mb-4">
                 <div>
                   <span className="text-xs text-stone-500 uppercase tracking-wide">Total Amount:</span>
-                  <p className="text-2xl font-serif font-bold text-[#1F1916] tabular-nums">
+                  <p className="text-2xl font-serif font-bold text-[#1E293B] tabular-nums">
                     {formatPrice(totalPrice)}
                   </p>
                 </div>
@@ -298,7 +298,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white rounded-lg font-semibold text-xs tracking-wider uppercase transition-colors shadow-sm cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#1C2B4B] hover:bg-[#14223A] text-white rounded-lg font-semibold text-xs tracking-wider uppercase transition-colors shadow-sm cursor-pointer"
                 >
                   {addedNotice ? (
                     <>

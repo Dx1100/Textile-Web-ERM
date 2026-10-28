@@ -46,7 +46,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
           Home
         </button>
         <span>/</span>
-        <span className="text-[#9B1D2C] font-semibold">Haute Couture Bridal & Festive Lehengas</span>
+        <span className="text-[#1C2B4B] font-semibold">Haute Couture Bridal & Festive Lehengas</span>
       </nav>
 
       {/* Hero Banner */}
@@ -69,7 +69,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
             <button
               type="button"
               onClick={onOpenConsultation}
-              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#9B1D2C] hover:bg-[#7A1C28] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+              className="px-5 py-3 text-xs font-semibold tracking-wider uppercase text-white bg-[#1C2B4B] hover:bg-[#14223A] rounded-lg transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
             >
               <Video className="w-4 h-4 text-[#D8B26E]" />
               <span>Book Virtual Bridal Consultation</span>
@@ -89,7 +89,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
       {/* Flare & Architecture Studio */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/90 shadow-xs mb-12">
         <div className="max-w-xl mb-6">
-          <span className="text-xs uppercase tracking-widest text-[#9B1D2C] font-semibold block mb-1">
+          <span className="text-xs uppercase tracking-widest text-[#1C2B4B] font-semibold block mb-1">
             Bridal Silhouette Engineering
           </span>
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1F1916]">
@@ -105,13 +105,13 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
             onClick={() => setSelectedGhera('standard')}
             className={`p-5 rounded-xl border text-xs cursor-pointer transition-all ${
               selectedGhera === 'standard' 
-                ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 ring-1 ring-[#9B1D2C]' 
+                ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 ring-1 ring-[#1C2B4B]' 
                 : 'border-stone-200 hover:border-stone-400'
             }`}
           >
             <div className="flex items-center justify-between mb-2">
               <span className="font-bold text-sm text-[#1F1916]">Standard 5.5 Meter Ghera (16-Kali)</span>
-              <span className="text-xs font-semibold text-[#9B1D2C]">Signature Cut</span>
+              <span className="text-xs font-semibold text-[#1C2B4B]">Signature Cut</span>
             </div>
             <p className="text-stone-600 leading-relaxed">
               Balanced traditional flare that is comfortable to walk, sit for wedding rituals, and dance. Provides elegant natural folds with built-in canvas waistband and santoon lining.
@@ -122,7 +122,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
             onClick={() => setSelectedGhera('royal')}
             className={`p-5 rounded-xl border text-xs cursor-pointer transition-all ${
               selectedGhera === 'royal' 
-                ? 'border-[#9B1D2C] bg-[#9B1D2C]/5 ring-1 ring-[#9B1D2C]' 
+                ? 'border-[#1C2B4B] bg-[#1C2B4B]/5 ring-1 ring-[#1C2B4B]' 
                 : 'border-stone-200 hover:border-stone-400'
             }`}
           >
@@ -149,7 +149,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
               onChange={(e) => setIncludeCanCan(e.target.checked)}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#9B1D2C]"></div>
+            <div className="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1C2B4B]"></div>
           </label>
         </div>
       </div>
@@ -196,7 +196,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
       {/* Video Consultation Callout */}
       <div className="bg-[#FAF8F5] border border-stone-300 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-[#9B1D2C] flex items-center justify-center text-[#D8B26E] shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#1C2B4B] flex items-center justify-center text-[#D8B26E] shrink-0">
             <Crown className="w-6 h-6" />
           </div>
           <div>
@@ -211,7 +211,7 @@ export const LehengasPage: React.FC<LehengasPageProps> = ({
         <button
           type="button"
           onClick={onOpenConsultation}
-          className="px-5 py-2.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors shrink-0 shadow-sm cursor-pointer"
+          className="px-5 py-2.5 bg-[#1C2B4B] hover:bg-[#14223A] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors shrink-0 shadow-sm cursor-pointer"
         >
           Book Video Session
         </button>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, ShieldCheck, Check, Sparkles } from 'lucide-react';
+import { Mail, Phone, ShieldCheck, Check } from 'lucide-react';
 import { PageView } from '../types';
+import { siteContent } from '../config/siteContent';
 
 interface FooterProps {
   onNavigate: (page: PageView) => void;
@@ -17,6 +18,7 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const { brand } = siteContent;
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,28 +28,29 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-[#1F1916] text-[#FAF8F5] border-t border-stone-800">
+    <footer className="bg-[#071224] text-slate-300 border-t border-slate-800">
       
-      {/* Top Newsletter Banner */}
-      <div className="border-b border-stone-800/80 py-10 px-4 sm:px-8">
+      {/* Newsletter / Catalog Drop Alert */}
+      <div className="border-b border-slate-800/80 py-12 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between">
           <div className="md:col-span-6">
-            <span className="text-[#D8B26E] text-xs font-semibold uppercase tracking-wider block mb-1">
-              Join The Bhasin Textile Archive
-            </span>
-            <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-2">
-              Receive New Season Swatches & Loom Drops
+            <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span className="w-4 h-0.5 bg-emerald-500" />
+              <span>B2B Wholesale Catalog Drops</span>
+            </div>
+            <h3 className="text-2xl font-heading font-extrabold text-white mb-2">
+              Receive New Sourcing Lots & Festive Wholesale Alerts
             </h3>
-            <p className="text-xs text-stone-400 max-w-md font-light leading-relaxed">
-              Curated previews of limited-run Kadhwa Banarasi lots, seasonal color lab dips, and festive trousseau updates.
+            <p className="text-xs sm:text-sm text-slate-400 max-w-md font-normal leading-relaxed">
+              Curated previews of limited-run Banarasi lots, fresh Surat prints, and seasonal wholesale updates directly from Indian weaving clusters.
             </p>
           </div>
 
           <div className="md:col-span-6">
             {subscribed ? (
-              <div className="flex items-center gap-2 p-3 bg-stone-900 border border-[#D8B26E]/40 rounded-xl text-xs text-emerald-400">
+              <div className="flex items-center gap-2 p-3.5 bg-slate-900 border border-emerald-500/40 rounded-lg text-xs text-emerald-300">
                 <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Welcome to the Archive! Use code <strong className="text-[#D8B26E]">HERITAGE10</strong> for 10% off your order.</span>
+                <span>Subscribed! Use code <strong className="text-white">SOURCING10</strong> for priority swatch courier dispatch.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -56,14 +59,14 @@ export const Footer: React.FC<FooterProps> = ({
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address..."
-                  className="flex-1 bg-stone-900/90 border border-stone-700 rounded-lg px-3.5 py-2.5 text-xs text-white placeholder:text-stone-500 focus:outline-none focus:border-[#D8B26E]"
+                  placeholder="Enter your business email address..."
+                  className="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500"
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2.5 bg-[#9B1D2C] hover:bg-[#7A1C28] text-white text-xs font-semibold tracking-wider uppercase rounded-lg transition-colors cursor-pointer shrink-0"
+                  className="px-6 py-3 bg-[#0D7A5F] hover:bg-[#0A634D] text-white text-xs font-bold tracking-wider uppercase rounded-lg transition-colors cursor-pointer shrink-0 shadow-xs"
                 >
-                  Join
+                  Subscribe
                 </button>
               </form>
             )}
@@ -72,221 +75,146 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Main Footer Links & Locations */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           
-          {/* Brand & Legacy */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Brand & Sourcing Consultant Role */}
+          <div className="space-y-4">
             <button
               type="button"
               onClick={() => onNavigate('home')}
-              className="text-xl font-serif font-bold text-white tracking-wide hover:text-[#D8B26E] transition-colors cursor-pointer text-left"
+              className="text-2xl font-heading font-extrabold text-white tracking-tight hover:text-emerald-400 transition-colors cursor-pointer text-left block"
             >
-              SHREE DURGA AGENCY
+              <span>{brand.name}</span>
+              <span className="text-[#0D7A5F]">.</span>
             </button>
-            <div className="text-[11px] text-[#D8B26E] uppercase tracking-wider font-semibold">
-              Textile Sourcing & Threadlinc Trade Financing
+            <div className="text-[11px] text-emerald-400 uppercase tracking-wider font-bold">
+              {brand.role}
             </div>
-            <p className="text-xs text-stone-400 leading-relaxed font-light max-w-sm">
-              Established in 1999. Connecting retailers, wholesalers, and boutiques to India's top textile hubs in Delhi, Surat, Jaipur, and Panipat. Backed by sister firm <strong className="text-stone-200">Threadlinc</strong> for structured "Bill to – Ship to" trade credit financing.
+            <p className="text-xs text-slate-400 leading-relaxed font-normal">
+              Established in {brand.estYear}. Sourcing and textile consultancy assisting retailers, boutiques, and wholesalers across Tier 2 & Tier 3 cities with authentic Indian weaves and structured 30 to 90 days trade credit.
             </p>
-            <div className="flex items-center gap-2 text-xs text-[#D8B26E]">
-              <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>Silk Mark Organization & Direct Mill Verified</span>
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={() => onNavigate('about')}
-                className="text-xs text-stone-300 hover:text-white underline underline-offset-4 cursor-pointer"
-              >
-                Read Our 25+ Year Sourcing Story →
-              </button>
+            <div className="flex items-center gap-2 text-xs text-slate-300">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>Silk Mark Organization Registered Partner</span>
             </div>
           </div>
 
-          {/* Sourcing Navigation */}
+          {/* Sourcing Categories */}
           <div className="space-y-3">
-            <h5 className="text-xs uppercase tracking-wider font-semibold text-stone-200">
-              Sourcing Solutions
+            <h5 className="text-xs uppercase tracking-wider font-bold text-white">
+              Sourced Categories
             </h5>
-            <ul className="space-y-2 text-xs text-stone-400">
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('products')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  What We Source (Categories)
+                <button type="button" onClick={() => onNavigate('sarees')} className="hover:text-white transition-colors cursor-pointer">
+                  Banarasi & Fancy Sarees
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('network')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Sourcing Hubs (Delhi, Surat, Jaipur)
+                <button type="button" onClick={() => onNavigate('suits')} className="hover:text-white transition-colors cursor-pointer">
+                  Unstitched Suit Sets & Kurtis
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('process')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  How We Work (7 Steps)
+                <button type="button" onClick={() => onNavigate('lehengas')} className="hover:text-white transition-colors cursor-pointer">
+                  Bridal & Semi-Stitched Lehengas
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('whoweserve')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Who We Serve (B2B Buyers)
+                <button type="button" onClick={() => onNavigate('fabrics')} className="hover:text-white transition-colors cursor-pointer">
+                  Pure Silks & Brocades (Running)
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('brocades')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Pure Silk Brocades & Yardages
+                <button type="button" onClick={() => onNavigate('wholesale')} className="hover:text-white transition-colors cursor-pointer">
+                  Bulk Wholesale Lots
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Atelier Services */}
+          {/* Trade Services & Threadlinc */}
           <div className="space-y-3">
-            <h5 className="text-xs uppercase tracking-wider font-semibold text-stone-200">
-              Atelier & Services
+            <h5 className="text-xs uppercase tracking-wider font-bold text-white">
+              Consulting & Services
             </h5>
-            <ul className="space-y-2 text-xs text-stone-400">
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <button
-                  type="button"
-                  onClick={onOpenCalculator}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Fabric & Yardage Calculator
+                <button type="button" onClick={() => onNavigate('network')} className="hover:text-white transition-colors cursor-pointer">
+                  4 Regional Sourcing Hubs
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={onOpenConsultation}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Live Video Draping Session
+                <button type="button" onClick={() => onNavigate('whoweserve')} className="hover:text-white transition-colors cursor-pointer">
+                  Tier 2 & 3 Retail Buyer Solutions
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('wholesale')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  B2B Wholesale & Mill Orders
+                <button type="button" onClick={() => onNavigate('threadlinc')} className="hover:text-emerald-400 text-slate-300 font-semibold transition-colors cursor-pointer">
+                  {brand.threadlinc.firmName} {brand.threadlinc.concept} Financing
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('threadlinc')}
-                  className="hover:text-[#D8B26E] transition-colors cursor-pointer font-medium text-[#D8B26E]"
-                >
-                  Threadlinc Trade Credit (Bill to – Ship to)
+                <button type="button" onClick={onOpenCalculator} className="hover:text-white transition-colors cursor-pointer">
+                  Fabric Yardage Calculator
                 </button>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('stores')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Showrooms & Weaving Mill
+                <button type="button" onClick={onOpenConsultation} className="hover:text-white transition-colors cursor-pointer">
+                  Book Video Sourcing Consultation
                 </button>
-              </li>
-              <li>
-                <span className="text-stone-500">₹99 Physical Swatch Samples</span>
               </li>
             </ul>
           </div>
 
-          {/* Physical Showrooms & Plant */}
-          <div className="space-y-3 text-xs text-stone-400">
-            <h5 className="text-xs uppercase tracking-wider font-semibold text-stone-200">
-              Locations & Desk
+          {/* Sourcing Desks & Offices */}
+          <div className="space-y-3 text-xs text-slate-400">
+            <h5 className="text-xs uppercase tracking-wider font-bold text-white">
+              Consulting Desks
             </h5>
             
-            <div>
-              <p className="font-semibold text-stone-200 flex items-center gap-1.5 mb-0.5">
-                <MapPin className="w-3.5 h-3.5 text-[#D8B26E] shrink-0" />
-                <button 
-                  type="button" 
-                  onClick={() => onNavigate('stores')}
-                  className="hover:text-[#D8B26E] transition-colors cursor-pointer text-left"
-                >
-                  Chandni Chowk Gallery
-                </button>
-              </p>
-              <p className="text-[11px] text-stone-400 leading-tight">
-                New Krishna Cloth Market, Katra Neel, Chandni Chowk, Delhi - 110006
-              </p>
-            </div>
+            {brand.contact.offices.map((off, idx) => (
+              <div key={idx} className="pb-2 border-b border-slate-800/80 last:border-0 last:pb-0">
+                <p className="font-bold text-slate-200 flex items-center gap-2 mb-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                  <span>{off.city} Desk</span>
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  {off.area}
+                </p>
+              </div>
+            ))}
 
-            <div>
-              <p className="font-semibold text-stone-200 flex items-center gap-1.5 mb-0.5">
-                <MapPin className="w-3.5 h-3.5 text-[#D8B26E] shrink-0" />
-                <button 
-                  type="button" 
-                  onClick={() => onNavigate('stores')}
-                  className="hover:text-[#D8B26E] transition-colors cursor-pointer text-left"
-                >
-                  Manufacturing & Weaving Mill
-                </button>
-              </p>
-              <p className="text-[11px] text-stone-400 leading-tight">
-                Sector 24, Industrial Area, Faridabad, Haryana - 121005
-              </p>
-            </div>
-
-            <div className="pt-1">
+            <div className="pt-2">
               <a 
-                href="tel:+919811054321" 
-                className="flex items-center gap-1.5 text-stone-300 hover:text-[#D8B26E] transition-colors"
+                href={`tel:${brand.contact.phone}`} 
+                className="flex items-center gap-1.5 text-slate-300 hover:text-emerald-400 transition-colors font-medium"
               >
-                <Phone className="w-3.5 h-3.5 text-[#D8B26E] shrink-0" />
-                <span>+91 98110 54321 / +91 11 2386 XXXX</span>
+                <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>{brand.contact.phoneDisplay}</span>
               </a>
               <a 
-                href="mailto:contact@bhasintextiles.com" 
-                className="flex items-center gap-1.5 text-stone-300 hover:text-[#D8B26E] transition-colors mt-1"
+                href={`mailto:${brand.contact.email}`} 
+                className="flex items-center gap-1.5 text-slate-300 hover:text-emerald-400 transition-colors mt-1"
               >
-                <Mail className="w-3.5 h-3.5 text-[#D8B26E] shrink-0" />
-                <span>contact@bhasintextiles.com</span>
+                <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>{brand.contact.email}</span>
               </a>
             </div>
           </div>
 
         </div>
 
-        {/* Quiet Bottom Copyright Bar */}
-        <div className="mt-12 pt-6 border-t border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-          <p>© 1997–2026 Bhasin Textiles. All Rights Reserved. Handcrafted in India.</p>
+        {/* Bottom Copyright */}
+        <div className="mt-14 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© {brand.estYear}–2026 {brand.name}. All Rights Reserved. Sourcing & Textile Consultants.</p>
           <div className="flex items-center gap-4 text-[11px]">
-            <button type="button" onClick={() => onNavigate('about')} className="hover:text-stone-300">About Legacy</button>
+            <button type="button" onClick={() => onNavigate('about')} className="hover:text-slate-300">About Us</button>
             <span aria-hidden="true">·</span>
-            <button type="button" onClick={() => onNavigate('wholesale')} className="hover:text-stone-300">B2B Portal</button>
+            <button type="button" onClick={() => onNavigate('threadlinc')} className="hover:text-emerald-400 text-slate-400">{brand.threadlinc.firmName} Financing</button>
             <span aria-hidden="true">·</span>
-            <button type="button" onClick={() => onNavigate('stores')} className="hover:text-stone-300">Showrooms</button>
-            <span aria-hidden="true">·</span>
-            <button type="button" onClick={() => onNavigate('threadlinc')} className="hover:text-[#D8B26E] text-stone-400">Threadlinc Financing</button>
-            <span aria-hidden="true">·</span>
-            <span>Silk Mark Verification</span>
+            <button type="button" onClick={() => onNavigate('contact')} className="hover:text-slate-300">Contact</button>
           </div>
         </div>
       </div>
